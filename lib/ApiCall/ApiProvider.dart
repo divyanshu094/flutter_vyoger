@@ -51,6 +51,7 @@ import '../Constants/AppConstants.dart';
 
 class ApiProvider {
   final _TokenGetter = TokenGetter();
+
   // final ioc = new HttpClient();
   // ioc.badCertificateCallback =(X509Certificate cert, String host, int port) => true;
   // final http = new IOClient(ioc);
@@ -136,6 +137,10 @@ class ApiProvider {
 //=====================================================================================================
   Future<ForgetPassModel> resetPass(String email) async {
     Map data = {"email": email};
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     //encode Map to JSON
     var body = json.encode(data);
     var response = await http.post(
@@ -156,6 +161,10 @@ class ApiProvider {
 //=======================================================================================================
   Future<ApprovalModal> getTravelRequest() async {
     print('aprovals get data check');
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
     // getDialCode();
 
@@ -195,12 +204,15 @@ class ApiProvider {
 //========================================================================================================
   Future<SearchModel> getLocation(String locationName) async {
     String token = await getToken_byReresh();
-
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map<String, String> queryParams = {
       'city': locationName,
     };
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_LOCATION_DATA + "?" + queryString}'),
       headers: <String, String>{
@@ -222,7 +234,10 @@ class ApiProvider {
 //===========================================================================================================
   getToken_byReresh() async {
     String refresh_token = await _TokenGetter.getRefreshToken() ?? "";
-
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map data = {"refresh": refresh_token};
     //encode Map to JSON
     var body = json.encode(data);
@@ -244,14 +259,17 @@ class ApiProvider {
   Future<PurposeModelClass> getPurposeList(String iata) async {
     String token = await getToken_byReresh();
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
-
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     String OrgId = userInfo.data.orgId;
     Map<String, String> queryParams = {
       'country_id': '$iata',
       'organization': OrgId
     };
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_PURPOSE + "?" + queryString}'),
       headers: <String, String>{
@@ -273,7 +291,7 @@ class ApiProvider {
 
 //=============================================================================================================
 //   Future<DialCode> getDialCode() async {
-//     final http.Response response = await http.get(
+//     var response = await http.get(
 //       '${AppConstants.BASE_URL + AppConstants.DIAL_CODE + "?dial_code="}' ,
 //       headers: <String, String>{
 //         'Content-Type': 'application/json; charset=UTF-8',
@@ -296,6 +314,10 @@ class ApiProvider {
 //========================================================================================================================
   Future<ProjectIdModel> GetProjectId(String pid) async {
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map<String, String> queryParams = {
       'pid': pid,
       'limit': '15',
@@ -303,7 +325,7 @@ class ApiProvider {
     };
     String token = await getToken_byReresh();
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+   var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_PROJECT + "?" + queryString}'),
       headers: <String, String>{
@@ -324,13 +346,17 @@ class ApiProvider {
 //========================================================================================================================
   Future<PostLocationResponse> GetPostLocation(String country) async {
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map<String, String> queryParams = {
       'country': country,
       'org_id': userInfo.data.orgId
     };
     String token = await getToken_byReresh();
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_POST_LOCATION + "?" + queryString}'),
       headers: <String, String>{
@@ -352,13 +378,17 @@ class ApiProvider {
 //========================================================================================================================
   Future<List<SecondDependentData>> GetDependentList(String country) async {
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map<String, String> queryParams = {
       'country': country,
       'employee': userInfo.data.empCode
     };
     String token = await getToken_byReresh();
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.Get_DEPENDENTS + "?" + queryString}'),
       headers: <String, String>{
@@ -380,7 +410,10 @@ class ApiProvider {
 //========================================================================================================================
   Future<PerDiemModel> GetPerDiem(String country, String homeCountry) async {
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
-
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     String OrgId = userInfo.data.orgId;
     Map<String, String> queryParams = {
       'country': country,
@@ -390,7 +423,7 @@ class ApiProvider {
 
     String token = await getToken_byReresh();
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_PER_DIEM + "?" + queryString}'),
       headers: <String, String>{
@@ -413,6 +446,10 @@ class ApiProvider {
   Future<GetVisaModel> GetTravelVisa(
       String visaType, String visaCountryId) async {
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map<String, String> queryParams = {
       "emp_code_id": userInfo.data.empCode,
       "visa_country_id": visaCountryId,
@@ -420,7 +457,7 @@ class ApiProvider {
     };
     String token = await getToken_byReresh();
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_EMPLYOEE_VISA + "?" + queryString}'),
       headers: <String, String>{
@@ -442,7 +479,10 @@ class ApiProvider {
 //========================================================================================================================
   Future<TravelReqResponseModel> PostTravelRequest(var data) async {
     //encode Map to JSON
-
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     String token = await getToken_byReresh();
     var response = await http.post(
         Uri.parse(AppConstants.BASE_URL + AppConstants.POST_TRAVEL_REQ),
@@ -469,6 +509,10 @@ class ApiProvider {
 //========================================================================================================================
   Future<ApprovalModal> fetch_approval_list() async {
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map<String, String> queryParams = {
       "emp_email": userInfo.data.empCode,
       "travel_req_status": "2",
@@ -477,7 +521,7 @@ class ApiProvider {
     };
     String token = await getToken_byReresh();
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_APPROVAL_LIST + "?" + queryString}'),
       headers: <String, String>{
@@ -501,6 +545,10 @@ class ApiProvider {
       SubmitRequestForApprovalModel model) async {
     //encode Map to JSON
     var body = json.encode(model.toJson());
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     print(body);
     String token = await getToken_byReresh();
     var response = await http.post(
@@ -530,13 +578,17 @@ class ApiProvider {
   Future<ActionHistoryModel> get_travel_status_summary(
       String travelreqId) async {
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map<String, String> queryParams = {
       "travel_req_id": travelreqId,
       "org_id": userInfo.data.orgId
     };
     String token = await getToken_byReresh();
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.ACTION_HISTORY_SUMMARY + "?" + queryString}'),
       headers: <String, String>{
@@ -558,13 +610,17 @@ class ApiProvider {
 //========================================================================================================================
   Future<GetTravelRequest> fetchViewTravelReq(String TravelReqId) async {
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map<String, String> queryParams = {
       "travel_req_id": TravelReqId,
       "org_id": userInfo.data.orgId
     };
     String token = await getToken_byReresh();
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_TRAVEL_REQ_VIEW + "?" + queryString}'),
       headers: <String, String>{
@@ -588,9 +644,13 @@ class ApiProvider {
     Map<String, String> queryParams = {
       "status_type": "Active",
     };
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     String token = await getToken_byReresh();
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_CURRENCY_ACTIVE + "?" + queryString}'),
       headers: <String, String>{
@@ -616,9 +676,13 @@ class ApiProvider {
       "from_currency": from_currency,
       "to_currency": to_currency
     };
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     String token = await getToken_byReresh();
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_CURRENCY_CONVERSION + "?" + queryString}'),
       headers: <String, String>{
@@ -644,8 +708,12 @@ class ApiProvider {
     Map<String, String> queryParams = {
       'country': countryId,
     };
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_COUNTRY_LIST + "?" + queryString}'),
       headers: <String, String>{
@@ -668,7 +736,10 @@ class ApiProvider {
   Future<Marital> getMaritallist() async {
     String token = await getToken_byReresh();
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
-
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map<String, String> queryParams = {
       'organization_id': userInfo.data.orgId,
     };
@@ -676,7 +747,7 @@ class ApiProvider {
     var uri =
         '${AppConstants.BASE_URL + AppConstants.GET_MARITAL + "?" + queryString}';
     // print('marital api ur  $uri');
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_MARITAL + "?" + queryString}'),
       headers: <String, String>{
@@ -703,8 +774,11 @@ class ApiProvider {
     //   'organization_id': userInfo.data.orgId,
     // };
     // String queryString = Uri(queryParameters: queryParams).query;
-
-    final http.Response response = await http.get(
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
+    var response = await http.get(
       Uri.parse('${AppConstants.BASE_URL + AppConstants.GET_POST_GENDER}'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
@@ -725,14 +799,17 @@ class ApiProvider {
   Future<Countrycode> getCountryCodelist() async {
     String token = await getToken_byReresh();
     // UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
-
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map<String, String> queryParams = {
       'dial_code': '',
     };
     String queryString = Uri(queryParameters: queryParams).query;
     var uri = '${AppConstants.BASE_URL + AppConstants.GET_DIAL_CODE}';
     print('code api ur  $uri');
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse('${AppConstants.BASE_URL + AppConstants.GET_DIAL_CODE}'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
@@ -753,12 +830,15 @@ class ApiProvider {
 //=======================================================================================================
   Future<CountryListModel> getCitylist({required String countryId}) async {
     String token = await getToken_byReresh();
-
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     Map<String, String> queryParams = {
       'country_id': countryId,
     };
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.GET_CITY_LIST + "?" + queryString}'),
       headers: <String, String>{
@@ -782,7 +862,11 @@ class ApiProvider {
 
   Future<Activities> getActivities() async {
     String token = await getToken_byReresh();
-    final http.Response response = await http.get(
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
+    var response = await http.get(
       Uri.parse('${AppConstants.BASE_URL + AppConstants.GET_ACTIVITIES}'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
@@ -804,6 +888,10 @@ class ApiProvider {
       eventPost jsonModel) async {
     //encode Map to JSON
     String token = await getToken_byReresh();
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     var body = json.encode(jsonModel.toJson());
     var response = await http.post(
         Uri.parse(AppConstants.BASE_URL + AppConstants.POST_CALENDER_EVENT),
@@ -823,6 +911,10 @@ class ApiProvider {
   Future<CalenderEventResponseModel> get_Calender_Event(
       {required String empCode}) async {
     Map<String, String> queryParams = {"emp_code": empCode};
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
     String queryString = Uri(queryParameters: queryParams).query;
     //encode Map to JSON
     String token = await getToken_byReresh();
@@ -1281,7 +1373,7 @@ class ApiProvider {
   Future<RelationList> getRelationList() async {
     String token = await getToken_byReresh();
 
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse('${AppConstants.BASE_URL + AppConstants.RELATION_LIST}'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
@@ -1306,7 +1398,7 @@ class ApiProvider {
     String token = await getToken_byReresh();
     var json = jsonEncode(jsonModel.map((e) => e.toJson()).toList());
     // print('online compliance data ${json}');
-    final http.Response response = await http.post(
+    var response = await http.post(
         Uri.parse(
             '${AppConstants.BASE_URL + AppConstants.COMPLIANCE_QUESTIONS}'),
         headers: <String, String>{
@@ -1331,7 +1423,7 @@ class ApiProvider {
 
     Map<String, String> queryParams = {'emp_code': empcode};
     String queryString = Uri(queryParameters: queryParams).query;
-    final http.Response response = await http.get(
+    var response = await http.get(
       Uri.parse(
           '${AppConstants.BASE_URL + AppConstants.COMPLIANCE_QUESTIONS + "?" + queryString}'),
       headers: <String, String>{
@@ -1355,7 +1447,7 @@ class ApiProvider {
     String token = await getToken_byReresh();
     var json = jsonEncode(jsonModel.map((e) => e.toJson()).toList());
 
-    final http.Response response = await http.post(
+    var response = await http.post(
         Uri.parse('${AppConstants.BASE_URL + AppConstants.BULK_APPROVAL}'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

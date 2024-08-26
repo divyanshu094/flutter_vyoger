@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 import 'package:mobility_sqr/Constants/AppConstants.dart';
 import 'package:mobility_sqr/Screens/LoginScreen/Username_screen.dart';
 import 'package:mobility_sqr/Screens/LoginScreen/bloc/UsernameBloc.dart';
-
 import 'package:mobility_sqr/Widgets/EditFieldUsername.dart';
-import 'package:sizer/sizer.dart';
 
 class ForgetPasswordViaMail extends StatefulWidget {
   @override
@@ -13,7 +11,6 @@ class ForgetPasswordViaMail extends StatefulWidget {
 }
 
 class _ForgetPassMail extends State<ForgetPasswordViaMail> {
-
   @override
   void dispose() {
     super.dispose();
@@ -32,21 +29,21 @@ class _ForgetPassMail extends State<ForgetPasswordViaMail> {
       return OrientationBuilder(//return OrientationBuilder
           builder: (context, orientation) {
         //initialize SizerUtil()
-            Device.orientation == Orientation.portrait
-                ? Container(   // Widget for Portrait
-              width: 100.w,
-              height: 20.5.h,
-            )
-                : Container(   // Widget for Landscape
-              width: 100.w,
-              height: 12.5.h,
-            );
+        //     Device.orientation == Orientation.portrait
+        //         ? Container(   // Widget for Portrait
+        //       width: 100,
+        //       height: 20.5.h,
+        //     )
+        //         : Container(   // Widget for Landscape
+        //       width: 100,
+        //       height: 12.5.h,
+        //     );
         // SizerUtil()
         //     .init(constraints, Orientation.portrait); //initialize SizerUtil
         return Scaffold(
-          body:Builder(
+          body: Builder(
             builder: (ctx) => Container(
-              width: 100.0.w,
+              // width: 100,
               color: Colors.white,
               child: Column(
                 verticalDirection: VerticalDirection.down,
@@ -73,12 +70,15 @@ class _ForgetPassMail extends State<ForgetPasswordViaMail> {
                         'Enter Registered Email', 3),
                   ),
                   Container(
-                    width: 100.0.w,
+                    // width: 100,
                     margin: EdgeInsets.fromLTRB(30, 20, 20, 0),
-                    decoration: BoxDecoration(
-                        color: AppConstants.APP_THEME_COLOR,
-                        borderRadius: BorderRadius.circular(10.0)),
+                    // decoration: BoxDecoration(
+                    //     color: AppConstants.APP_THEME_COLOR,
+                    //     borderRadius: BorderRadius.circular(10.0)),
                     child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppConstants.APP_THEME_COLOR,
+                        ),
                         // elevation: 0,
                         // shape: RoundedRectangleBorder(
                         //   borderRadius: BorderRadius.circular(10.0),
@@ -91,13 +91,11 @@ class _ForgetPassMail extends State<ForgetPasswordViaMail> {
                         onPressed: () async {
                           FocusScope.of(ctx).unfocus();
 
-                          String msg=  await bloc.sendResetEmail();
-                          Get.snackbar('Error',
-                              '$msg',
+                          String msg = await bloc.sendResetEmail();
+                          Get.snackbar('Error', '$msg',
                               snackPosition: SnackPosition.BOTTOM,
                               backgroundColor: Colors.black,
                               colorText: Colors.white);
-
                         }),
                   ),
                   GestureDetector(
@@ -105,7 +103,7 @@ class _ForgetPassMail extends State<ForgetPasswordViaMail> {
                       Navigator.pop(context);
                     },
                     child: Container(
-                      width: 100.0.w,
+                      // width: 100,
                       margin: EdgeInsets.fromLTRB(0, 30, 20, 30),
                       child: Text(
                         "Back to Sign in",
@@ -125,7 +123,4 @@ class _ForgetPassMail extends State<ForgetPasswordViaMail> {
       });
     });
   }
-
-
-
 }

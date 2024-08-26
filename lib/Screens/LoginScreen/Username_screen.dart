@@ -134,7 +134,7 @@ class _Username_Screen extends State<Username_Screen> {
                                         children: [
                                           Container(
                                             // width: 10.0,
-                                            child: ElevatedButton(
+                                            child: TextButton(
                                               onPressed: () {
                                                 this.setState(() {
                                                   manageloginUI = false;
@@ -179,7 +179,7 @@ class _Username_Screen extends State<Username_Screen> {
                     // width: 100.0,
                     margin: EdgeInsets.fromLTRB(30, 20, 20, 0),
                     decoration: BoxDecoration(
-                        color: AppConstants.APP_THEME_COLOR,
+                        // color: AppConstants.APP_THEME_COLOR,
                         borderRadius: BorderRadius.circular(10.0)),
                     child: !manageloginUI
                         ? StreamBuilder(
@@ -188,6 +188,9 @@ class _Username_Screen extends State<Username_Screen> {
                             builder: (context, snapshot) {
                               if (snapshot.hasData) {
                                 return ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: AppConstants.APP_THEME_COLOR,
+                                    ),
                                     // elevation: 0,
                                     // shape: RoundedRectangleBorder(
                                     //   borderRadius: BorderRadius.circular(10.0),
@@ -195,7 +198,7 @@ class _Username_Screen extends State<Username_Screen> {
                                     // color: AppConstants.APP_THEME_COLOR,
                                     child: Text(
                                       "NEXT",
-                                      // style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.white),
                                     ),
                                     onPressed: () async {
                                       //   Navigator.pushNamed(context, '/DashBoard');
@@ -216,12 +219,13 @@ class _Username_Screen extends State<Username_Screen> {
                                           Navigator.of(context,
                                                   rootNavigator: true)
                                               .pop(dialogContext);
-                                        } else
+                                        } else {
                                           Navigator.of(context,
-                                                  rootNavigator: true)
+                                              rootNavigator: true)
                                               .pop(dialogContext);
-                                        showDefaultSnackbar(context,
-                                            UsernameConst.USER_INVALID);
+                                          showDefaultSnackbar(context,
+                                              UsernameConst.USER_INVALID);
+                                        }
                                       }
                                     });
                               } else {
@@ -231,7 +235,8 @@ class _Username_Screen extends State<Username_Screen> {
                         : StreamBuilder<UserToken>(
                             stream: bloc.getIsValidPass,
                             initialData: null,
-                            builder: (context, AsyncSnapshot<UserToken> snapshot) {
+                            builder:
+                                (context, AsyncSnapshot<UserToken> snapshot) {
                               if (snapshot.hasData &&
                                   snapshot.data!.access == null) {
                                 Future.delayed(Duration.zero, () {
@@ -260,9 +265,12 @@ class _Username_Screen extends State<Username_Screen> {
                                   //   borderRadius: BorderRadius.circular(10.0),
                                   // ),
                                   // color: AppConstants.APP_THEME_COLOR,
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: AppConstants.APP_THEME_COLOR,
+                                  ),
                                   child: Text(
                                     "NEXT",
-                                    // style: TextStyle(color: Colors.white),
+                                    style: TextStyle(color: Colors.white),
                                   ),
                                   onPressed: () async {
                                     _onLoading();

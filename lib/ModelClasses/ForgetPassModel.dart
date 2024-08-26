@@ -1,20 +1,26 @@
 class ForgetPassModel {
   late String _massage;
   late bool _status;
-  late String _code;
+  String? _code;
 
-  ForgetPassModel({required String massage, required bool status, required String code}) {
+  ForgetPassModel(
+      {required String massage, required bool status, String? code}) {
     this._massage = massage;
     this._status = status;
     this._code = code;
   }
 
   String get massage => _massage;
+
   set massage(String massage) => _massage = massage;
+
   bool get status => _status;
+
   set status(bool status) => _status = status;
-  String get code => _code;
-  set code(String code) => _code = code;
+
+  String? get code => _code;
+
+  set code(String? code) => _code = code;
 
   ForgetPassModel.fromJson(Map<String, dynamic> json) {
     _massage = json['massage'];
