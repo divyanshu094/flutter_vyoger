@@ -6,58 +6,58 @@ import 'package:mobility_sqr/ModelClasses/PurposeModelClass.dart';
 import 'package:mobility_sqr/ModelClasses/SearchModelClass.dart';
 
 class TravelReqPayLoad {
-  late String _travelReqId;
-  late String _project;
-  late String _projectName;
-  late bool _isBillable;
-  late bool _isTravelMultiCountry;
-  late bool _isTravelMultiCity;
-  late String _homeContactName;
-  late String _homePhoneNumber;
-  late String _homePhoneExt;
-  late String _empEmail;
-  late String _remark;
-  late bool _isLaptopRequired;
-  late bool _haveLaptop;
-  late String _organization;
-  late String _travelReqStatus;
-  late List<TravelCity> _travelCity;
-  late List<TravelVisa> _travelVisa;
-  late String _createdBy;
-  late String _expenceFromCountry;
-  late String _expenceToCountry;
-  late String _expenceDepartureDate;
-  late String _expenceReturnDate;
-  late String _expenceEstimatedCost;
-  late String _expenceCureency;
-  late Country _homeCountry;
+  String? _travelReqId;
+  String? _project;
+  String? _projectName;
+  bool? _isBillable;
+  bool? _isTravelMultiCountry;
+  bool? _isTravelMultiCity;
+  String? _homeContactName;
+  String? _homePhoneNumber;
+  String? _homePhoneExt;
+  String? _empEmail;
+  String? _remark;
+  bool? _isLaptopRequired;
+  bool? _haveLaptop;
+  String? _organization;
+  String? _travelReqStatus;
+  List<TravelCity>? _travelCity;
+  List<TravelVisa>? _travelVisa;
+  String? _createdBy;
+  String? _expenceFromCountry;
+  String? _expenceToCountry;
+  String? _expenceDepartureDate;
+  String? _expenceReturnDate;
+  String? _expenceEstimatedCost;
+  String? _expenceCureency;
+  Country? _homeCountry;
 
   TravelReqPayLoad(
-      {required String travelReqId,
-      required String project,
-      required String projectName,
-      required bool isBillable,
-      required bool isTravelMultiCountry,
-      required bool isTravelMultiCity,
-      required String homeContactName,
-      required String homePhoneNumber,
-      required String homePhoneExt,
-      required String empEmail,
-      required String remark,
-      required bool isLaptopRequired,
-      required bool haveLaptop,
-      required String organization,
-      required String travelReqStatus,
-      required List<TravelCity> travelCity,
-      required List<TravelVisa> travelVisa,
-      required String createdBy,
-      required String expenceFromCountry,
-      required String expenceToCountry,
-      required String expenceDepartureDate,
-      required String expenceReturnDate,
-      required String expenceEstimatedCost,
-      required String expenceCureency,
-      required Country homeCountry}) {
+      {String? travelReqId,
+      String? project,
+      String? projectName,
+      bool? isBillable,
+      bool? isTravelMultiCountry,
+      bool? isTravelMultiCity,
+      String? homeContactName,
+      String? homePhoneNumber,
+      String? homePhoneExt,
+      String? empEmail,
+      String? remark,
+      bool? isLaptopRequired,
+      bool? haveLaptop,
+      String? organization,
+      String? travelReqStatus,
+      List<TravelCity>? travelCity,
+      List<TravelVisa>? travelVisa,
+      String? createdBy,
+      String? expenceFromCountry,
+      String? expenceToCountry,
+      String? expenceDepartureDate,
+      String? expenceReturnDate,
+      String? expenceEstimatedCost,
+      String? expenceCureency,
+      Country? homeCountry}) {
     this._homeCountry = homeCountry;
     this._travelReqId = travelReqId;
     this._project = project;
@@ -85,116 +85,116 @@ class TravelReqPayLoad {
     this._expenceCureency = expenceCureency;
   }
 
-  Country get homeCountry => _homeCountry;
+  Country get homeCountry => _homeCountry!;
 
   set homeCountry(Country value) {
     _homeCountry = value;
   }
 
-  String get travelReqId => _travelReqId;
+  String get travelReqId => _travelReqId!;
 
   set travelReqId(String travelReqId) => _travelReqId = travelReqId;
 
-  String get project => _project;
+  String get project => _project!;
 
   set project(String project) => _project = project;
 
-  String get projectName => _projectName;
+  String get projectName => _projectName!;
 
   set projectName(String projectName) => _projectName = projectName;
 
-  bool get isBillable => _isBillable;
+  bool get isBillable => _isBillable!;
 
   set isBillable(bool isBillable) => _isBillable = isBillable;
 
-  bool get isTravelMultiCountry => _isTravelMultiCountry;
+  bool get isTravelMultiCountry => _isTravelMultiCountry!;
 
   set isTravelMultiCountry(bool isTravelMultiCountry) =>
       _isTravelMultiCountry = isTravelMultiCountry;
 
-  bool get isTravelMultiCity => _isTravelMultiCity;
+  bool get isTravelMultiCity => _isTravelMultiCity!;
 
   set isTravelMultiCity(bool isTravelMultiCity) =>
       _isTravelMultiCity = isTravelMultiCity;
 
-  String get homeContactName => _homeContactName;
+  String get homeContactName => _homeContactName!;
 
   set homeContactName(String homeContactName) =>
       _homeContactName = homeContactName;
 
-  String get homePhoneNumber => _homePhoneNumber;
+  String get homePhoneNumber => _homePhoneNumber!;
 
   set homePhoneNumber(String homePhoneNumber) =>
       _homePhoneNumber = homePhoneNumber;
 
-  String get homePhoneExt => _homePhoneExt;
+  String get homePhoneExt => _homePhoneExt!;
 
   set homePhoneExt(String homePhoneExt) => _homePhoneExt = homePhoneExt;
 
-  String get empEmail => _empEmail;
+  String get empEmail => _empEmail!;
 
   set empEmail(String empEmail) => _empEmail = empEmail;
 
-  String get remark => _remark;
+  String get remark => _remark!;
 
   set remark(String remark) => _remark = remark;
 
-  bool get isLaptopRequired => _isLaptopRequired;
+  bool get isLaptopRequired => _isLaptopRequired!;
 
   set isLaptopRequired(bool isLaptopRequired) =>
       _isLaptopRequired = isLaptopRequired;
 
-  bool get haveLaptop => _haveLaptop;
+  bool get haveLaptop => _haveLaptop!;
 
   set haveLaptop(bool haveLaptop) => _haveLaptop = haveLaptop;
 
-  String get organization => _organization;
+  String get organization => _organization!;
 
   set organization(String organization) => _organization = organization;
 
-  String get travelReqStatus => _travelReqStatus;
+  String get travelReqStatus => _travelReqStatus!;
 
   set travelReqStatus(String travelReqStatus) =>
       _travelReqStatus = travelReqStatus;
 
-  List<TravelCity> get travelCity => _travelCity;
+  List<TravelCity> get travelCity => _travelCity!;
 
   set travelCity(List<TravelCity> travelCity) => _travelCity = travelCity;
 
-  List<TravelVisa> get travelVisa => _travelVisa;
+  List<TravelVisa> get travelVisa => _travelVisa!;
 
   set travelVisa(List<TravelVisa> travelVisa) => _travelVisa = travelVisa;
 
-  String get createdBy => _createdBy;
+  String get createdBy => _createdBy!;
 
   set createdBy(String createdBy) => _createdBy = createdBy;
 
-  String get expenceFromCountry => _expenceFromCountry;
+  String get expenceFromCountry => _expenceFromCountry!;
 
   set expenceFromCountry(String expenceFromCountry) =>
       _expenceFromCountry = expenceFromCountry;
 
-  String get expenceToCountry => _expenceToCountry;
+  String get expenceToCountry => _expenceToCountry!;
 
   set expenceToCountry(String expenceToCountry) =>
       _expenceToCountry = expenceToCountry;
 
-  String get expenceDepartureDate => _expenceDepartureDate;
+  String get expenceDepartureDate => _expenceDepartureDate!;
 
   set expenceDepartureDate(String expenceDepartureDate) =>
       _expenceDepartureDate = expenceDepartureDate;
 
-  String get expenceReturnDate => _expenceReturnDate;
+  String get expenceReturnDate => _expenceReturnDate!;
 
   set expenceReturnDate(String expenceReturnDate) =>
       _expenceReturnDate = expenceReturnDate;
 
-  String get expenceEstimatedCost => _expenceEstimatedCost;
+  String get expenceEstimatedCost => _expenceEstimatedCost!;
 
   set expenceEstimatedCost(String expenceEstimatedCost) =>
       _expenceEstimatedCost = expenceEstimatedCost;
 
-  String get expenceCureency => _expenceCureency;
+  String get expenceCureency => _expenceCureency!;
 
   set expenceCureency(String expenceCureency) =>
       _expenceCureency = expenceCureency;
@@ -218,13 +218,13 @@ class TravelReqPayLoad {
     if (json['travel_city'] != null) {
       _travelCity = <TravelCity>[];
       json['travel_city'].forEach((v) {
-        _travelCity.add(new TravelCity.fromJson(v));
+        _travelCity?.add(new TravelCity.fromJson(v));
       });
     }
     if (json['travel_visa'] != null) {
       _travelVisa = <TravelVisa>[];
       json['travel_visa'].forEach((v) {
-        _travelVisa.add(new TravelVisa.fromJson(v));
+        _travelVisa?.add(new TravelVisa.fromJson(v));
       });
     }
     _createdBy = json['created_by'];
@@ -253,8 +253,8 @@ class TravelReqPayLoad {
     data['have_laptop'] = this._haveLaptop;
     data['organization'] = this._organization;
     data['travel_req_status'] = this._travelReqStatus;
-    data['travel_city'] = this._travelCity.map((v) => v.toJson()).toList();
-    data['travel_visa'] = this._travelVisa.map((v) => v.toJson()).toList();
+    data['travel_city'] = this._travelCity?.map((v) => v.toJson()).toList();
+    data['travel_visa'] = this._travelVisa?.map((v) => v.toJson()).toList();
     data['created_by'] = this._createdBy;
     data['expence_fromCountry'] = this._expenceFromCountry;
     data['expence_toCountry'] = this._expenceToCountry;
@@ -267,100 +267,100 @@ class TravelReqPayLoad {
 }
 
 class TravelCity {
-  late int _hide;
-  late String _sourceCity;
-  late String _perDiamValue;
-  late String _transportCost;
-  late double _myTotalCost = 0.0;
-  late String _myAirFare = "0";
-  late Currency_Data _currency_data;
+  int? _hide;
+  String? _sourceCity;
+  String? _perDiamValue;
+  String? _transportCost;
+  double? _myTotalCost = 0.0;
+  String? _myAirFare = "0";
+  Currency_Data? _currency_data;
 
-  late String _currentCountryCode;
+  String? _currentCountryCode;
 
-  String get currentCountryCode => _currentCountryCode;
+  String get currentCountryCode => _currentCountryCode!;
 
   set currentCountryCode(String value) {
     _currentCountryCode = value;
   }
 
-  Currency_Data get currency_data => _currency_data;
+  Currency_Data get currency_data => _currency_data!;
 
   set currency_data(Currency_Data value) {
     _currency_data = value;
   }
 
-  double get myTotalCost => _myTotalCost;
+  double get myTotalCost => _myTotalCost!;
 
   set myTotalCost(double value) {
     _myTotalCost = value;
   }
 
-  int get hide => _hide;
+  int get hide => _hide!;
 
   set hide(int value) {
     _hide = value;
   }
 
-  List<PurposeData> get purposeList => _purposeList;
+  List<PurposeData> get purposeList => _purposeList!;
 
   set purposeList(List<PurposeData> value) {
     _purposeList = value;
   }
 
-  late PostLocationData _postLocationData;
-  late List<PurposeData> _purposeList;
-  late String _destinationCity;
+  PostLocationData? _postLocationData;
+  List<PurposeData>? _purposeList;
+  String? _destinationCity;
 
-  PostLocationData get postLocationData => _postLocationData;
+  PostLocationData get postLocationData => _postLocationData!;
 
   set postLocationData(PostLocationData value) {
     _postLocationData = value;
   }
 
-  late String _travellingCountry;
-  late String _travellingCountryTo;
-  late String _departureDate;
-  late String _returnDate;
-  late bool _isAccmodationRequired;
-  late String _accmodationStartDate;
-  late String _accmodationEndDate;
-  late dynamic _hotelCost;
-  late dynamic _perDiemCost;
-  late dynamic _transportationCost;
-  late dynamic _totalCost;
-  late dynamic _accomodationLimit;
-  late String _reportingCurrency;
-  late String _currency;
-  late String _agenda;
-  late String _travelPurpose;
-  late String _applicableVisa;
-  late String _visaNumber;
-  late String _visaExpiryDate;
-  late String _isClientLocation;
-  late String _clientName;
-  late String _clientNumber;
-  late String _clientNumberExt;
-  late String _clientAddress;
-  late String _officeLocation;
-  late String _hostHrName;
-  late String _hostPhoneNo;
-  late String _hostPhoneExt;
-  late bool _isDependent;
-  late List<DependentData> _dependentData;
-  late List<PostLocationData> _postLocationList;
-  late List<SecondDependentData> _myDependentList;
-  late SearchList _toCountryData;
-  late String airfareCost;
+  String? _travellingCountry;
+  String? _travellingCountryTo;
+  String? _departureDate;
+  String? _returnDate;
+  bool? _isAccmodationRequired;
+  String? _accmodationStartDate;
+  String? _accmodationEndDate;
+  dynamic _hotelCost;
+  dynamic _perDiemCost;
+  dynamic _transportationCost;
+  dynamic _totalCost;
+  dynamic _accomodationLimit;
+  String? _reportingCurrency;
+  String? _currency;
+  String? _agenda;
+  String? _travelPurpose;
+  String? _applicableVisa;
+  String? _visaNumber;
+  String? _visaExpiryDate;
+  String? _isClientLocation;
+  String? _clientName;
+  String? _clientNumber;
+  String? _clientNumberExt;
+  String? _clientAddress;
+  String? _officeLocation;
+  String? _hostHrName;
+  String? _hostPhoneNo;
+  String? _hostPhoneExt;
+  bool? _isDependent;
+  List<DependentData>? _dependentData;
+  List<PostLocationData>? _postLocationList;
+  List<SecondDependentData>? _myDependentList;
+  SearchList? _toCountryData;
+  String? airfareCost;
 
-  String get getAirfareCost => airfareCost;
+  String get getAirfareCost => airfareCost!;
 
   set SetAirfareCost(String value) {
     airfareCost = value;
   }
 
-  late bool _hasVisa;
+  bool? _hasVisa;
 
-  String get myAirFare => _myAirFare;
+  String get myAirFare => _myAirFare!;
 
   set myAirFare(String value) {
     _myAirFare = value;
@@ -372,98 +372,98 @@ class TravelCity {
     _accomodationLimit = value;
   }
 
-  bool get hasVisa => _hasVisa;
+  bool get hasVisa => _hasVisa!;
 
   set hasVisa(bool value) {
     _hasVisa = value;
   }
 
-  SearchList get toCountryData => _toCountryData;
+  SearchList get toCountryData => _toCountryData!;
 
   set toCountryData(SearchList value) {
     _toCountryData = value;
   }
 
-  List<SecondDependentData> get myDependentList => _myDependentList;
+  List<SecondDependentData> get myDependentList => _myDependentList!;
 
   set myDependentList(List<SecondDependentData> value) {
     _myDependentList = value;
   }
 
-  List<PostLocationData> get postLocationList => _postLocationList;
+  List<PostLocationData> get postLocationList => _postLocationList!;
 
   set postLocationList(List<PostLocationData> value) {
     _postLocationList = value;
   }
 
-  String get perDiamValue => _perDiamValue;
+  String get perDiamValue => _perDiamValue!;
 
   set perDiamValue(String value) {
     _perDiamValue = value;
   }
 
-  String get transportCost => _transportCost;
+  String get transportCost => _transportCost!;
 
   set transportCost(String value) {
     _transportCost = value;
   }
 
-  late String _myCurrencyTotal;
+  String? _myCurrencyTotal;
 
-  String get myCurrencyTotal => _myCurrencyTotal;
+  String get myCurrencyTotal => _myCurrencyTotal!;
 
   set myCurrencyTotal(String value) {
     _myCurrencyTotal = value;
   }
 
   TravelCity(
-      {required Currency_Data currency_data,
-      required String TransportCost,
-      required SearchList toCountryData,
-      required List<SecondDependentData> myDependentList,
-      required bool hasVisa,
-      required PostLocationData postLocationData,
-      required List<PostLocationData> postLocationList,
-      required List<PurposeData> purposeList,
-      required int hide,
-      required String sourceCity,
-      required String destinationCity,
-      required String travellingCountry,
-      required String travellingCountryTo,
-      required String departureDate,
-      required String returnDate,
-      required bool isAccmodationRequired,
-      required String accmodationStartDate,
-      required String accmodationEndDate,
-      required dynamic hotelCost,
-      required dynamic perDiemCost,
-      required dynamic transportationCost,
-      required dynamic totalCost,
-      required dynamic accomodationLimit,
-      required String reportingCurrency,
-      required String currency,
-      required String agenda,
-      required String travelPurpose,
-      required String applicableVisa,
-      required String visaNumber,
-      required String visaExpiryDate,
-      required String isClientLocation,
-      required String clientName,
-      required String clientNumber,
-      required String clientNumberExt,
-      required String clientAddress,
-      required String officeLocation,
-      required String hostHrName,
-      required String hostPhoneNo,
-      required String hostPhoneExt,
-      required bool isDependent,
-      required String perDiemValue,
-      required double myTotalCost,
-      required String airfareCost,
-      required String airFare,
-      required String currentCountryCode,
-      required String myCurrencyTotal,
-      required List<DependentData> dependentData}) {
+      {Currency_Data? currency_data,
+      String? TransportCost,
+      SearchList? toCountryData,
+      List<SecondDependentData>? myDependentList,
+      bool? hasVisa,
+      PostLocationData? postLocationData,
+      List<PostLocationData>? postLocationList,
+      List<PurposeData>? purposeList,
+      int? hide,
+      String? sourceCity,
+      String? destinationCity,
+      String? travellingCountry,
+      String? travellingCountryTo,
+      String? departureDate,
+      String? returnDate,
+      bool? isAccmodationRequired,
+      String? accmodationStartDate,
+      String? accmodationEndDate,
+      dynamic hotelCost,
+      dynamic perDiemCost,
+      dynamic transportationCost,
+      dynamic totalCost,
+      dynamic accomodationLimit,
+      String? reportingCurrency,
+      String? currency,
+      String? agenda,
+      String? travelPurpose,
+      String? applicableVisa,
+      String? visaNumber,
+      String? visaExpiryDate,
+      String? isClientLocation,
+      String? clientName,
+      String? clientNumber,
+      String? clientNumberExt,
+      String? clientAddress,
+      String? officeLocation,
+      String? hostHrName,
+      String? hostPhoneNo,
+      String? hostPhoneExt,
+      bool? isDependent,
+      String? perDiemValue,
+      double? myTotalCost,
+      String? airfareCost,
+      String? airFare,
+      String? currentCountryCode,
+      String? myCurrencyTotal,
+      List<DependentData>? dependentData}) {
     this.airfareCost = airfareCost;
     this._currency_data = currency_data;
     this._accomodationLimit = accomodationLimit;
@@ -513,44 +513,44 @@ class TravelCity {
     this._myCurrencyTotal = myCurrencyTotal;
   }
 
-  String get sourceCity => _sourceCity;
+  String get sourceCity => _sourceCity!;
 
   set sourceCity(String sourceCity) => _sourceCity = sourceCity;
 
-  String get destinationCity => _destinationCity;
+  String get destinationCity => _destinationCity!;
 
   set destinationCity(String destinationCity) =>
       _destinationCity = destinationCity;
 
-  String get travellingCountry => _travellingCountry;
+  String get travellingCountry => _travellingCountry!;
 
   set travellingCountry(String travellingCountry) =>
       _travellingCountry = travellingCountry;
 
-  String get travellingCountryTo => _travellingCountryTo;
+  String get travellingCountryTo => _travellingCountryTo!;
 
   set travellingCountryTo(String travellingCountryTo) =>
       _travellingCountryTo = travellingCountryTo;
 
-  String get departureDate => _departureDate;
+  String get departureDate => _departureDate!;
 
   set departureDate(String departureDate) => _departureDate = departureDate;
 
-  String get returnDate => _returnDate;
+  String get returnDate => _returnDate!;
 
   set returnDate(String returnDate) => _returnDate = returnDate;
 
-  bool get isAccmodationRequired => _isAccmodationRequired;
+  bool get isAccmodationRequired => _isAccmodationRequired!;
 
   set isAccmodationRequired(bool isAccmodationRequired) =>
       _isAccmodationRequired = isAccmodationRequired;
 
-  String get accmodationStartDate => _accmodationStartDate;
+  String get accmodationStartDate => _accmodationStartDate!;
 
   set accmodationStartDate(String accmodationStartDate) =>
       _accmodationStartDate = accmodationStartDate;
 
-  String get accmodationEndDate => _accmodationEndDate;
+  String get accmodationEndDate => _accmodationEndDate!;
 
   set accmodationEndDate(String accmodationEndDate) =>
       _accmodationEndDate = accmodationEndDate;
@@ -572,78 +572,78 @@ class TravelCity {
 
   set totalCost(dynamic totalCost) => _totalCost = totalCost;
 
-  String get reportingCurrency => _reportingCurrency;
+  String get reportingCurrency => _reportingCurrency!;
 
   set reportingCurrency(String reportingCurrency) =>
       _reportingCurrency = reportingCurrency;
 
-  String get currency => _currency;
+  String get currency => _currency!;
 
   set currency(String currency) => _currency = currency;
 
-  String get agenda => _agenda;
+  String get agenda => _agenda!;
 
   set agenda(String agenda) => _agenda = agenda;
 
-  String get travelPurpose => _travelPurpose;
+  String get travelPurpose => _travelPurpose!;
 
   set travelPurpose(String travelPurpose) => _travelPurpose = travelPurpose;
 
-  String get applicableVisa => _applicableVisa;
+  String get applicableVisa => _applicableVisa!;
 
   set applicableVisa(String applicableVisa) => _applicableVisa = applicableVisa;
 
-  String get visaNumber => _visaNumber;
+  String get visaNumber => _visaNumber!;
 
   set visaNumber(String visaNumber) => _visaNumber = visaNumber;
 
-  String get visaExpiryDate => _visaExpiryDate;
+  String get visaExpiryDate => _visaExpiryDate!;
 
   set visaExpiryDate(String visaExpiryDate) => _visaExpiryDate = visaExpiryDate;
 
-  String get isClientLocation => _isClientLocation;
+  String get isClientLocation => _isClientLocation!;
 
   set isClientLocation(String isClientLocation) =>
       _isClientLocation = isClientLocation;
 
-  String get clientName => _clientName;
+  String get clientName => _clientName!;
 
   set clientName(String clientName) => _clientName = clientName;
 
-  String get clientNumber => _clientNumber;
+  String get clientNumber => _clientNumber!;
 
   set clientNumber(String clientNumber) => _clientNumber = clientNumber;
 
-  String get clientNumberExt => _clientNumberExt;
+  String get clientNumberExt => _clientNumberExt!;
 
   set clientNumberExt(String clientNumberExt) =>
       _clientNumberExt = clientNumberExt;
 
-  String get clientAddress => _clientAddress;
+  String get clientAddress => _clientAddress!;
 
   set clientAddress(String clientAddress) => _clientAddress = clientAddress;
 
-  String get officeLocation => _officeLocation;
+  String get officeLocation => _officeLocation!;
 
   set officeLocation(String officeLocation) => _officeLocation = officeLocation;
 
-  String get hostHrName => _hostHrName;
+  String get hostHrName => _hostHrName!;
 
   set hostHrName(String hostHrName) => _hostHrName = hostHrName;
 
-  String get hostPhoneNo => _hostPhoneNo;
+  String get hostPhoneNo => _hostPhoneNo!;
 
   set hostPhoneNo(String hostPhoneNo) => _hostPhoneNo = hostPhoneNo;
 
-  String get hostPhoneExt => _hostPhoneExt;
+  String get hostPhoneExt => _hostPhoneExt!;
 
   set hostPhoneExt(String hostPhoneExt) => _hostPhoneExt = hostPhoneExt;
 
-  bool get isDependent => _isDependent;
+  bool get isDependent => _isDependent!;
 
   set isDependent(bool isDependent) => _isDependent = isDependent;
 
-  List<DependentData> get dependentData => _dependentData;
+  List<DependentData> get dependentData => _dependentData!;
 
   set dependentData(List<DependentData> dependentData) =>
       _dependentData = dependentData;
@@ -683,7 +683,7 @@ class TravelCity {
     if (json['dependentData'] != null) {
       _dependentData = <DependentData>[];
       json['dependentData'].forEach((v) {
-        _dependentData.add(new DependentData.fromJson(v));
+        _dependentData?.add(new DependentData.fromJson(v));
       });
     }
   }
@@ -721,7 +721,8 @@ class TravelCity {
     data['host_phone_no'] = this._hostPhoneNo;
     data['host_phone_ext'] = this._hostPhoneExt;
     data['is_dependent'] = this._isDependent;
-    data['dependentData'] = this._dependentData.map((v) => v.toJson()).toList();
+    data['dependentData'] =
+        this._dependentData?.map((v) => v.toJson()).toList();
     return data;
   }
 }

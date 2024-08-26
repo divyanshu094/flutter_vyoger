@@ -6,32 +6,24 @@ import 'package:meta/meta.dart';
 import 'package:mobility_sqr/ApiCall/Repository.dart';
 import 'package:mobility_sqr/ModelClasses/Approval.dart';
 
-
 part 'travel_req_event.dart';
+
 part 'travel_req_state.dart';
 
-
 class TravelReqBloc extends Bloc<TravelReqEvent, TravelReqState> {
-
   final Repository repository;
 
-  TravelReqBloc(this.repository) : super(TravelReqInitial());
-
-  @override
-  TravelReqState get initialState => TravelReqInitial();
-
-  @override
-  Stream<TravelReqState> mapEventToState(TravelReqEvent event,) async* {
-    yield TravelReqLoading();
-    if (event is FetchTravelReq) {
-
-      try {
-        final ApprovalModal quote = await repository.fetch_travel_req();
-        yield TravelReqLoaded(travelRequest: quote);
+  TravelReqBloc(this.repository) : super(TravelReqInitial()) {
+    on<TravelReqEvent>((event, emit) async {
+      TravelReqLoading();
+      if (event is FetchTravelReq) {
+        try {
+          final ApprovalModal quote = await repository.fetch_travel_req();
+          TravelReqLoaded(travelRequest: quote);
+        } catch (_) {
+          TravelReqError("Couldn't Fetch Data");
+        }
       }
-      catch (_) {
-        yield TravelReqError("Couldn't Fetch Data");
-      }
-    }
+    });
   }
 }

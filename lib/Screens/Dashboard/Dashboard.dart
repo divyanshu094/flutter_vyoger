@@ -27,7 +27,6 @@ import 'package:mobility_sqr/Widgets/TileDashboard.dart';
 import 'package:mobility_sqr/Widgets/showAlertDialogBiometric.dart';
 import 'package:reorderables/reorderables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sizer/sizer.dart';
 
 import 'DashboardConstants.dart';
 
@@ -350,388 +349,388 @@ class _DashboardState extends State<Dashboard> {
                             ),
                           ],
                         )),
-                    // BlocProvider(
-                    //     create: (context) => TravelReqBloc(widget.repository),
-                    //     child: BlocBuilder<TravelReqBloc, TravelReqState>(
-                    //       builder: (context, state) {
-                    //         if (state is TravelReqInitial) {
-                    //           BlocProvider.of<TravelReqBloc>(context)
-                    //               .add(FetchTravelReq());
-                    //         }
-                    //         if (state is TravelReqError) {
-                    //           return Center(
-                    //             child: Text(
-                    //                 'Failed to fetch Upcoming Travel Requests!'),
-                    //           );
-                    //         }
-                    //         if (state is TravelReqLoaded) {
-                    //           if (state.travelRequest.data.length == 0) {
-                    //             return Container(
-                    //               height: 10,
-                    //               child:
-                    //                   Center(child: Text("No Travel Request")),
-                    //             );
-                    //           } else {
-                    //             return Container(
-                    //               height: 65.0,
-                    //               width: 100.0,
-                    //               margin: EdgeInsets.fromLTRB(20, 0, 10, 0),
-                    //               child: Scrollbar(
-                    //                 thumbVisibility: true,
-                    //                 controller: _ScrollController,
-                    //                 radius: Radius.circular(5),
-                    //                 thickness: 3,
-                    //                 child: AnimationLimiter(
-                    //                   child: new ListView.builder(
-                    //                       scrollDirection: Axis.horizontal,
-                    //                       itemCount:
-                    //                           state.travelRequest.data.length,
-                    //                       itemBuilder:
-                    //                           (BuildContext ctxt, int Index) {
-                    //                         return AnimationConfiguration
-                    //                             .staggeredList(
-                    //                           position: Index,
-                    //                           duration: const Duration(
-                    //                               milliseconds: 600),
-                    //                           child: SlideAnimation(
-                    //                             horizontalOffset: 50,
-                    //                             child: FadeInAnimation(
-                    //                               child: Row(
-                    //                                 children: [
-                    //                                   state
-                    //                                               .travelRequest
-                    //                                               .data[Index]
-                    //                                               .travelReqStatus ==
-                    //                                           '3'
-                    //                                       ? Container()
-                    //                                       : GestureDetector(
-                    //                                           onTap: () {
-                    //                                             this.setState(
-                    //                                                 () {
-                    //                                               showloader =
-                    //                                                   true;
-                    //                                             });
-                    //
-                    //                                             _appApiProvider
-                    //                                                 .fetchViewTravelReq(state
-                    //                                                     .travelRequest
-                    //                                                     .data[
-                    //                                                         Index]
-                    //                                                     .travelReqId)
-                    //                                                 .then((value) =>
-                    //                                                     this.setState(
-                    //                                                         () {
-                    //                                                       showloader =
-                    //                                                           false;
-                    //                                                       NavigationHandler(
-                    //                                                           value,
-                    //                                                           context,
-                    //                                                           2);
-                    //                                                     }));
-                    //                                           },
-                    //                                           child: Container(
-                    //                                             height: 60.0,
-                    //                                             width: 40.0,
-                    //                                             decoration:
-                    //                                                 BoxDecoration(
-                    //                                               color: Colors
-                    //                                                   .white,
-                    //                                               border: Border.all(
-                    //                                                   color: AppConstants
-                    //                                                       .TEXT_BACKGROUND_COLOR,
-                    //                                                   width:
-                    //                                                       .2),
-                    //                                               borderRadius:
-                    //                                                   BorderRadius.all(
-                    //                                                       Radius.circular(
-                    //                                                           5)),
-                    //                                             ),
-                    //                                             child: Column(
-                    //                                               children: [
-                    //                                                 Expanded(
-                    //                                                   flex: 5,
-                    //                                                   child:
-                    //                                                       Column(
-                    //                                                     children: [
-                    //                                                       Container(
-                    //                                                         margin:
-                    //                                                             EdgeInsets.all(5),
-                    //                                                         child:
-                    //                                                             Row(
-                    //                                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //                                                           children: [
-                    //                                                             Text("To"),
-                    //                                                             Container(
-                    //                                                               width: 15.0,
-                    //                                                               height: 3.5,
-                    //                                                               decoration: BoxDecoration(
-                    //                                                                 color: AppConstants.APP_THEME_COLOR,
-                    //                                                                 borderRadius: BorderRadius.all(Radius.circular(8)),
-                    //                                                               ),
-                    //                                                               child: Container(
-                    //                                                                 height: 3.5,
-                    //                                                                 margin: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                    //                                                                 child: Text(
-                    //                                                                   state.travelRequest.data[Index].travelReqId,
-                    //                                                                   style: TextStyle(
-                    //                                                                     color: Colors.white,
-                    //                                                                     fontSize: 10,
-                    //                                                                     fontWeight: FontWeight.bold,
-                    //                                                                   ),
-                    //                                                                   textAlign: TextAlign.center,
-                    //                                                                 ),
-                    //                                                               ),
-                    //                                                             ),
-                    //                                                           ],
-                    //                                                         ),
-                    //                                                       ),
-                    //                                                       Container(
-                    //                                                         width:
-                    //                                                             100.0,
-                    //                                                         margin:
-                    //                                                             EdgeInsets.symmetric(horizontal: 5),
-                    //                                                         child: state.travelRequest.data[Index].details.length > 0
-                    //                                                             ? AutoSizeText(
-                    //                                                                 state.travelRequest.data[Index].details[0].destinationCity,
-                    //                                                                 textAlign: TextAlign.start,
-                    //                                                                 maxLines: 1,
-                    //                                                                 minFontSize: 10,
-                    //                                                                 style: TextStyle(fontWeight: FontWeight.w900, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 14),
-                    //                                                               )
-                    //                                                             : SizedBox(),
-                    //                                                       ),
-                    //                                                       Container(
-                    //                                                         width:
-                    //                                                             100.0,
-                    //                                                         margin: EdgeInsets.fromLTRB(
-                    //                                                             5,
-                    //                                                             5,
-                    //                                                             5,
-                    //                                                             0),
-                    //                                                         child: state.travelRequest.data[Index].details.length > 0
-                    //                                                             ? Text(
-                    //                                                                 state.travelRequest.data[Index].details[0].travellingCountryTo,
-                    //                                                                 textAlign: TextAlign.start,
-                    //                                                                 style: TextStyle(fontWeight: FontWeight.w300, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 13),
-                    //                                                               )
-                    //                                                             : SizedBox(),
-                    //                                                       ),
-                    //                                                       Stack(
-                    //                                                         children: <Widget>[
-                    //                                                           Container(
-                    //                                                             child: Divider(
-                    //                                                               color: AppConstants.TEXT_BACKGROUND_COLOR,
-                    //                                                               height: 15,
-                    //                                                             ),
-                    //                                                           ),
-                    //                                                           Transform.rotate(
-                    //                                                             angle: 180 * math.pi / 180,
-                    //                                                             child: Container(
-                    //                                                               height: 15,
-                    //                                                               child: Align(
-                    //                                                                 alignment: Alignment.center,
-                    //                                                                 child: Image.asset('assets/images/plane_icon.png'),
-                    //                                                               ),
-                    //                                                             ),
-                    //                                                           )
-                    //                                                         ],
-                    //                                                       ),
-                    //                                                       Container(
-                    //                                                         width:
-                    //                                                             100.0,
-                    //                                                         margin: EdgeInsets.fromLTRB(
-                    //                                                             5,
-                    //                                                             0,
-                    //                                                             5,
-                    //                                                             0),
-                    //                                                         child:
-                    //                                                             Text(
-                    //                                                           "From",
-                    //                                                           textAlign: TextAlign.start,
-                    //                                                         ),
-                    //                                                       ),
-                    //                                                       Container(
-                    //                                                         width:
-                    //                                                             100.0,
-                    //                                                         margin:
-                    //                                                             EdgeInsets.symmetric(horizontal: 5),
-                    //                                                         child: state.travelRequest.data[Index].details.length > 0
-                    //                                                             ? Text(
-                    //                                                                 state.travelRequest.data[Index].details[0].sourceCity,
-                    //                                                                 textAlign: TextAlign.start,
-                    //                                                                 maxLines: 1,
-                    //                                                                 style: TextStyle(fontWeight: FontWeight.w900, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 15),
-                    //                                                               )
-                    //                                                             : SizedBox(),
-                    //                                                       ),
-                    //                                                       Container(
-                    //                                                         width:
-                    //                                                             100.0,
-                    //                                                         margin: EdgeInsets.fromLTRB(
-                    //                                                             5,
-                    //                                                             5,
-                    //                                                             5,
-                    //                                                             0),
-                    //                                                         child: state.travelRequest.data[Index].details.length > 0
-                    //                                                             ? AutoSizeText(
-                    //                                                                 state.travelRequest.data[Index].details[0].travellingCountry,
-                    //                                                                 textAlign: TextAlign.start,
-                    //                                                                 minFontSize: 10,
-                    //                                                                 style: TextStyle(fontWeight: FontWeight.w300, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 13),
-                    //                                                               )
-                    //                                                             : SizedBox(),
-                    //                                                       ),
-                    //                                                     ],
-                    //                                                   ),
-                    //                                                 ),
-                    //                                                 // Expanded(
-                    //                                                 //   flex: 3,
-                    //                                                 //   child:
-                    //                                                 //       Container(
-                    //                                                 //     color: AppConstants
-                    //                                                 //         .BACKGROUND_COLOR_BOTTOM,
-                    //                                                 //     child:
-                    //                                                 //         Row(
-                    //                                                 //       children: [
-                    //                                                 //         Expanded(
-                    //                                                 //           flex: 2,
-                    //                                                 //           child: Column(
-                    //                                                 //             children: [
-                    //                                                 //               Container(
-                    //                                                 //                 width: 100.0,
-                    //                                                 //                 margin: EdgeInsets.all(5),
-                    //                                                 //                 child: Text(
-                    //                                                 //                   "Departure",
-                    //                                                 //                   textAlign: TextAlign.start,
-                    //                                                 //                 ),
-                    //                                                 //               ),
-                    //                                                 //               Container(
-                    //                                                 //                 width: 100.0,
-                    //                                                 //                 margin: EdgeInsets.symmetric(horizontal: 5),
-                    //                                                 //                 child: state.travelRequest.data[Index].details.length > 0
-                    //                                                 //                     ? AutoSizeText(
-                    //                                                 //                         getDepartureTime(state.travelRequest.data[Index].details[0].departureDate),
-                    //                                                 //                         textAlign: TextAlign.start,
-                    //                                                 //                         minFontSize: 16,
-                    //                                                 //                         style: TextStyle(fontWeight: FontWeight.w900, color: Colors.black, fontSize: 16),
-                    //                                                 //                       )
-                    //                                                 //                     : SizedBox(),
-                    //                                                 //               ),
-                    //                                                 //               Container(
-                    //                                                 //                 width: 100.0,
-                    //                                                 //                 margin: EdgeInsets.fromLTRB(5, 5, 5, 0),
-                    //                                                 //                 child: state.travelRequest.data[Index].details.length > 0
-                    //                                                 //                     ? AutoSizeText(
-                    //                                                 //                         getDepatureDate(state.travelRequest.data[Index].details[0].departureDate),
-                    //                                                 //                         textAlign: TextAlign.start,
-                    //                                                 //                         minFontSize: 12,
-                    //                                                 //                         maxFontSize: 15,
-                    //                                                 //                         style: TextStyle(fontWeight: FontWeight.w500, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 13),
-                    //                                                 //                       )
-                    //                                                 //                     : SizedBox(),
-                    //                                                 //               ),
-                    //                                                 //             ],
-                    //                                                 //           ),
-                    //                                                 //         ),
-                    //                                                 //         state.travelRequest.data[Index].travelReqStatus == '2'
-                    //                                                 //             ? Expanded(
-                    //                                                 //                 flex: 1,
-                    //                                                 //                 child: Container(
-                    //                                                 //                   foregroundDecoration: const RotatedCornerDecoration(
-                    //                                                 //                     color: Colors.orangeAccent,
-                    //                                                 //                     geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                    //                                                 //                     textSpan: TextSpan(text: 'In Progress', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                    //                                                 //                     labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                    //                                                 //                   ),
-                    //                                                 //                 ),
-                    //                                                 //               )
-                    //                                                 //             : state.travelRequest.data[Index].travelReqStatus == '2'
-                    //                                                 //                 ? Expanded(
-                    //                                                 //                     flex: 1,
-                    //                                                 //                     child: Container(
-                    //                                                 //                       foregroundDecoration: const RotatedCornerDecoration(
-                    //                                                 //                         color: Colors.lightGreen,
-                    //                                                 //                         geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                    //                                                 //                         textSpan: TextSpan(text: 'Approved', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                    //                                                 //                         labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                    //                                                 //                       ),
-                    //                                                 //                     ),
-                    //                                                 //                   )
-                    //                                                 //                 : state.travelRequest.data[Index].travelReqStatus == '1'
-                    //                                                 //                     ? Expanded(
-                    //                                                 //                         flex: 1,
-                    //                                                 //                         child: Container(
-                    //                                                 //                           foregroundDecoration: const RotatedCornerDecoration(
-                    //                                                 //                             color: Colors.yellow,
-                    //                                                 //                             geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                    //                                                 //                             textSpan: TextSpan(text: 'Saved', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                    //                                                 //                             labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                    //                                                 //                           ),
-                    //                                                 //                         ),
-                    //                                                 //                       )
-                    //                                                 //                     : state.travelRequest.data[Index].travelReqStatus == '5'
-                    //                                                 //                         ? Expanded(
-                    //                                                 //                             flex: 1,
-                    //                                                 //                             child: Container(
-                    //                                                 //                               foregroundDecoration: const RotatedCornerDecoration(
-                    //                                                 //                                 color: Colors.red,
-                    //                                                 //                                 geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                    //                                                 //                                 textSpan: TextSpan(text: 'Rejected', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                    //                                                 //                                 labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                    //                                                 //                               ),
-                    //                                                 //                             ),
-                    //                                                 //                           )
-                    //                                                 //                         : state.travelRequest.data[Index].travelReqStatus == '6'
-                    //                                                 //                             ? Expanded(
-                    //                                                 //                                 flex: 1,
-                    //                                                 //                                 child: Container(
-                    //                                                 //                                   foregroundDecoration: const RotatedCornerDecoration(
-                    //                                                 //                                     color: Colors.purple,
-                    //                                                 //                                     geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                    //                                                 //                                     textSpan: TextSpan(text: 'Transferred', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                    //                                                 //                                     labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                    //                                                 //                                   ),
-                    //                                                 //                                 ),
-                    //                                                 //                               )
-                    //                                                 //                             : Expanded(
-                    //                                                 //                                 flex: 1,
-                    //                                                 //                                 child: Container(
-                    //                                                 //                                   foregroundDecoration: const RotatedCornerDecoration(
-                    //                                                 //                                     color: Colors.green,
-                    //                                                 //                                     geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                    //                                                 //                                     textSpan: TextSpan(text: 'Closed', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                    //                                                 //                                     labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                    //                                                 //                                   ),
-                    //                                                 //                                 ),
-                    //                                                 //                               )
-                    //                                                 //       ],
-                    //                                                 //     ),
-                    //                                                 //   ),
-                    //                                                 // ),
-                    //                                               ],
-                    //                                             ),
-                    //                                           ),
-                    //                                         ),
-                    //                                   SizedBox(
-                    //                                     height: 10,
-                    //                                     width: 10,
-                    //                                   )
-                    //                                 ],
-                    //                               ),
-                    //                             ),
-                    //                           ),
-                    //                         );
-                    //                       }),
-                    //                 ),
-                    //               ),
-                    //             );
-                    //           }
-                    //         }
-                    //         return Center(
-                    //           child: CircularProgressIndicator(),
-                    //         );
-                    //       },
-                    //     )),
+                    BlocProvider(
+                        create: (context) => TravelReqBloc(widget.repository),
+                        child: BlocBuilder<TravelReqBloc, TravelReqState>(
+                          builder: (context, state) {
+                            if (state is TravelReqInitial) {
+                              BlocProvider.of<TravelReqBloc>(context)
+                                  .add(FetchTravelReq());
+                            }
+                            if (state is TravelReqError) {
+                              return Center(
+                                child: Text(
+                                    'Failed to fetch Upcoming Travel Requests!'),
+                              );
+                            }
+                            if (state is TravelReqLoaded) {
+                              if (state.travelRequest.data.length == 0) {
+                                return Container(
+                                  height: 10,
+                                  child:
+                                      Center(child: Text("No Travel Request")),
+                                );
+                              } else {
+                                return Container(
+                                  height: 65.0,
+                                  width: 100.0,
+                                  margin: EdgeInsets.fromLTRB(20, 0, 10, 0),
+                                  child: Scrollbar(
+                                    thumbVisibility: true,
+                                    controller: _ScrollController,
+                                    radius: Radius.circular(5),
+                                    thickness: 3,
+                                    child: AnimationLimiter(
+                                      child: new ListView.builder(
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount:
+                                              state.travelRequest.data.length,
+                                          itemBuilder:
+                                              (BuildContext ctxt, int Index) {
+                                            return AnimationConfiguration
+                                                .staggeredList(
+                                              position: Index,
+                                              duration: const Duration(
+                                                  milliseconds: 600),
+                                              child: SlideAnimation(
+                                                horizontalOffset: 50,
+                                                child: FadeInAnimation(
+                                                  child: Row(
+                                                    children: [
+                                                      state
+                                                                  .travelRequest
+                                                                  .data[Index]
+                                                                  .travelReqStatus ==
+                                                              '3'
+                                                          ? Container()
+                                                          : GestureDetector(
+                                                              onTap: () {
+                                                                this.setState(
+                                                                    () {
+                                                                  showloader =
+                                                                      true;
+                                                                });
+
+                                                                _appApiProvider
+                                                                    .fetchViewTravelReq(state
+                                                                        .travelRequest
+                                                                        .data[
+                                                                            Index]
+                                                                        .travelReqId)
+                                                                    .then((value) =>
+                                                                        this.setState(
+                                                                            () {
+                                                                          showloader =
+                                                                              false;
+                                                                          NavigationHandler(
+                                                                              value,
+                                                                              context,
+                                                                              2);
+                                                                        }));
+                                                              },
+                                                              child: Container(
+                                                                height: 60.0,
+                                                                width: 40.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  border: Border.all(
+                                                                      color: AppConstants
+                                                                          .TEXT_BACKGROUND_COLOR,
+                                                                      width:
+                                                                          .2),
+                                                                  borderRadius:
+                                                                      BorderRadius.all(
+                                                                          Radius.circular(
+                                                                              5)),
+                                                                ),
+                                                                child: Column(
+                                                                  children: [
+                                                                    Expanded(
+                                                                      flex: 5,
+                                                                      child:
+                                                                          Column(
+                                                                        children: [
+                                                                          Container(
+                                                                            margin:
+                                                                                EdgeInsets.all(5),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                              children: [
+                                                                                Text("To"),
+                                                                                Container(
+                                                                                  width: 15.0,
+                                                                                  height: 3.5,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: AppConstants.APP_THEME_COLOR,
+                                                                                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                                                                                  ),
+                                                                                  child: Container(
+                                                                                    height: 3.5,
+                                                                                    margin: EdgeInsets.fromLTRB(0, 1, 0, 0),
+                                                                                    child: Text(
+                                                                                      state.travelRequest.data[Index].travelReqId,
+                                                                                      style: TextStyle(
+                                                                                        color: Colors.white,
+                                                                                        fontSize: 10,
+                                                                                        fontWeight: FontWeight.bold,
+                                                                                      ),
+                                                                                      textAlign: TextAlign.center,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            margin:
+                                                                                EdgeInsets.symmetric(horizontal: 5),
+                                                                            child: state.travelRequest.data[Index].details.length > 0
+                                                                                ? AutoSizeText(
+                                                                                    state.travelRequest.data[Index].details[0].destinationCity,
+                                                                                    textAlign: TextAlign.start,
+                                                                                    maxLines: 1,
+                                                                                    minFontSize: 10,
+                                                                                    style: TextStyle(fontWeight: FontWeight.w900, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 14),
+                                                                                  )
+                                                                                : SizedBox(),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            margin: EdgeInsets.fromLTRB(
+                                                                                5,
+                                                                                5,
+                                                                                5,
+                                                                                0),
+                                                                            child: state.travelRequest.data[Index].details.length > 0
+                                                                                ? Text(
+                                                                                    state.travelRequest.data[Index].details[0].travellingCountryTo,
+                                                                                    textAlign: TextAlign.start,
+                                                                                    style: TextStyle(fontWeight: FontWeight.w300, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 13),
+                                                                                  )
+                                                                                : SizedBox(),
+                                                                          ),
+                                                                          Stack(
+                                                                            children: <Widget>[
+                                                                              Container(
+                                                                                child: Divider(
+                                                                                  color: AppConstants.TEXT_BACKGROUND_COLOR,
+                                                                                  height: 15,
+                                                                                ),
+                                                                              ),
+                                                                              Transform.rotate(
+                                                                                angle: 180 * math.pi / 180,
+                                                                                child: Container(
+                                                                                  height: 15,
+                                                                                  child: Align(
+                                                                                    alignment: Alignment.center,
+                                                                                    child: Image.asset('assets/images/plane_icon.png'),
+                                                                                  ),
+                                                                                ),
+                                                                              )
+                                                                            ],
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            margin: EdgeInsets.fromLTRB(
+                                                                                5,
+                                                                                0,
+                                                                                5,
+                                                                                0),
+                                                                            child:
+                                                                                Text(
+                                                                              "From",
+                                                                              textAlign: TextAlign.start,
+                                                                            ),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            margin:
+                                                                                EdgeInsets.symmetric(horizontal: 5),
+                                                                            child: state.travelRequest.data[Index].details.length > 0
+                                                                                ? Text(
+                                                                                    state.travelRequest.data[Index].details[0].sourceCity,
+                                                                                    textAlign: TextAlign.start,
+                                                                                    maxLines: 1,
+                                                                                    style: TextStyle(fontWeight: FontWeight.w900, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 15),
+                                                                                  )
+                                                                                : SizedBox(),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            margin: EdgeInsets.fromLTRB(
+                                                                                5,
+                                                                                5,
+                                                                                5,
+                                                                                0),
+                                                                            child: state.travelRequest.data[Index].details.length > 0
+                                                                                ? AutoSizeText(
+                                                                                    state.travelRequest.data[Index].details[0].travellingCountry,
+                                                                                    textAlign: TextAlign.start,
+                                                                                    minFontSize: 10,
+                                                                                    style: TextStyle(fontWeight: FontWeight.w300, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 13),
+                                                                                  )
+                                                                                : SizedBox(),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    // Expanded(
+                                                                    //   flex: 3,
+                                                                    //   child:
+                                                                    //       Container(
+                                                                    //     color: AppConstants
+                                                                    //         .BACKGROUND_COLOR_BOTTOM,
+                                                                    //     child:
+                                                                    //         Row(
+                                                                    //       children: [
+                                                                    //         Expanded(
+                                                                    //           flex: 2,
+                                                                    //           child: Column(
+                                                                    //             children: [
+                                                                    //               Container(
+                                                                    //                 width: 100.0,
+                                                                    //                 margin: EdgeInsets.all(5),
+                                                                    //                 child: Text(
+                                                                    //                   "Departure",
+                                                                    //                   textAlign: TextAlign.start,
+                                                                    //                 ),
+                                                                    //               ),
+                                                                    //               Container(
+                                                                    //                 width: 100.0,
+                                                                    //                 margin: EdgeInsets.symmetric(horizontal: 5),
+                                                                    //                 child: state.travelRequest.data[Index].details.length > 0
+                                                                    //                     ? AutoSizeText(
+                                                                    //                         getDepartureTime(state.travelRequest.data[Index].details[0].departureDate),
+                                                                    //                         textAlign: TextAlign.start,
+                                                                    //                         minFontSize: 16,
+                                                                    //                         style: TextStyle(fontWeight: FontWeight.w900, color: Colors.black, fontSize: 16),
+                                                                    //                       )
+                                                                    //                     : SizedBox(),
+                                                                    //               ),
+                                                                    //               Container(
+                                                                    //                 width: 100.0,
+                                                                    //                 margin: EdgeInsets.fromLTRB(5, 5, 5, 0),
+                                                                    //                 child: state.travelRequest.data[Index].details.length > 0
+                                                                    //                     ? AutoSizeText(
+                                                                    //                         getDepatureDate(state.travelRequest.data[Index].details[0].departureDate),
+                                                                    //                         textAlign: TextAlign.start,
+                                                                    //                         minFontSize: 12,
+                                                                    //                         maxFontSize: 15,
+                                                                    //                         style: TextStyle(fontWeight: FontWeight.w500, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 13),
+                                                                    //                       )
+                                                                    //                     : SizedBox(),
+                                                                    //               ),
+                                                                    //             ],
+                                                                    //           ),
+                                                                    //         ),
+                                                                    //         state.travelRequest.data[Index].travelReqStatus == '2'
+                                                                    //             ? Expanded(
+                                                                    //                 flex: 1,
+                                                                    //                 child: Container(
+                                                                    //                   foregroundDecoration: const RotatedCornerDecoration(
+                                                                    //                     color: Colors.orangeAccent,
+                                                                    //                     geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                    //                     textSpan: TextSpan(text: 'In Progress', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                    //                     labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                    //                   ),
+                                                                    //                 ),
+                                                                    //               )
+                                                                    //             : state.travelRequest.data[Index].travelReqStatus == '2'
+                                                                    //                 ? Expanded(
+                                                                    //                     flex: 1,
+                                                                    //                     child: Container(
+                                                                    //                       foregroundDecoration: const RotatedCornerDecoration(
+                                                                    //                         color: Colors.lightGreen,
+                                                                    //                         geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                    //                         textSpan: TextSpan(text: 'Approved', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                    //                         labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                    //                       ),
+                                                                    //                     ),
+                                                                    //                   )
+                                                                    //                 : state.travelRequest.data[Index].travelReqStatus == '1'
+                                                                    //                     ? Expanded(
+                                                                    //                         flex: 1,
+                                                                    //                         child: Container(
+                                                                    //                           foregroundDecoration: const RotatedCornerDecoration(
+                                                                    //                             color: Colors.yellow,
+                                                                    //                             geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                    //                             textSpan: TextSpan(text: 'Saved', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                    //                             labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                    //                           ),
+                                                                    //                         ),
+                                                                    //                       )
+                                                                    //                     : state.travelRequest.data[Index].travelReqStatus == '5'
+                                                                    //                         ? Expanded(
+                                                                    //                             flex: 1,
+                                                                    //                             child: Container(
+                                                                    //                               foregroundDecoration: const RotatedCornerDecoration(
+                                                                    //                                 color: Colors.red,
+                                                                    //                                 geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                    //                                 textSpan: TextSpan(text: 'Rejected', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                    //                                 labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                    //                               ),
+                                                                    //                             ),
+                                                                    //                           )
+                                                                    //                         : state.travelRequest.data[Index].travelReqStatus == '6'
+                                                                    //                             ? Expanded(
+                                                                    //                                 flex: 1,
+                                                                    //                                 child: Container(
+                                                                    //                                   foregroundDecoration: const RotatedCornerDecoration(
+                                                                    //                                     color: Colors.purple,
+                                                                    //                                     geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                    //                                     textSpan: TextSpan(text: 'Transferred', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                    //                                     labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                    //                                   ),
+                                                                    //                                 ),
+                                                                    //                               )
+                                                                    //                             : Expanded(
+                                                                    //                                 flex: 1,
+                                                                    //                                 child: Container(
+                                                                    //                                   foregroundDecoration: const RotatedCornerDecoration(
+                                                                    //                                     color: Colors.green,
+                                                                    //                                     geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                    //                                     textSpan: TextSpan(text: 'Closed', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                    //                                     labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                    //                                   ),
+                                                                    //                                 ),
+                                                                    //                               )
+                                                                    //       ],
+                                                                    //     ),
+                                                                    //   ),
+                                                                    // ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                      SizedBox(
+                                                        height: 10,
+                                                        width: 10,
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }),
+                                    ),
+                                  ),
+                                );
+                              }
+                            }
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          },
+                        )),
                     Container(
                       margin: EdgeInsets.fromLTRB(20, 10, 10, 10),
                       child: ReorderableWrap(

@@ -56,7 +56,7 @@ class _AddCity extends State<AddCity> {
   late var hostPhoneCountry; //= Country();
   late var clientPhoneCountry; // = Country();
   late TextEditingController ProjectTextController;
-  late TravelReqPayLoad req_data; //= TravelReqPayLoad();
+  TravelReqPayLoad req_data= TravelReqPayLoad();
   late BuildContext purposecontext;
   late UserInfo info;
   ApiProvider _appApiProvider = ApiProvider();
@@ -102,27 +102,27 @@ class _AddCity extends State<AddCity> {
     userdetails.add(data);
 
     TravelCity modelClass;
-    // modelClass = new TravelCity();
-    // modelClass.hide = index;
-    // modelClass.travellingCountryTo = "";
-    // modelClass.travellingCountry = "";
-    // modelClass.destinationCity = "";
-    // modelClass.sourceCity = "";
-    // modelClass.departureDate =
-    //     DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day)
-    //         .toIso8601String();
-    // modelClass.returnDate = "";
-    // modelClass.isClientLocation = false.toString();
-    // modelClass.accmodationStartDate = modelClass.departureDate;
-    // modelClass.clientNumberExt = 'Code';
-    // modelClass.hostPhoneExt = 'Code';
-    // modelClass.accmodationEndDate = "";
-    // modelClass.isClientLocation = false.toString();
-    // modelClass.isAccmodationRequired = false;
+    modelClass = new TravelCity();
+    modelClass.hide = index;
+    modelClass.travellingCountryTo = "";
+    modelClass.travellingCountry = "";
+    modelClass.destinationCity = "";
+    modelClass.sourceCity = "";
+    modelClass.departureDate =
+        DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day)
+            .toIso8601String();
+    modelClass.returnDate = "";
+    modelClass.isClientLocation = false.toString();
+    modelClass.accmodationStartDate = modelClass.departureDate;
+    modelClass.clientNumberExt = 'Code';
+    modelClass.hostPhoneExt = 'Code';
+    modelClass.accmodationEndDate = "";
+    modelClass.isClientLocation = false.toString();
+    modelClass.isAccmodationRequired = false;
     // modelClass.purposeList = null;
-    //
-    // modelClass.isDependent = false;
-    // traveldata.add(modelClass);
+
+    modelClass.isDependent = false;
+    traveldata.add(modelClass);
     req_data.homePhoneExt = 'Code';
     req_data.isLaptopRequired = false;
     req_data.haveLaptop = false;
@@ -280,18 +280,18 @@ class _AddCity extends State<AddCity> {
       body: Builder(
         builder: (ctx) => Container(
           margin: EdgeInsets.only(top: 10),
-          height: 100.0.h,
-          width: 100.0.w,
+          // height: 100.0.h,
+          // width: 100.0.w,
           child: ListView(
             children: [
               Container(
-                height: 82.0.h,
-                width: 100.0.w,
+                // height: 82.0.h,
+                // width: 100.0.w,
                 child: ListView(
                   children: [
                     Container(
-                      height: 10.0.w,
-                      width: 100.0.w,
+                      // height: 10.0.w,
+                      // width: 100.0.w,
                       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                       child: GestureDetector(
                         onTap: () async {
@@ -384,7 +384,7 @@ class _AddCity extends State<AddCity> {
                         Container(
                           margin:
                               EdgeInsets.symmetric(horizontal: 15, vertical: 2),
-                          height: 3.0.h,
+                          // height: 3.0.h,
                           alignment: Alignment.centerLeft,
                           child: new ListView.builder(
                             shrinkWrap: true,
@@ -409,8 +409,8 @@ class _AddCity extends State<AddCity> {
                                   });
                                 },
                                 child: Container(
-                                  width: 30,
-                                  height: 4.0.h,
+                                  // width: 30,
+                                  // height: 4.0.h,
                                   margin: EdgeInsets.only(right: 3),
                                   decoration: BoxDecoration(
                                     borderRadius:
@@ -438,8 +438,8 @@ class _AddCity extends State<AddCity> {
                           ),
                         ),
                         Container(
-                          height: 4.0.h,
-                          width: 30.0.w,
+                          // height: 4.0.h,
+                          // width: 30.0.w,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
@@ -485,16 +485,16 @@ class _AddCity extends State<AddCity> {
                       ],
                     ),
                     Container(
-                      width: 100.0.w,
-                      height: 2,
+                      // width: 100.0.w,
+                      // height: 2,
                       margin: EdgeInsets.symmetric(horizontal: 15),
                       color: AppConstants.APP_THEME_COLOR,
                     ),
                     Container(
                       margin: EdgeInsets.only(
                           left: 10, right: 15, top: 5, bottom: 5),
-                      height: 63.0.h,
-                      width: 100.0.w,
+                      // height: 63.0.h,
+                      // width: 100.0.w,
                       child: ScrollablePositionedList.builder(
                         itemScrollController: itemScrollController,
                         scrollDirection: Axis.horizontal,
@@ -504,7 +504,7 @@ class _AddCity extends State<AddCity> {
                           return Align(
                             alignment: Alignment.center,
                             child: Container(
-                              width: 92.0.w,
+                              // width: 92.0.w,
                               margin: EdgeInsets.symmetric(horizontal: 3),
                               child: SingleChildScrollView(
                                 controller: _listview_controller,
@@ -1254,8 +1254,8 @@ class _AddCity extends State<AddCity> {
                                                   ],
                                                 ),
                                                 SizedBox(
-                                                  height: 2,
-                                                  width: 100.0.w,
+                                                  // height: 2,
+                                                  // width: 100.0.w,
                                                   child: Container(
                                                     color: AppConstants
                                                         .APP_THEME_COLOR,
@@ -1515,8 +1515,8 @@ class _AddCity extends State<AddCity> {
                                                   onTap: () {},
                                                 ),
                                                 Container(
-                                                  height: 50,
-                                                  width: 100.0.w,
+                                                  // height: 50,
+                                                  // width: 100.0.w,
                                                   child: Row(
                                                     children: [
                                                       Expanded(
@@ -1616,7 +1616,7 @@ class _AddCity extends State<AddCity> {
                                                               .TEXT_BACKGROUND_COLOR),
                                                     ),
                                                     SizedBox(
-                                                      width: 5.0.w,
+                                                      // width: 5.0.w,
                                                     ),
                                                     Container(
                                                       child: RadioBtn(
@@ -1641,8 +1641,8 @@ class _AddCity extends State<AddCity> {
                                                 !getbool(traveldata[index]
                                                         .isClientLocation)
                                                     ? Container(
-                                                        width: 90.0.w,
-                                                        height: 40,
+                                                        // width: 90.0.w,
+                                                        // height: 40,
                                                         child: FormField<
                                                             PostLocationData>(
                                                           builder: (FormFieldState<
@@ -1747,8 +1747,8 @@ class _AddCity extends State<AddCity> {
                                                               onTap: () {},
                                                             ),
                                                             Container(
-                                                              height: 50,
-                                                              width: 100.0.w,
+                                                              // height: 50,
+                                                              // width: 100.0.w,
                                                               child: Row(
                                                                 children: [
                                                                   Expanded(
@@ -1977,7 +1977,7 @@ class _AddCity extends State<AddCity> {
                                             ),
                                           )
                                         : SizedBox(
-                                            height: 35.0.h,
+                                            // height: 35.0.h,
                                           ),
                                   ],
                                 ),
@@ -1996,8 +1996,8 @@ class _AddCity extends State<AddCity> {
                   right: 10,
                   left: 10,
                 ),
-                height: 5.0.h,
-                width: 100.0.w,
+                // height: 5.0.h,
+                // width: 100.0.w,
                 child: ElevatedButton(
                   // shape: RoundedRectangleBorder(
                   //     borderRadius: BorderRadius.circular(5.0),

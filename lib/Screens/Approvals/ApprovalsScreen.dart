@@ -209,8 +209,8 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
                         }
 
                         return Container(
-                          height: 100.0.h,
-                          width: 100.0.w,
+                          // height: 100.0,
+                          // width: 100.0,
                           color: Colors.transparent,
                           child: Center(
                             child: LoadingBouncingGrid.circle(
@@ -228,7 +228,7 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
-                                  height: 5.0.h,
+                                  // height: 5.0,
                                   child: TextButton(
                                     child: Text(
                                       'Reject',
@@ -328,7 +328,7 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
                                   ),
                                 ),
                                 Container(
-                                  height: 5.0.h,
+                                  // height: 5.0,
                                   child: TextButton(
                                     child: Text(
                                       'Approve',
@@ -623,7 +623,7 @@ void showDialog(BuildContext context,
       return Align(
         alignment: Alignment.topCenter,
         child: Container(
-          height: 300,
+          // height: 300,
           child: SizedBox.expand(
               child: Material(
             borderRadius: BorderRadius.circular(40),
