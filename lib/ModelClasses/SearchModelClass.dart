@@ -45,32 +45,33 @@ class SearchModel {
 }
 
 class SearchList {
-  late int _id;
-  late String _dateCreated;
-  late String _dateModified;
-  late dynamic _createdBy;
-  late dynamic _modifiedBy;
-  late dynamic _status;
-  late String _airportId;
-  late String _city;
-  late String _airportName;
-  late String _iataCode;
-  late String _icaoCode;
-  late String _country;
-  late String _column3;
-  late dynamic _column4;
-  late dynamic _column5;
-  late dynamic _column6;
-  late dynamic _column7;
-  late dynamic _column8;
-  late dynamic _column9;
-  late dynamic _column10;
-  late dynamic _column11;
-  late dynamic _column12;
-  late String _countryName;
+  int? _id;
+
+  String? _dateCreated;
+  String? _dateModified;
+  dynamic _createdBy;
+  dynamic _modifiedBy;
+  dynamic _status;
+  String? _airportId;
+  String? _city;
+  String? _airportName;
+  String? _iataCode;
+  String? _icaoCode;
+  String? _country;
+  String? _column3;
+  dynamic _column4;
+  dynamic _column5;
+  dynamic _column6;
+  dynamic _column7;
+  dynamic _column8;
+  dynamic _column9;
+  dynamic _column10;
+  dynamic _column11;
+  dynamic _column12;
+  String? _countryName;
 
   SearchList(
-      {required int id,
+     {required int id,
       required String dateCreated,
       required String dateModified,
       dynamic createdBy,
@@ -118,15 +119,15 @@ class SearchList {
     this._countryName = countryName;
   }
 
-  int get id => _id;
+  int get id => _id!;
 
   set id(int id) => _id = id;
 
-  String get dateCreated => _dateCreated;
+  String get dateCreated => _dateCreated!;
 
   set dateCreated(String dateCreated) => _dateCreated = dateCreated;
 
-  String get dateModified => _dateModified;
+  String get dateModified => _dateModified!;
 
   set dateModified(String dateModified) => _dateModified = dateModified;
 
@@ -142,31 +143,31 @@ class SearchList {
 
   set status(dynamic status) => _status = status;
 
-  String get airportId => _airportId;
+  String get airportId => _airportId!;
 
   set airportId(String airportId) => _airportId = airportId;
 
-  String get city => _city;
+  String get city => _city!;
 
   set city(String city) => _city = city;
 
-  String get airportName => _airportName;
+  String get airportName => _airportName!;
 
   set airportName(String airportName) => _airportName = airportName;
 
-  String get iataCode => _iataCode;
+  String get iataCode => _iataCode!;
 
   set iataCode(String iataCode) => _iataCode = iataCode;
 
-  String get icaoCode => _icaoCode;
+  String get icaoCode => _icaoCode!;
 
   set icaoCode(String icaoCode) => _icaoCode = icaoCode;
 
-  String get country => _country;
+  String get country => _country!;
 
   set country(String country) => _country = country;
 
-  String get column3 => _column3;
+  String get column3 => _column3!;
 
   set column3(String column3) => _column3 = column3;
 
@@ -206,7 +207,7 @@ class SearchList {
 
   set column12(dynamic column12) => _column12 = column12;
 
-  String get countryName => _countryName;
+  String get countryName => _countryName!;
 
   set countryName(String countryName) => _countryName = countryName;
 

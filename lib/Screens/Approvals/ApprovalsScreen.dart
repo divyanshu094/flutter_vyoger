@@ -121,7 +121,7 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
                           //     'data of state approval ${state.approvalModal.data.length}');
                           //      print(
                           //     'data of state approval ${_aprrovalsBloc}');
-                          return state.approvalModal.data.length == 0
+                          return state.approvalModal.data!.length == 0
                               ? Center(
                                   child: Text('No Any Approvals.'),
                                 )
@@ -129,7 +129,7 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
                                   child: ListView.builder(
                                       shrinkWrap: false,
                                       itemCount:
-                                          state.approvalModal.data.length,
+                                          state.approvalModal.data!.length,
                                       itemBuilder:
                                           (BuildContext context, int index) {
                                         return AnimationConfiguration
@@ -148,7 +148,7 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
                                                   _appApiProvider
                                                       .fetchViewTravelReq(state
                                                           .approvalModal
-                                                          .data[index]
+                                                          .data![index]
                                                           .travelReqId)
                                                       .then((value) =>
                                                           this.setState(() {
@@ -167,7 +167,7 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
                                                   color: Colors.transparent,
                                                   child: Cell(
                                                     state.approvalModal
-                                                        .data[index],
+                                                        .data![index],
                                                     where,
                                                     onSelected: (selectedrow) {
                                                       if (_mylist.length == 0) {
@@ -248,7 +248,7 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
                                           BulkApprovalJson model =
                                               BulkApprovalJson(
                                                   approvalLevel:
-                                                      element.approvalLevel,
+                                                      element.approvalLevel!,
                                                   approveAction: 'R',
                                                   currentTicketOwner: empCode,
                                                   modifiedBy: empCode,
@@ -347,7 +347,7 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
                                         BulkApprovalJson model =
                                             BulkApprovalJson(
                                                 approvalLevel:
-                                                    element.approvalLevel,
+                                                    element.approvalLevel!,
                                                 approveAction: 'A',
                                                 currentTicketOwner: empCode,
                                                 modifiedBy: empCode,
@@ -471,7 +471,7 @@ class _CellState extends State<Cell> {
                   children: [
                     TextWidget("Employee Name", 13.0, FontWeight.w100,
                         Colors.black54, 2.0),
-                    TextWidget(widget.fact.firstName + widget.fact.lastName,
+                    TextWidget(widget.fact.firstName! + widget.fact.lastName!,
                         15.0, FontWeight.w700, null, 7.0),
                     Row(
                       children: [
@@ -483,8 +483,8 @@ class _CellState extends State<Cell> {
                                   Colors.black54, 4.0),
                               TextWidget(
                                   getDepartureDate(
-                                      widget.fact.details.length > 0
-                                          ? widget.fact.details[0].departureDate
+                                      widget.fact.details!.length > 0
+                                          ? widget.fact.details![0].departureDate
                                           : " "),
                                   13.0,
                                   FontWeight.w600,
@@ -500,12 +500,12 @@ class _CellState extends State<Cell> {
                               TextWidget("To Date", 13.0, FontWeight.w100,
                                   Colors.black54, 4.0),
                               TextWidget(
-                                  getDepartureDate(widget.fact.details.length >
+                                  getDepartureDate(widget.fact.details!.length >
                                           0
                                       ? widget
                                           .fact
-                                          .details[
-                                              widget.fact.details.length - 1]
+                                          .details![
+                                              widget.fact.details!.length - 1]
                                           .returnDate
                                       : " "),
                                   13.0,
@@ -544,11 +544,11 @@ class _CellState extends State<Cell> {
                     ? Checkbox(
                         checkColor: Colors.white,
                         activeColor: AppConstants.APP_THEME_COLOR,
-                        value: widget.fact.isSelected,
+                        value: false,//widget.fact.isSelected,
                         onChanged: (bool? value) {
                           widget.onSelected(widget.fact);
                           this.setState(() {
-                            widget.fact.isSelected = !widget.fact.isSelected;
+                            // widget.fact.isSelected = !widget.fact.isSelected;
                           });
                           // widget.changeValue(value);
                         },

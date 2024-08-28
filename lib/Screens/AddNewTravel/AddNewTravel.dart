@@ -32,7 +32,6 @@ import 'package:mobility_sqr/Widgets/ToastCustom.dart';
 import 'package:mobility_sqr/Widgets/bordered_box.dart';
 import 'package:mobility_sqr/Widgets/textFieldProject.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:sizer/sizer.dart';
 
 class AddCity extends StatefulWidget {
   @override
@@ -56,7 +55,7 @@ class _AddCity extends State<AddCity> {
   late var hostPhoneCountry; //= Country();
   late var clientPhoneCountry; // = Country();
   late TextEditingController ProjectTextController;
-  TravelReqPayLoad req_data= TravelReqPayLoad();
+  TravelReqPayLoad req_data = TravelReqPayLoad();
   late BuildContext purposecontext;
   late UserInfo info;
   ApiProvider _appApiProvider = ApiProvider();
@@ -119,7 +118,7 @@ class _AddCity extends State<AddCity> {
     modelClass.accmodationEndDate = "";
     modelClass.isClientLocation = false.toString();
     modelClass.isAccmodationRequired = false;
-    // modelClass.purposeList = null;
+    modelClass.purposeList = <PurposeData>[];
 
     modelClass.isDependent = false;
     traveldata.add(modelClass);
@@ -170,35 +169,35 @@ class _AddCity extends State<AddCity> {
     userdetails.add(data);
     TravelCity modelClass;
 
-    // modelClass = new TravelCity();
-    // modelClass.travellingCountryTo = "";
-    // modelClass.travellingCountry = "";
-    // modelClass.destinationCity = "";
-    // modelClass.sourceCity = "";
-    // modelClass.hide = index;
-    // modelClass.departureDate = traveldata[index - 1].returnDate == ""
-    //     ? traveldata[index - 1].departureDate
-    //     : traveldata[index - 1].returnDate;
-    //
-    // if (traveldata.length >= 2) {
-    //   modelClass.departureDate = traveldata[index - 1].departureDate == null
-    //       ? DateTime(
-    //               DateTime.now().year, DateTime.now().month, DateTime.now().day)
-    //           .toIso8601String()
-    //       : traveldata[index - 1].departureDate;
-    // }
-    //
-    // modelClass.returnDate = "";
-    // modelClass.accmodationStartDate = modelClass.departureDate;
-    // modelClass.accmodationEndDate = "";
-    // modelClass.isClientLocation = false.toString();
-    // modelClass.clientNumberExt = 'Code';
-    // modelClass.hostPhoneExt = 'Code';
-    // modelClass.isAccmodationRequired = false;
-    // modelClass.sourceCity = traveldata[index - 1].destinationCity;
-    // modelClass.travellingCountry = traveldata[index - 1].travellingCountryTo;
-    // modelClass.isDependent = false;
-    // modelClass.dependentData = [];
+    modelClass = new TravelCity();
+    modelClass.travellingCountryTo = "";
+    modelClass.travellingCountry = "";
+    modelClass.destinationCity = "";
+    modelClass.sourceCity = "";
+    modelClass.hide = index;
+    modelClass.departureDate = traveldata[index - 1].returnDate == ""
+        ? traveldata[index - 1].departureDate
+        : traveldata[index - 1].returnDate;
+
+    if (traveldata.length >= 2) {
+      modelClass.departureDate = traveldata[index - 1].departureDate == null
+          ? DateTime(
+                  DateTime.now().year, DateTime.now().month, DateTime.now().day)
+              .toIso8601String()
+          : traveldata[index - 1].departureDate;
+    }
+
+    modelClass.returnDate = "";
+    modelClass.accmodationStartDate = modelClass.departureDate;
+    modelClass.accmodationEndDate = "";
+    modelClass.isClientLocation = false.toString();
+    modelClass.clientNumberExt = 'Code';
+    modelClass.hostPhoneExt = 'Code';
+    modelClass.isAccmodationRequired = false;
+    modelClass.sourceCity = traveldata[index - 1].destinationCity;
+    modelClass.travellingCountry = traveldata[index - 1].travellingCountryTo;
+    modelClass.isDependent = false;
+    modelClass.dependentData = [];
     req_data.homePhoneExt = 'Code';
     req_data.isLaptopRequired = false;
     req_data.haveLaptop = false;
@@ -262,14 +261,12 @@ class _AddCity extends State<AddCity> {
         titleSpacing: 0.0,
         title: Hero(
           tag: "travel-req",
-          child: Material(
-            child: Text(
-              "New Request",
-              style: TextStyle(
-                  color: AppConstants.TEXT_BACKGROUND_COLOR,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800),
-            ),
+          child: Text(
+            "New Request",
+            style: TextStyle(
+                color: AppConstants.TEXT_BACKGROUND_COLOR,
+                fontSize: 18,
+                fontWeight: FontWeight.w800),
           ),
         ),
         actions: [GetNotificationIcon(context)],
@@ -280,18 +277,19 @@ class _AddCity extends State<AddCity> {
       body: Builder(
         builder: (ctx) => Container(
           margin: EdgeInsets.only(top: 10),
-          // height: 100.0.h,
-          // width: 100.0.w,
+          height: double.infinity,
+          // width: 100,
           child: ListView(
             children: [
               Container(
-                // height: 82.0.h,
-                // width: 100.0.w,
+                height: MediaQuery.sizeOf(context).height - 150,
+                width: MediaQuery.sizeOf(context).width,
+                // width: 100,
                 child: ListView(
                   children: [
                     Container(
-                      // height: 10.0.w,
-                      // width: 100.0.w,
+                      // height: 10,
+                      // width: 100,
                       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                       child: GestureDetector(
                         onTap: () async {
@@ -384,7 +382,7 @@ class _AddCity extends State<AddCity> {
                         Container(
                           margin:
                               EdgeInsets.symmetric(horizontal: 15, vertical: 2),
-                          // height: 3.0.h,
+                          height: 30,
                           alignment: Alignment.centerLeft,
                           child: new ListView.builder(
                             shrinkWrap: true,
@@ -409,8 +407,8 @@ class _AddCity extends State<AddCity> {
                                   });
                                 },
                                 child: Container(
-                                  // width: 30,
-                                  // height: 4.0.h,
+                                  width: 30,
+                                  // height: 40,
                                   margin: EdgeInsets.only(right: 3),
                                   decoration: BoxDecoration(
                                     borderRadius:
@@ -439,7 +437,7 @@ class _AddCity extends State<AddCity> {
                         ),
                         Container(
                           // height: 4.0.h,
-                          // width: 30.0.w,
+                          // width: 30,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
@@ -485,16 +483,16 @@ class _AddCity extends State<AddCity> {
                       ],
                     ),
                     Container(
-                      // width: 100.0.w,
-                      // height: 2,
+                      // width: 100,
+                      height: 2,
                       margin: EdgeInsets.symmetric(horizontal: 15),
                       color: AppConstants.APP_THEME_COLOR,
                     ),
                     Container(
                       margin: EdgeInsets.only(
                           left: 10, right: 15, top: 5, bottom: 5),
-                      // height: 63.0.h,
-                      // width: 100.0.w,
+                      height: 500,
+                      width: MediaQuery.sizeOf(context).width,
                       child: ScrollablePositionedList.builder(
                         itemScrollController: itemScrollController,
                         scrollDirection: Axis.horizontal,
@@ -504,7 +502,7 @@ class _AddCity extends State<AddCity> {
                           return Align(
                             alignment: Alignment.center,
                             child: Container(
-                              // width: 92.0.w,
+                              width: MediaQuery.sizeOf(context).width-35,
                               margin: EdgeInsets.symmetric(horizontal: 3),
                               child: SingleChildScrollView(
                                 controller: _listview_controller,
@@ -516,6 +514,7 @@ class _AddCity extends State<AddCity> {
                                         Expanded(
                                           flex: 1,
                                           child: Container(
+                                            width: 100,
                                             child: CustomColumnEditText(
                                               "Start location",
                                               traveldata[index].sourceCity,
@@ -546,7 +545,7 @@ class _AddCity extends State<AddCity> {
                                                     try {
                                                       _appApiProvider.GetPerDiem(
                                                               traveldata[index]
-                                                                  .toCountryData
+                                                                  .toCountryData!
                                                                   .countryName,
                                                               traveldata[index]
                                                                   .travellingCountry)
@@ -583,6 +582,7 @@ class _AddCity extends State<AddCity> {
                                                 }
 
                                                 return Container(
+                                                  width: 200,
                                                   child: CustomColumnEditText(
                                                     "Destination ",
                                                     traveldata[index]
@@ -1029,9 +1029,9 @@ class _AddCity extends State<AddCity> {
 
                                                                 _appApiProvider.GetTravelVisa(
                                                                         traveldata[index]
-                                                                            .travelPurpose,
+                                                                            .travelPurpose!,
                                                                         traveldata[index]
-                                                                            .toCountryData
+                                                                            .toCountryData!
                                                                             .countryName)
                                                                     .then((value) =>
                                                                         SetValueTravelReq(
@@ -1063,7 +1063,7 @@ class _AddCity extends State<AddCity> {
                                                                         left:
                                                                             8),
                                                                 child: Text(
-                                                                  "${traveldata[index].travelPurpose}",
+                                                                  "${traveldata[index]?.travelPurpose}",
                                                                   style: TextStyle(
                                                                       color: Colors
                                                                           .black,
@@ -1255,7 +1255,7 @@ class _AddCity extends State<AddCity> {
                                                 ),
                                                 SizedBox(
                                                   // height: 2,
-                                                  // width: 100.0.w,
+                                                  // width: 100,
                                                   child: Container(
                                                     color: AppConstants
                                                         .APP_THEME_COLOR,
@@ -1452,7 +1452,8 @@ class _AddCity extends State<AddCity> {
                                                     ),
                                                     check_tick_mark(
                                                             traveldata[index]
-                                                                .agenda)
+                                                                    .agenda ??
+                                                                "")
                                                         ? Expanded(
                                                             flex: 1,
                                                             child: Container(
@@ -1476,7 +1477,8 @@ class _AddCity extends State<AddCity> {
                                                             context,
                                                             AddAgenda(
                                                               traveldata[index]
-                                                                  .agenda,
+                                                                      .agenda ??
+                                                                  "",
                                                               onchange: (text) {
                                                                 this.setState(
                                                                     () {
@@ -1516,7 +1518,7 @@ class _AddCity extends State<AddCity> {
                                                 ),
                                                 Container(
                                                   // height: 50,
-                                                  // width: 100.0.w,
+                                                  // width: 100,
                                                   child: Row(
                                                     children: [
                                                       Expanded(
@@ -1616,8 +1618,8 @@ class _AddCity extends State<AddCity> {
                                                               .TEXT_BACKGROUND_COLOR),
                                                     ),
                                                     SizedBox(
-                                                      // width: 5.0.w,
-                                                    ),
+                                                        // width: 5,
+                                                        ),
                                                     Container(
                                                       child: RadioBtn(
                                                         "Office location",
@@ -1641,8 +1643,8 @@ class _AddCity extends State<AddCity> {
                                                 !getbool(traveldata[index]
                                                         .isClientLocation)
                                                     ? Container(
-                                                        // width: 90.0.w,
-                                                        // height: 40,
+                                                        width: 90,
+                                                        height: 40,
                                                         child: FormField<
                                                             PostLocationData>(
                                                           builder: (FormFieldState<
@@ -1690,7 +1692,7 @@ class _AddCity extends State<AddCity> {
                                                                           null
                                                                       ? traveldata[
                                                                               index]
-                                                                          .postLocationList
+                                                                          .postLocationList!
                                                                           .map((PostLocationData
                                                                               value) {
                                                                           return DropdownMenuItem<
@@ -1748,7 +1750,7 @@ class _AddCity extends State<AddCity> {
                                                             ),
                                                             Container(
                                                               // height: 50,
-                                                              // width: 100.0.w,
+                                                              // width: 100,
                                                               child: Row(
                                                                 children: [
                                                                   Expanded(
@@ -1905,7 +1907,7 @@ class _AddCity extends State<AddCity> {
                                                                       Colors
                                                                           .grey,
                                                                   disabled: traveldata[index]
-                                                                              .travelPurpose
+                                                                              .travelPurpose!
                                                                               .toLowerCase() ==
                                                                           "business"
                                                                       ? true
@@ -1978,7 +1980,7 @@ class _AddCity extends State<AddCity> {
                                           )
                                         : SizedBox(
                                             // height: 35.0.h,
-                                          ),
+                                            ),
                                   ],
                                 ),
                               ),
@@ -1997,7 +1999,7 @@ class _AddCity extends State<AddCity> {
                   left: 10,
                 ),
                 // height: 5.0.h,
-                // width: 100.0.w,
+                // width: 100,
                 child: ElevatedButton(
                   // shape: RoundedRectangleBorder(
                   //     borderRadius: BorderRadius.circular(5.0),
@@ -2221,7 +2223,7 @@ class _AddCity extends State<AddCity> {
   }
 
   Validator(TravelReqPayLoad formdata) {
-    if (formdata.projectName.isEmpty) {
+    if (formdata.projectName!.isEmpty) {
       return false;
     }
 

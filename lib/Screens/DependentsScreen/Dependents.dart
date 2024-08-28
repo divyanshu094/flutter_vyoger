@@ -119,7 +119,7 @@ class _DependentsState extends State<Dependents> {
                     textAlign: TextAlign.center,
                   ),
 
-                  // minWidth: 90.0.w,
+                  // minWidth: 90,
                   // textColor: Colors.white,
                   onPressed: () {
                     Navigator.pop(context, list);

@@ -98,12 +98,12 @@ class _SearchPlaceState extends State<SearchPlace> {
                       }
                       if (state is SearchClassError) {
                         return Container(
-                          width: 100.0.w,
-                          height: 50.0.h,
+                          width: 100,
+                          height: 50,
                           child: Center(
                               child: Container(
-                            width: 100.0.w,
-                            height: 50.0.h,
+                            width: 100,
+                            height: 50,
                             child: Column(
                               children: [
                                 Image.asset(
@@ -130,8 +130,8 @@ class _SearchPlaceState extends State<SearchPlace> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    height: 20.0.w,
-                                    width: 100.0.w,
+                                    height: 100,
+                                    width: 100,
                                     margin: EdgeInsets.symmetric(horizontal: 5),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5.0),
@@ -149,7 +149,7 @@ class _SearchPlaceState extends State<SearchPlace> {
                                         Expanded(
                                           flex: 8,
                                           child: Container(
-                                            height: 100.0.h,
+                                            height: 100,
                                             child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
@@ -202,7 +202,7 @@ class _SearchPlaceState extends State<SearchPlace> {
                                         Expanded(
                                           flex: 2,
                                           child: Container(
-                                            height: 100.0.h,
+                                            height: 100,
                                             child: Center(
                                               child: Text(
                                                 state.location.data[index]

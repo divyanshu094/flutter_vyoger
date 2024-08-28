@@ -27,7 +27,7 @@ class _CityListState extends State<ActivitiesList> {
   Widget build(BuildContext context) {
     return Container(
       height: 100.0.h,
-      width: 100.0.w,
+      width: 100,
       child: Column(
         children: [
           Padding(

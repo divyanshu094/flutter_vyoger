@@ -1,22 +1,22 @@
 class eventPost {
-  late String _empCode;
-  late String _fromDate;
-  late String _toDate;
-  late String _countryCode;
-  late String _countryName;
-  late String _cityCode;
-  late String _cityName;
-  late String _activity;
+  String? _empCode;
+  String? _fromDate;
+  String? _toDate;
+  String? _countryCode;
+  String? _countryName;
+  String? _cityCode;
+  String? _cityName;
+  String? _activity;
 
   eventPost(
-      { required String empCode,
-        required String fromDate,
-        required String toDate,
-        required String countryCode,
-        required String countryName,
-        required String cityCode,
-        required String cityName,
-        required String activity}) {
+      {String? empCode,
+      String? fromDate,
+      String? toDate,
+      String? countryCode,
+      String? countryName,
+      String? cityCode,
+      String? cityName,
+      String? activity}) {
     this._empCode = empCode;
     this._fromDate = fromDate;
     this._toDate = toDate;
@@ -27,21 +27,36 @@ class eventPost {
     this._activity = activity;
   }
 
-  String get empCode => _empCode;
+  String get empCode => _empCode!;
+
   set empCode(String empCode) => _empCode = empCode;
-  String get fromDate => _fromDate;
+
+  String get fromDate => _fromDate!;
+
   set fromDate(String fromDate) => _fromDate = fromDate;
-  String get toDate => _toDate;
+
+  String get toDate => _toDate!;
+
   set toDate(String toDate) => _toDate = toDate;
-  String get countryCode => _countryCode;
+
+  String get countryCode => _countryCode!;
+
   set countryCode(String countryCode) => _countryCode = countryCode;
-  String get countryName => _countryName;
+
+  String get countryName => _countryName!;
+
   set countryName(String countryName) => _countryName = countryName;
-  String get cityCode => _cityCode;
+
+  String get cityCode => _cityCode!;
+
   set cityCode(String cityCode) => _cityCode = cityCode;
-  String get cityName => _cityName;
+
+  String get cityName => _cityName!;
+
   set cityName(String cityName) => _cityName = cityName;
-  String get activity => _activity;
+
+  String get activity => _activity!;
+
   set activity(String activity) => _activity = activity;
 
   eventPost.fromJson(Map<String, dynamic> json) {

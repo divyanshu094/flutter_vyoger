@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mobility_sqr/Constants/AppConstants.dart';
-import 'package:sizer/sizer.dart';
 
 class CustomColumnEditText extends StatefulWidget {
   VoidCallback onTap;
@@ -9,13 +8,8 @@ class CustomColumnEditText extends StatefulWidget {
   int Type;
   bool hide = false;
 
-  CustomColumnEditText(
-      @required this.hint,
-      @required this.placename,
-      @required this.countryname,
-      @required this.header,
-      @required this.Type,
-      this.hide,
+  CustomColumnEditText(this.hint, this.placename, this.countryname, this.header,
+      this.Type, this.hide,
       {required this.onTap});
 
   @override
@@ -32,7 +26,7 @@ class _CustomColumnEditTextState extends State<CustomColumnEditText> {
       child: Column(
         children: [
           Container(
-            width: 100.0.w,
+            width: 100,
             child: Text(
               widget.header,
               style: TextStyle(
@@ -44,8 +38,8 @@ class _CustomColumnEditTextState extends State<CustomColumnEditText> {
             ),
           ),
           Container(
-              width: 100.0.w,
-              height: 5.0.h,
+              width: 180,
+              height: 30,
               child: widget.placename == ''
                   ? TextFormField(
                       initialValue: widget.placename,
@@ -78,8 +72,8 @@ class _CustomColumnEditTextState extends State<CustomColumnEditText> {
                       },
                     )
                   : Container(
-                      width: 100.0.w,
-                      height: 5.0.h,
+                      width: 100,
+                      height: 5,
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Row(
@@ -95,9 +89,12 @@ class _CustomColumnEditTextState extends State<CustomColumnEditText> {
                               ),
                             ),
                             widget.hide
-                                ? SizedBox(width: 0,height: 0,)
+                                ? SizedBox(
+                                    width: 0,
+                                    height: 0,
+                                  )
                                 : Expanded(
-                              flex: 1,
+                                    flex: 1,
                                     child: widget.Type == 1
                                         ? Icon(
                                             Icons.search,
@@ -113,7 +110,7 @@ class _CustomColumnEditTextState extends State<CustomColumnEditText> {
                       ),
                     )),
           Container(
-              width: 100.0.w,
+              width: 100,
               child: Text(
                 widget.countryname,
                 style: TextStyle(

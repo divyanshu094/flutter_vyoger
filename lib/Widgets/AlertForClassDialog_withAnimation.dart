@@ -14,7 +14,7 @@ import 'package:sizer/sizer.dart';
 //           decoration: BoxDecoration(
 //           borderRadius: BorderRadius.all(Radius.circular(20)),),
 //
-//             width: 100.0.w,
+//             width: 100,
 //             margin: EdgeInsets.symmetric(horizontal: 10),
 //             height: 40.0.h,
 //             child: mywidget),

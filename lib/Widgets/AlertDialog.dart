@@ -14,7 +14,7 @@ void showAlert(BuildContext context, String msg) {
         alignment: Alignment.center,
         child: Container(
             height: 300,
-            width: 90.0.w,
+            width: 90,
             child: Stack(
               children: <Widget>[
                 Container(

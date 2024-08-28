@@ -5,7 +5,6 @@ import 'package:mobility_sqr/ApiCall/Repository.dart';
 import 'package:mobility_sqr/Constants/AppConstants.dart';
 import 'package:mobility_sqr/Screens/ProjectName/project_id_bloc.dart';
 import 'package:mobility_sqr/Widgets/MobilityLoader.dart';
-import 'package:sizer/sizer.dart';
 
 class ProjectIdScreen extends StatefulWidget {
   final Repository repository = Repository();
@@ -92,8 +91,8 @@ class _ProjectIdScreen extends State<ProjectIdScreen> {
                       if (state is ProjectIdError) {
                         return Center(
                           child: Container(
-                            width: 100.0.w,
-                            height: 50.0.h,
+                            width: MediaQuery.sizeOf(context).width,
+                            height: 500,
                             child: Column(
                               children: [
                                 Image.asset(
@@ -121,8 +120,8 @@ class _ProjectIdScreen extends State<ProjectIdScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(
-                                    height: 8.0.h,
-                                    width: 100.0.w,
+                                    height: 50,
+                                    width: 100,
                                     margin: EdgeInsets.symmetric(horizontal: 5),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5.0),
@@ -144,7 +143,7 @@ class _ProjectIdScreen extends State<ProjectIdScreen> {
                                         Expanded(
                                           flex: 8,
                                           child: Container(
-                                            // height: 100.0.h,
+                                            // height: 100,
                                             child: Column(
                                               // crossAxisAlignment: CrossAxisAlignment.center,
                                               mainAxisAlignment:
@@ -210,7 +209,7 @@ class _ProjectIdScreen extends State<ProjectIdScreen> {
                                         //     child: Container(
                                         //       // padding:
                                         //       //  EdgeInsets.all(15),
-                                        //       //height: 100.0.h,
+                                        //       //height: 100,
                                         //       child: Text(
                                         //         state.projectIdModel.data[index]
                                         //             .pid,

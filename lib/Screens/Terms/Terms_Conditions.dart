@@ -26,13 +26,13 @@ class Terms extends StatelessWidget {
         ),
         body: Container(
           margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-         width: 100.0.w,
+         width: 100,
           child: Column(
             children: [
               Expanded(
                   flex: 8,
                   child: Container(
-                    width: 90.0.w,
+                    width: 90,
                       child: SingleChildScrollView(
                     child: Text("The \"firm\" takes the issue of Data Protection seriously and will process the personal details provided to us "
                         "on this form and during the course of your employment with the firm (the \"Information\") in accordance with the Data "
@@ -111,7 +111,7 @@ class Terms extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                         // height: 40,
-                        // minWidth: 85.0.w,
+                        // minWidth: 85,
                         // textColor: Colors.white,
                         // color: AppConstants.APP_THEME_COLOR,
                         // shape: RoundedRectangleBorder(
@@ -131,7 +131,7 @@ class Terms extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                         // height: 40,
-                        // minWidth: 20.0.w,
+                        // minWidth: 20,
                         // textColor: AppConstants.APP_THEME_COLOR,
                         onPressed: () {
                           Navigator.pushNamed(context, '/');

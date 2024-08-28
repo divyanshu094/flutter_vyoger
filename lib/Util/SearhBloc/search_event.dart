@@ -7,7 +7,7 @@ abstract class SearchEvent  {
 class FetchSearchResult extends SearchEvent {
   final String query;
 
-  const FetchSearchResult(@required this.query) ;
+  const FetchSearchResult(this.query) ;
 
   @override
   List<Object> get props => [];

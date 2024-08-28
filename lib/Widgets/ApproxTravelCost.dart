@@ -201,7 +201,7 @@ class _ApproxTravelCostState extends State<ApproxTravelCost> {
     }).toList();
     return Container(
       height: 100.0.h,
-      width: 100.0.w,
+      width: 100,
       child: Column(children: [
         CarouselSlider(
           items: CostList,

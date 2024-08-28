@@ -14,21 +14,21 @@ class AprrovalsBloc extends Bloc<AprrovalsEvent, AprrovalsState> {
 
   AprrovalsBloc(this.repository) : super(AprrovalsInitial()) {
     on<AprrovalsEvent>((event, emit) async {
-      AprrovalsLoading();
+      emit(AprrovalsLoading());
       if (event is Fetch_travel_req_approver) {
         try {
           final ApprovalModal quote = await repository.fetch_Aprroval_list();
-          AprrovalsLoaded(approvalModal: quote);
+          emit(AprrovalsLoaded(approvalModal: quote));
         } catch (_) {
-          AprrovalsError("Couldn't Fetch Data");
+          emit(AprrovalsError("Couldn't Fetch Data"));
         }
       }
       if (event is Fetch_previous_req) {
         try {
           final ApprovalModal quote = await repository.fetch_travel_req();
-          AprrovalsLoaded(approvalModal: quote);
+          emit(AprrovalsLoaded(approvalModal: quote));
         } catch (_) {
-          AprrovalsError("Couldn't Fetch Data");
+          emit(AprrovalsError("Couldn't Fetch Data"));
         }
       }
     });

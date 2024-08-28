@@ -12,7 +12,7 @@ import 'package:mobility_sqr/Screens/TravelCalendar/AddEvent.dart';
 import 'package:sizer/sizer.dart';
 
 class TravelCalender extends StatefulWidget {
-  TravelCalender({required Key key}) : super(key: key);
+  TravelCalender({Key? key}) : super(key: key);
 
   @override
   _TravelCalenderState createState() => _TravelCalenderState();
@@ -349,7 +349,7 @@ class _TravelCalenderState extends State<TravelCalender>
                                     ? Column(
                                         children: [
                                           Container(
-                                            width: 100.0.w,
+                                            width: 100,
                                             height: 70,
                                             decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.only(
@@ -368,7 +368,7 @@ class _TravelCalenderState extends State<TravelCalender>
                                           ),
                                           Container(
                                             margin: EdgeInsets.symmetric(
-                                                horizontal: 5.0.w,
+                                                horizontal: 5,
                                                 vertical: 10),
                                             child: Row(
                                                 mainAxisAlignment:
@@ -376,7 +376,7 @@ class _TravelCalenderState extends State<TravelCalender>
                                                         .spaceBetween,
                                                 children: [
                                                   SizedBox(
-                                                    width: 20.0.w,
+                                                    width: 20,
                                                     child: Text(
                                                       'Activity',
                                                       textAlign:
@@ -389,7 +389,7 @@ class _TravelCalenderState extends State<TravelCalender>
                                                     ),
                                                   ),
                                                   SizedBox(
-                                                    width: 20.0.w,
+                                                    width: 20,
                                                     child: Text(
                                                       "Location",
                                                       textAlign:
@@ -402,7 +402,7 @@ class _TravelCalenderState extends State<TravelCalender>
                                                     ),
                                                   ),
                                                   SizedBox(
-                                                    width: 20.0.w,
+                                                    width: 20,
                                                     child: Text(
                                                       "Edit",
                                                       textAlign: TextAlign.end,
@@ -417,7 +417,7 @@ class _TravelCalenderState extends State<TravelCalender>
                                           ),
                                           Container(
                                             margin: EdgeInsets.symmetric(
-                                                horizontal: 5.0.w,
+                                                horizontal: 5,
                                                 vertical: 10),
                                             child: Row(
                                                 mainAxisAlignment:
@@ -425,7 +425,7 @@ class _TravelCalenderState extends State<TravelCalender>
                                                         .spaceBetween,
                                                 children: [
                                                   SizedBox(
-                                                    width: 20.0.w,
+                                                    width: 20,
                                                     child: AutoSizeText(
                                                       '${_selectedEvents[index].activity.toString().contains("Holiday") ? "Holiday" : _selectedEvents[index].activity}',
                                                       maxLines: 1,
@@ -441,7 +441,7 @@ class _TravelCalenderState extends State<TravelCalender>
                                                     ),
                                                   ),
                                                   SizedBox(
-                                                    width: 35.0.w,
+                                                    width: 35,
                                                     child: Text(
                                                       "${_selectedEvents[index].cityName} / ${_selectedEvents[index].countryName}",
                                                       textAlign:
@@ -471,7 +471,7 @@ class _TravelCalenderState extends State<TravelCalender>
                                                       setCalendarValue(result);
                                                     },
                                                     child: SizedBox(
-                                                        width: 20.0.w,
+                                                        width: 20,
                                                         child: Align(
                                                             alignment: Alignment
                                                                 .centerRight,
@@ -485,13 +485,13 @@ class _TravelCalenderState extends State<TravelCalender>
                                     :
                                     // Container(
                                     //         margin: EdgeInsets.symmetric(
-                                    //             horizontal: 5.0.w, vertical: 10),
+                                    //             horizontal: 5, vertical: 10),
                                     //         child: Row(
                                     //             mainAxisAlignment:
                                     //                 MainAxisAlignment.spaceBetween,
                                     //             children: [
                                     //               SizedBox(
-                                    //                 width: 20.0.w,
+                                    //                 width: 20,
                                     //                 child: AutoSizeText(
                                     //                   '${_selectedEvents[index].activity.toString().contains("Holiday") ? "Holiday" : _selectedEvents[index].activity}',
                                     //                   maxLines: 1,
@@ -505,7 +505,7 @@ class _TravelCalenderState extends State<TravelCalender>
                                     //                 ),
                                     //               ),
                                     //               SizedBox(
-                                    //                 width: 35.0.w,
+                                    //                 width: 35,
                                     //                 child: Text(
                                     //                   "${_selectedEvents[index].cityName} / ${_selectedEvents[index].countryName}",
                                     //                   textAlign: TextAlign.center,
@@ -534,7 +534,7 @@ class _TravelCalenderState extends State<TravelCalender>
                                     //                   setCalendarValue(result);
                                     //                 },
                                     //                 child: SizedBox(
-                                    //                     width: 20.0.w,
+                                    //                     width: 20,
                                     //                     child: Align(
                                     //                         alignment: Alignment
                                     //                             .centerRight,

@@ -215,8 +215,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
-                      margin: EdgeInsets.symmetric(
-                          horizontal: 5.0.w, vertical: 1.0.h),
+                      margin: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -250,7 +249,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                       height: 10,
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5.0.w),
+                      margin: EdgeInsets.symmetric(horizontal: 5),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -289,7 +288,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                           Container(
                             margin: EdgeInsets.symmetric(
                                 horizontal: 15, vertical: 2),
-                            height: 3.0.h,
+                            height: 30,
                             alignment: Alignment.centerLeft,
                             child: new ListView.builder(
                               shrinkWrap: true,
@@ -313,7 +312,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                   },
                                   child: Container(
                                     width: 30,
-                                    height: 4.0.h,
+                                    height: 4,
                                     margin: EdgeInsets.only(right: 3),
                                     decoration: BoxDecoration(
                                       borderRadius:
@@ -342,7 +341,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                           ),
                         ]),
                     Container(
-                      width: 100.0.w,
+                      width: MediaQuery.sizeOf(context).width,
                       height: 2,
                       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 2),
                       color: AppConstants.APP_THEME_COLOR,
@@ -353,7 +352,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                             physics: NeverScrollableScrollPhysics(),
                             children: [
                               Container(
-                                margin: EdgeInsets.symmetric(horizontal: 5.0.w),
+                                margin: EdgeInsets.symmetric(horizontal: 5),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -402,7 +401,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.symmetric(horizontal: 5.0.w),
+                                margin: EdgeInsets.symmetric(horizontal: 5),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -450,7 +449,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                       children: [
                                         Container(
                                           margin: EdgeInsets.symmetric(
-                                              horizontal: 5.0.w),
+                                              horizontal: 5),
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
@@ -507,7 +506,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                                 .isAccmodationRequired
                                             ? Container(
                                                 margin: EdgeInsets.symmetric(
-                                                    horizontal: 5.0.w),
+                                                    horizontal: 5),
                                                 child: Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
@@ -563,9 +562,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                           children: [
                                             Container(
                                               margin: EdgeInsets.only(
-                                                  left: 5.0.w,
-                                                  right: 5.0.w,
-                                                  top: 22),
+                                                  left: 5, right: 5, top: 22),
                                               child: Row(children: <Widget>[
                                                 Text(
                                                   "Host Contact",
@@ -673,7 +670,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                         ),
                                         Container(
                                           margin: EdgeInsets.symmetric(
-                                              horizontal: 5.0.w),
+                                              horizontal: 5),
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
@@ -724,7 +721,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                         ),
                                         Container(
                                           margin: EdgeInsets.symmetric(
-                                              horizontal: 5.0.w),
+                                              horizontal: 5),
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
@@ -771,7 +768,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                         list.details[index].isClientLocation
                                             ? Container(
                                                 margin: EdgeInsets.symmetric(
-                                                    horizontal: 5.0.w),
+                                                    horizontal: 5),
                                                 child: Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
@@ -818,8 +815,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                         ),
                                         Container(
                                           margin: EdgeInsets.symmetric(
-                                              horizontal: 5.0.w,
-                                              vertical: 1.0.h),
+                                              horizontal: 5, vertical: 1),
                                           child: Row(
                                             children: [
                                               Text(
@@ -853,8 +849,8 @@ class _TravelReqViewState extends State<TravelReqView> {
                                 thickness: 5,
                               ),
                               Container(
-                                margin: EdgeInsets.only(
-                                    left: 5.0.w, right: 5.0.w, top: 20),
+                                margin:
+                                    EdgeInsets.only(left: 5, right: 5, top: 20),
                                 child: Row(children: <Widget>[
                                   Text(
                                     "Home Contact",
@@ -872,7 +868,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                               ),
                               Container(
                                 margin: EdgeInsets.symmetric(
-                                    horizontal: 5.0.w, vertical: 1.0.h),
+                                    horizontal: 5, vertical: 1),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -908,7 +904,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                   color: AppConstants.TEXT_BACKGROUND_COLOR,
                                   thickness: .3),
                               Container(
-                                margin: EdgeInsets.symmetric(horizontal: 5.0.w),
+                                margin: EdgeInsets.symmetric(horizontal: 5),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -960,7 +956,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                 alignment: Alignment.centerLeft,
                                 child: Container(
                                   margin: EdgeInsets.symmetric(
-                                      horizontal: 5.0.w, vertical: 1.0.h),
+                                      horizontal: 5, vertical: 1),
                                   child: Text(
                                     "Additional Note",
                                     style: TextStyle(
@@ -974,8 +970,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Container(
-                                  margin:
-                                      EdgeInsets.symmetric(horizontal: 5.0.w),
+                                  margin: EdgeInsets.symmetric(horizontal: 5),
                                   child: Text(
                                     "${IsNullCheck(list.remark) ? list.remark : " "}",
                                     style: TextStyle(
@@ -987,9 +982,9 @@ class _TravelReqViewState extends State<TravelReqView> {
                                 ),
                               ),
                               Container(
-                                width: 100.0.w,
+                                width: 100,
                                 margin: EdgeInsets.symmetric(
-                                    horizontal: 5.0.w, vertical: 1.0.h),
+                                    horizontal: 5, vertical: 1),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -1156,7 +1151,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                               ),
                               Container(
                                 margin: EdgeInsets.symmetric(
-                                  horizontal: 5.0.w,
+                                  horizontal: 5,
                                 ),
                                 child: Column(children: [
                                   for (var item in list.details)
@@ -1210,7 +1205,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                           height: 10,
                                         ),
                                         Container(
-                                          width: 100.0.w,
+                                          width: 100,
                                           child: ElevatedButton(
                                             // elevation: 0,
                                             // shape: RoundedRectangleBorder(
@@ -1235,7 +1230,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                               ),
                               Container(
                                 margin: EdgeInsets.symmetric(
-                                  horizontal: 5.0.w,
+                                  horizontal: 5,
                                 ),
                                 child: Align(
                                   alignment: Alignment.centerLeft,
@@ -1313,9 +1308,9 @@ class _TravelReqViewState extends State<TravelReqView> {
                                                 .bottom,
                                           ),
                                           Container(
-                                            width: 100.0.w,
+                                            width: 100,
                                             margin: EdgeInsets.symmetric(
-                                                horizontal: 5.0.w),
+                                                horizontal: 5),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -1469,7 +1464,7 @@ class _TravelReqViewState extends State<TravelReqView> {
               borderRadius: BorderRadius.all(Radius.circular(5)),
               border: Border.all(
                   color: AppConstants.TEXT_BACKGROUND_COLOR, width: 0.3)),
-          margin: EdgeInsets.symmetric(horizontal: 5.0.w, vertical: 0.5.h),
+          margin: EdgeInsets.symmetric(horizontal: 5, vertical: 0.5.h),
           child: Column(
             children: [
               Row(
@@ -1654,7 +1649,7 @@ class _TravelReqViewState extends State<TravelReqView> {
         Text('${header}',
             style: TextStyle(fontSize: 16), textAlign: TextAlign.start),
         SizedBox(
-          height: 1.0.w,
+          height: 1,
         ),
         AutoSizeText(
           '${text}',
@@ -1680,7 +1675,7 @@ class _TravelReqViewState extends State<TravelReqView> {
           textAlign: TextAlign.start,
         ),
         SizedBox(
-          height: 1.0.w,
+          height: 1,
         ),
         AutoSizeText(
           '${text}',

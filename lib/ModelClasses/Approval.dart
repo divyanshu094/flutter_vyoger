@@ -1,10 +1,9 @@
 class ApprovalModal {
-  late String massage;
-  late bool status;
-  late List<ApprovalReq> data;
+  String? massage;
+  bool? status;
+  List<ApprovalReq>? data;
 
-  ApprovalModal(
-      {required this.massage, required this.status, required this.data});
+  ApprovalModal({this.massage, this.status, this.data});
 
   ApprovalModal.fromJson(Map<String, dynamic> json) {
     massage = json['massage'];
@@ -12,10 +11,7 @@ class ApprovalModal {
     if (json['data'] != null) {
       data = <ApprovalReq>[];
       json['data'].forEach((v) {
-        // print('data of v ashish $v');
-        // if (v.travelReqStatus != '3') {
-        data.add(new ApprovalReq.fromJson(v));
-        // }
+        data!.add(new ApprovalReq.fromJson(v));
       });
     }
   }
@@ -24,126 +20,130 @@ class ApprovalModal {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['massage'] = this.massage;
     data['status'] = this.status;
-    data['data'] = this.data.map((v) => v.toJson()).toList();
+    if (this.data != null) {
+      data['data'] = this.data!.map((v) => v.toJson()).toList();
+    }
     return data;
   }
 }
 
 class ApprovalReq {
-  late dynamic id;
-  late bool isSelected = false;
-  late String dateCreated;
-  late String dateModified;
-  late String createdBy;
-  late String modifiedBy;
-  late bool status;
+  int? id;
+  String? dateCreated;
+  String? dateModified;
+  String? createdBy;
+  String? modifiedBy;
+  bool? status;
   late String travelReqId;
-  late String projectName;
-  late dynamic policyViolations;
-  late bool isBillable;
-  late bool isTravelMultiCountry;
-  late bool isTravelMultiCity;
-  late dynamic requestNotes;
-  late String remark;
-  late String homeContactName;
-  late String homePhoneExt;
-  late String homePhoneNumber;
-  late bool isLaptopRequired;
-  late String travelReqStatus;
-  late dynamic travelReqStatusNotes;
-  late String currentTicketOwner;
-  late String supervisor;
-  late String expenseApprover;
-  late String projectManager;
-  late String businessLead;
-  late String clientExecutiveLead;
-  late bool haveLaptop;
-  late String approvalLevel;
-  late String expenceCureency;
-  late String expenceDepartureDate;
-  late String expenceEstimatedCost;
-  late String expenceFromCountry;
-  late String expenceReturnDate;
-  late String expenceToCountry;
-  late dynamic column1;
-  late dynamic column2;
-  late dynamic column3;
-  late dynamic column4;
-  late dynamic column5;
-  late dynamic column6;
-  late dynamic column7;
-  late dynamic column8;
-  late dynamic column9;
-  late dynamic column10;
-  late dynamic column11;
-  late dynamic column12;
-  late String empEmail;
-  late String project;
-  late String organization;
+  String? projectName;
+  String? policyViolations;
+  bool? isBillable;
+  bool? isTravelMultiCountry;
+  bool? isTravelMultiCity;
+  String? requestNotes;
+  String? remark;
+  String? homeContactName;
+  String? homePhoneExt;
+  String? homePhoneNumber;
+  bool? isLaptopRequired;
+  String? travelReqStatus;
+  Null? travelReqStatusNotes;
+  String? currentTicketOwner;
+  String? supervisor;
+  String? expenseApprover;
+  String? projectManager;
+  String? businessLead;
+  String? clientExecutiveLead;
+  bool? haveLaptop;
+  String? approvalLevel;
+  String? expenceCureency;
+  String? expenceDepartureDate;
+  String? expenceEstimatedCost;
+  String? expenceFromCountry;
+  String? expenceReturnDate;
+  String? expenceToCountry;
+  String? attachments;
+  Null? column2;
+  Null? column3;
+  Null? column4;
+  Null? column5;
+  Null? column6;
+  Null? column7;
+  Null? column8;
+  Null? column9;
+  Null? column10;
+  Null? column11;
+  Null? column12;
+  String? priTypeReq;
+  Null? travelReqLinkTo;
+  String? empEmail;
+  String? project;
+  String? organization;
   late String empCode;
-  late String firstName;
-  late String lastName;
-  late List<VisaRequests> visaRequests;
-  late List<Details> details;
-  late List<Dependent> dependent;
+  String? firstName;
+  String? lastName;
+  List<VisaRequests>? visaRequests;
+  List<Details>? details;
+  List<Dependent>? dependent;
 
   ApprovalReq(
-      {required this.id,
-      required this.isSelected,
-      required this.dateCreated,
-      required this.dateModified,
-      required this.createdBy,
-      required this.modifiedBy,
-      required this.status,
+      {this.id,
+      this.dateCreated,
+      this.dateModified,
+      this.createdBy,
+      this.modifiedBy,
+      this.status,
       required this.travelReqId,
-      required this.projectName,
-      required this.policyViolations,
-      required this.isBillable,
-      required this.isTravelMultiCountry,
-      required this.isTravelMultiCity,
-      required this.requestNotes,
-      required this.remark,
-      required this.homeContactName,
-      required this.homePhoneExt,
-      required this.homePhoneNumber,
-      required this.isLaptopRequired,
-      required this.travelReqStatus,
-      required this.travelReqStatusNotes,
-      required this.currentTicketOwner,
-      required this.supervisor,
-      required this.expenseApprover,
-      required this.projectManager,
-      required this.businessLead,
-      required this.clientExecutiveLead,
-      required this.haveLaptop,
-      required this.approvalLevel,
-      required this.expenceCureency,
-      required this.expenceDepartureDate,
-      required this.expenceEstimatedCost,
-      required this.expenceFromCountry,
-      required this.expenceReturnDate,
-      required this.expenceToCountry,
-      required this.column1,
-      required this.column2,
-      required this.column3,
-      required this.column4,
-      required this.column5,
-      required this.column6,
-      required this.column7,
-      required this.column8,
-      required this.column9,
-      required this.column10,
-      required this.column11,
-      required this.column12,
-      required this.empEmail,
-      required this.project,
-      required this.organization,
+      this.projectName,
+      this.policyViolations,
+      this.isBillable,
+      this.isTravelMultiCountry,
+      this.isTravelMultiCity,
+      this.requestNotes,
+      this.remark,
+      this.homeContactName,
+      this.homePhoneExt,
+      this.homePhoneNumber,
+      this.isLaptopRequired,
+      this.travelReqStatus,
+      this.travelReqStatusNotes,
+      this.currentTicketOwner,
+      this.supervisor,
+      this.expenseApprover,
+      this.projectManager,
+      this.businessLead,
+      this.clientExecutiveLead,
+      this.haveLaptop,
+      this.approvalLevel,
+      this.expenceCureency,
+      this.expenceDepartureDate,
+      this.expenceEstimatedCost,
+      this.expenceFromCountry,
+      this.expenceReturnDate,
+      this.expenceToCountry,
+      this.attachments,
+      this.column2,
+      this.column3,
+      this.column4,
+      this.column5,
+      this.column6,
+      this.column7,
+      this.column8,
+      this.column9,
+      this.column10,
+      this.column11,
+      this.column12,
+      this.priTypeReq,
+      this.travelReqLinkTo,
+      this.empEmail,
+      this.project,
+      this.organization,
       required this.empCode,
-      required this.firstName,
-      required this.lastName,
-      required this.visaRequests,
-      required this.details,
-      required this.dependent});
+      this.firstName,
+      this.lastName,
+      this.visaRequests,
+      this.details,
+      this.dependent});
 
   ApprovalReq.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -180,8 +180,7 @@ class ApprovalReq {
     expenceFromCountry = json['expence_fromCountry'];
     expenceReturnDate = json['expence_returnDate'];
     expenceToCountry = json['expence_toCountry'];
-
-    column1 = json['column1'];
+    attachments = json['attachments'];
     column2 = json['column2'];
     column3 = json['column3'];
     column4 = json['column4'];
@@ -193,6 +192,8 @@ class ApprovalReq {
     column10 = json['column10'];
     column11 = json['column11'];
     column12 = json['column12'];
+    priTypeReq = json['pri_type_req'];
+    travelReqLinkTo = json['travel_req_link_to'];
     empEmail = json['emp_email'];
     project = json['project'];
     organization = json['organization'];
@@ -202,19 +203,19 @@ class ApprovalReq {
     if (json['visa_requests'] != null) {
       visaRequests = <VisaRequests>[];
       json['visa_requests'].forEach((v) {
-        visaRequests.add(new VisaRequests.fromJson(v));
+        visaRequests!.add(new VisaRequests.fromJson(v));
       });
     }
     if (json['details'] != null) {
       details = <Details>[];
       json['details'].forEach((v) {
-        details.add(new Details.fromJson(v));
+        details!.add(new Details.fromJson(v));
       });
     }
     if (json['dependent'] != null) {
       dependent = <Dependent>[];
       json['dependent'].forEach((v) {
-        dependent.add(new Dependent.fromJson(v));
+        dependent!.add(new Dependent.fromJson(v));
       });
     }
   }
@@ -255,7 +256,7 @@ class ApprovalReq {
     data['expence_fromCountry'] = this.expenceFromCountry;
     data['expence_returnDate'] = this.expenceReturnDate;
     data['expence_toCountry'] = this.expenceToCountry;
-    data['column1'] = this.column1;
+    data['attachments'] = this.attachments;
     data['column2'] = this.column2;
     data['column3'] = this.column3;
     data['column4'] = this.column4;
@@ -267,22 +268,32 @@ class ApprovalReq {
     data['column10'] = this.column10;
     data['column11'] = this.column11;
     data['column12'] = this.column12;
+    data['pri_type_req'] = this.priTypeReq;
+    data['travel_req_link_to'] = this.travelReqLinkTo;
     data['emp_email'] = this.empEmail;
     data['project'] = this.project;
     data['organization'] = this.organization;
     data['emp_code'] = this.empCode;
     data['first_name'] = this.firstName;
     data['last_name'] = this.lastName;
-    data['details'] = this.details.map((v) => v.toJson()).toList();
-    data['dependent'] = this.dependent.map((v) => v.toJson()).toList();
+    if (this.visaRequests != null) {
+      data['visa_requests'] =
+          this.visaRequests!.map((v) => v.toJson()).toList();
+    }
+    if (this.details != null) {
+      data['details'] = this.details!.map((v) => v.toJson()).toList();
+    }
+    if (this.dependent != null) {
+      data['dependent'] = this.dependent!.map((v) => v.toJson()).toList();
+    }
     return data;
   }
 }
 
 class VisaRequests {
-  late String visaReqId;
+  String? visaReqId;
 
-  VisaRequests({required this.visaReqId});
+  VisaRequests({this.visaReqId});
 
   VisaRequests.fromJson(Map<String, dynamic> json) {
     visaReqId = json['visa_req_id'];
@@ -296,76 +307,76 @@ class VisaRequests {
 }
 
 class Details {
-  late dynamic id;
-  late String travelReqIdId;
+  int? id;
+  String? travelReqIdId;
   late String travellingCountry;
   late String travellingCountryTo;
-  late String officeLocation;
-  late String clientNumber;
-  late dynamic organization;
+  String? officeLocation;
+  String? clientNumber;
+  Null? organization;
   late String sourceCity;
   late String destinationCity;
   late String departureDate;
   late String returnDate;
-  late bool isAccmodationRequired;
-  late String accmodationStartDate;
-  late String accmodationEndDate;
-  late String travelPurpose;
-  late dynamic assignmentType;
-  late String applicableVisa;
-  late String visaNumber;
-  late String visaExpiryDate;
-  late String hostHrName;
-  late dynamic hostCountryHead;
-  late dynamic hostAttorney;
-  late String hostPhoneNo;
-  late bool isClientLocation;
-  late String clientName;
-  late String clientAddress;
-  late dynamic hotelCost;
-  late dynamic perDiemCost;
-  late dynamic airfareCost;
-  late dynamic transportationCost;
-  late dynamic totalCost;
-  late dynamic travelRequestStatus;
-  late dynamic travelRequestStatusNotes;
-  late bool isDependent;
+  bool? isAccmodationRequired;
+  String? accmodationStartDate;
+  String? accmodationEndDate;
+  String? travelPurpose;
+  Null? assignmentType;
+  String? applicableVisa;
+  String? visaNumber;
+  String? visaExpiryDate;
+  String? hostHrName;
+  Null? hostCountryHead;
+  Null? hostAttorney;
+  String? hostPhoneNo;
+  bool? isClientLocation;
+  String? clientName;
+  String? clientAddress;
+  double? hotelCost;
+  double? perDiemCost;
+  double? airfareCost;
+  double? transportationCost;
+  double? totalCost;
+  Null? travelRequestStatus;
+  Null? travelRequestStatusNotes;
+  bool? isDependent;
 
   Details(
-      {required this.id,
-      required this.travelReqIdId,
+      {this.id,
+      this.travelReqIdId,
       required this.travellingCountry,
       required this.travellingCountryTo,
-      required this.officeLocation,
-      required this.clientNumber,
-      required this.organization,
+      this.officeLocation,
+      this.clientNumber,
+      this.organization,
       required this.sourceCity,
       required this.destinationCity,
       required this.departureDate,
       required this.returnDate,
-      required this.isAccmodationRequired,
-      required this.accmodationStartDate,
-      required this.accmodationEndDate,
-      required this.travelPurpose,
-      required this.assignmentType,
-      required this.applicableVisa,
-      required this.visaNumber,
-      required this.visaExpiryDate,
-      required this.hostHrName,
-      required this.hostCountryHead,
-      required this.hostAttorney,
-      required this.hostPhoneNo,
-      required this.isClientLocation,
-      required this.clientName,
-      required this.clientAddress,
-      required this.hotelCost,
-      required this.perDiemCost,
-      required this.airfareCost,
-      required this.transportationCost,
-      required this.totalCost,
-      required this.travelRequestStatus,
-      required this.travelRequestStatusNotes,
-      required this.isDependent});
+      this.isAccmodationRequired,
+      this.accmodationStartDate,
+      this.accmodationEndDate,
+      this.travelPurpose,
+      this.assignmentType,
+      this.applicableVisa,
+      this.visaNumber,
+      this.visaExpiryDate,
+      this.hostHrName,
+      this.hostCountryHead,
+      this.hostAttorney,
+      this.hostPhoneNo,
+      this.isClientLocation,
+      this.clientName,
+      this.clientAddress,
+      this.hotelCost,
+      this.perDiemCost,
+      this.airfareCost,
+      this.transportationCost,
+      this.totalCost,
+      this.travelRequestStatus,
+      this.travelRequestStatusNotes,
+      this.isDependent});
 
   Details.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -445,58 +456,60 @@ class Details {
 }
 
 class Dependent {
-  late dynamic id;
-  late String dateCreated;
-  late String dateModified;
-  late String createdBy;
-  late String modifiedBy;
-  late bool status;
-  late String reqId;
-  late String dependentRelation;
-  late String dependentName;
-  late String dependentPassport;
-  late String dependentVisa;
-  late dynamic column1;
-  late dynamic column2;
-  late dynamic column3;
-  late dynamic column4;
-  late dynamic column5;
-  late dynamic column6;
-  late dynamic column7;
-  late dynamic column8;
-  late dynamic column9;
-  late dynamic column10;
-  late dynamic column11;
-  late dynamic column12;
-  late String travelReqId;
-  late dynamic organization;
+  int? id;
+  String? dateCreated;
+  String? dateModified;
+  String? createdBy;
+  String? modifiedBy;
+  bool? status;
+  String? reqId;
+  String? dependentRelation;
+  String? dependentName;
+  String? dependentPassport;
+  String? dependentVisa;
+  Null column1;
+  Null column2;
+  Null column3;
+  Null column4;
+  Null column5;
+  Null column6;
+  Null column7;
+  Null column8;
+  Null column9;
+  Null column10;
+  Null column11;
+  Null column12;
+  String? visaType;
+  String? travelReqId;
+  Null organization;
 
   Dependent(
-      {required this.id,
-      required this.dateCreated,
-      required this.dateModified,
-      required this.createdBy,
-      required this.modifiedBy,
-      required this.status,
-      required this.reqId,
-      required this.dependentRelation,
-      required this.dependentName,
-      required this.dependentPassport,
-      required this.dependentVisa,
-      required this.column1,
-      required this.column2,
-      required this.column3,
-      required this.column4,
-      required this.column5,
-      required this.column6,
-      required this.column7,
-      required this.column8,
-      required this.column9,
-      required this.column10,
-      required this.column11,
-      required this.column12,
-      required this.travelReqId,
-      required this.organization});
+      {this.id,
+      this.dateCreated,
+      this.dateModified,
+      this.createdBy,
+      this.modifiedBy,
+      this.status,
+      this.reqId,
+      this.dependentRelation,
+      this.dependentName,
+      this.dependentPassport,
+      this.dependentVisa,
+      this.column1,
+      this.column2,
+      this.column3,
+      this.column4,
+      this.column5,
+      this.column6,
+      this.column7,
+      this.column8,
+      this.column9,
+      this.column10,
+      this.column11,
+      this.column12,
+      this.visaType,
+      this.travelReqId,
+      this.organization});
 
   Dependent.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -522,6 +535,7 @@ class Dependent {
     column10 = json['column10'];
     column11 = json['column11'];
     column12 = json['column12'];
+    visaType = json['visa_type'];
     travelReqId = json['travel_req_id'];
     organization = json['organization'];
   }
@@ -551,6 +565,7 @@ class Dependent {
     data['column10'] = this.column10;
     data['column11'] = this.column11;
     data['column12'] = this.column12;
+    data['visa_type'] = this.visaType;
     data['travel_req_id'] = this.travelReqId;
     data['organization'] = this.organization;
     return data;

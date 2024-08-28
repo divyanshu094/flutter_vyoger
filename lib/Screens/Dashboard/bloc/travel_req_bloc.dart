@@ -15,13 +15,13 @@ class TravelReqBloc extends Bloc<TravelReqEvent, TravelReqState> {
 
   TravelReqBloc(this.repository) : super(TravelReqInitial()) {
     on<TravelReqEvent>((event, emit) async {
-      TravelReqLoading();
+      emit(TravelReqLoading());
       if (event is FetchTravelReq) {
         try {
           final ApprovalModal quote = await repository.fetch_travel_req();
-          TravelReqLoaded(travelRequest: quote);
+          emit(TravelReqLoaded(travelRequest: quote));
         } catch (_) {
-          TravelReqError("Couldn't Fetch Data");
+          emit(TravelReqError("Couldn't Fetch Data"));
         }
       }
     });

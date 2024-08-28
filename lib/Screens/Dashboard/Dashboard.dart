@@ -26,8 +26,10 @@ import 'package:mobility_sqr/Widgets/NotificationWidget.dart';
 import 'package:mobility_sqr/Widgets/TileDashboard.dart';
 import 'package:mobility_sqr/Widgets/showAlertDialogBiometric.dart';
 import 'package:reorderables/reorderables.dart';
+import 'package:rotated_corner_decoration/rotated_corner_decoration.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../Util/UtilClass.dart';
 import 'DashboardConstants.dart';
 
 class Dashboard extends StatefulWidget {
@@ -364,7 +366,7 @@ class _DashboardState extends State<Dashboard> {
                               );
                             }
                             if (state is TravelReqLoaded) {
-                              if (state.travelRequest.data.length == 0) {
+                              if (state.travelRequest.data!.length == 0) {
                                 return Container(
                                   height: 10,
                                   child:
@@ -372,8 +374,8 @@ class _DashboardState extends State<Dashboard> {
                                 );
                               } else {
                                 return Container(
-                                  height: 65.0,
-                                  width: 100.0,
+                                  height: 250,
+                                  width: MediaQuery.sizeOf(context).width,
                                   margin: EdgeInsets.fromLTRB(20, 0, 10, 0),
                                   child: Scrollbar(
                                     thumbVisibility: true,
@@ -384,7 +386,7 @@ class _DashboardState extends State<Dashboard> {
                                       child: new ListView.builder(
                                           scrollDirection: Axis.horizontal,
                                           itemCount:
-                                              state.travelRequest.data.length,
+                                              state.travelRequest.data!.length,
                                           itemBuilder:
                                               (BuildContext ctxt, int Index) {
                                             return AnimationConfiguration
@@ -399,7 +401,7 @@ class _DashboardState extends State<Dashboard> {
                                                     children: [
                                                       state
                                                                   .travelRequest
-                                                                  .data[Index]
+                                                                  .data![Index]
                                                                   .travelReqStatus ==
                                                               '3'
                                                           ? Container()
@@ -414,7 +416,7 @@ class _DashboardState extends State<Dashboard> {
                                                                 _appApiProvider
                                                                     .fetchViewTravelReq(state
                                                                         .travelRequest
-                                                                        .data[
+                                                                        .data![
                                                                             Index]
                                                                         .travelReqId)
                                                                     .then((value) =>
@@ -429,8 +431,8 @@ class _DashboardState extends State<Dashboard> {
                                                                         }));
                                                               },
                                                               child: Container(
-                                                                height: 60.0,
-                                                                width: 40.0,
+                                                                height: 220,
+                                                                width: 140,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Colors
@@ -461,17 +463,17 @@ class _DashboardState extends State<Dashboard> {
                                                                               children: [
                                                                                 Text("To"),
                                                                                 Container(
-                                                                                  width: 15.0,
-                                                                                  height: 3.5,
+                                                                                  width: 50,
+                                                                                  height: 12,
                                                                                   decoration: BoxDecoration(
                                                                                     color: AppConstants.APP_THEME_COLOR,
                                                                                     borderRadius: BorderRadius.all(Radius.circular(8)),
                                                                                   ),
                                                                                   child: Container(
-                                                                                    height: 3.5,
+                                                                                    // height: 20,
                                                                                     margin: EdgeInsets.fromLTRB(0, 1, 0, 0),
                                                                                     child: Text(
-                                                                                      state.travelRequest.data[Index].travelReqId,
+                                                                                      state.travelRequest.data![Index].travelReqId,
                                                                                       style: TextStyle(
                                                                                         color: Colors.white,
                                                                                         fontSize: 10,
@@ -486,12 +488,12 @@ class _DashboardState extends State<Dashboard> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                100.0,
+                                                                                140,
                                                                             margin:
                                                                                 EdgeInsets.symmetric(horizontal: 5),
-                                                                            child: state.travelRequest.data[Index].details.length > 0
+                                                                            child: state.travelRequest.data![Index].details!.length > 0
                                                                                 ? AutoSizeText(
-                                                                                    state.travelRequest.data[Index].details[0].destinationCity,
+                                                                                    state.travelRequest.data![Index].details![0].destinationCity,
                                                                                     textAlign: TextAlign.start,
                                                                                     maxLines: 1,
                                                                                     minFontSize: 10,
@@ -501,15 +503,15 @@ class _DashboardState extends State<Dashboard> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                100.0,
+                                                                                140,
                                                                             margin: EdgeInsets.fromLTRB(
                                                                                 5,
                                                                                 5,
                                                                                 5,
                                                                                 0),
-                                                                            child: state.travelRequest.data[Index].details.length > 0
+                                                                            child: state.travelRequest.data![Index].details!.length > 0
                                                                                 ? Text(
-                                                                                    state.travelRequest.data[Index].details[0].travellingCountryTo,
+                                                                                    state.travelRequest.data![Index].details![0].travellingCountryTo,
                                                                                     textAlign: TextAlign.start,
                                                                                     style: TextStyle(fontWeight: FontWeight.w300, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 13),
                                                                                   )
@@ -537,7 +539,7 @@ class _DashboardState extends State<Dashboard> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                100.0,
+                                                                                140,
                                                                             margin: EdgeInsets.fromLTRB(
                                                                                 5,
                                                                                 0,
@@ -551,12 +553,12 @@ class _DashboardState extends State<Dashboard> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                100.0,
+                                                                                140,
                                                                             margin:
                                                                                 EdgeInsets.symmetric(horizontal: 5),
-                                                                            child: state.travelRequest.data[Index].details.length > 0
+                                                                            child: state.travelRequest.data![Index].details!.length > 0
                                                                                 ? Text(
-                                                                                    state.travelRequest.data[Index].details[0].sourceCity,
+                                                                                    state.travelRequest.data![Index].details![0].sourceCity,
                                                                                     textAlign: TextAlign.start,
                                                                                     maxLines: 1,
                                                                                     style: TextStyle(fontWeight: FontWeight.w900, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 15),
@@ -565,15 +567,15 @@ class _DashboardState extends State<Dashboard> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                100.0,
+                                                                                140,
                                                                             margin: EdgeInsets.fromLTRB(
                                                                                 5,
                                                                                 5,
                                                                                 5,
                                                                                 0),
-                                                                            child: state.travelRequest.data[Index].details.length > 0
+                                                                            child: state.travelRequest.data![Index].details!.length > 0
                                                                                 ? AutoSizeText(
-                                                                                    state.travelRequest.data[Index].details[0].travellingCountry,
+                                                                                    state.travelRequest.data![Index].details![0].travellingCountry,
                                                                                     textAlign: TextAlign.start,
                                                                                     minFontSize: 10,
                                                                                     style: TextStyle(fontWeight: FontWeight.w300, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 13),
@@ -583,130 +585,148 @@ class _DashboardState extends State<Dashboard> {
                                                                         ],
                                                                       ),
                                                                     ),
-                                                                    // Expanded(
-                                                                    //   flex: 3,
-                                                                    //   child:
-                                                                    //       Container(
-                                                                    //     color: AppConstants
-                                                                    //         .BACKGROUND_COLOR_BOTTOM,
-                                                                    //     child:
-                                                                    //         Row(
-                                                                    //       children: [
-                                                                    //         Expanded(
-                                                                    //           flex: 2,
-                                                                    //           child: Column(
-                                                                    //             children: [
-                                                                    //               Container(
-                                                                    //                 width: 100.0,
-                                                                    //                 margin: EdgeInsets.all(5),
-                                                                    //                 child: Text(
-                                                                    //                   "Departure",
-                                                                    //                   textAlign: TextAlign.start,
-                                                                    //                 ),
-                                                                    //               ),
-                                                                    //               Container(
-                                                                    //                 width: 100.0,
-                                                                    //                 margin: EdgeInsets.symmetric(horizontal: 5),
-                                                                    //                 child: state.travelRequest.data[Index].details.length > 0
-                                                                    //                     ? AutoSizeText(
-                                                                    //                         getDepartureTime(state.travelRequest.data[Index].details[0].departureDate),
-                                                                    //                         textAlign: TextAlign.start,
-                                                                    //                         minFontSize: 16,
-                                                                    //                         style: TextStyle(fontWeight: FontWeight.w900, color: Colors.black, fontSize: 16),
-                                                                    //                       )
-                                                                    //                     : SizedBox(),
-                                                                    //               ),
-                                                                    //               Container(
-                                                                    //                 width: 100.0,
-                                                                    //                 margin: EdgeInsets.fromLTRB(5, 5, 5, 0),
-                                                                    //                 child: state.travelRequest.data[Index].details.length > 0
-                                                                    //                     ? AutoSizeText(
-                                                                    //                         getDepatureDate(state.travelRequest.data[Index].details[0].departureDate),
-                                                                    //                         textAlign: TextAlign.start,
-                                                                    //                         minFontSize: 12,
-                                                                    //                         maxFontSize: 15,
-                                                                    //                         style: TextStyle(fontWeight: FontWeight.w500, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 13),
-                                                                    //                       )
-                                                                    //                     : SizedBox(),
-                                                                    //               ),
-                                                                    //             ],
-                                                                    //           ),
-                                                                    //         ),
-                                                                    //         state.travelRequest.data[Index].travelReqStatus == '2'
-                                                                    //             ? Expanded(
-                                                                    //                 flex: 1,
-                                                                    //                 child: Container(
-                                                                    //                   foregroundDecoration: const RotatedCornerDecoration(
-                                                                    //                     color: Colors.orangeAccent,
-                                                                    //                     geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                                                                    //                     textSpan: TextSpan(text: 'In Progress', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                                                                    //                     labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                                                                    //                   ),
-                                                                    //                 ),
-                                                                    //               )
-                                                                    //             : state.travelRequest.data[Index].travelReqStatus == '2'
-                                                                    //                 ? Expanded(
-                                                                    //                     flex: 1,
-                                                                    //                     child: Container(
-                                                                    //                       foregroundDecoration: const RotatedCornerDecoration(
-                                                                    //                         color: Colors.lightGreen,
-                                                                    //                         geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                                                                    //                         textSpan: TextSpan(text: 'Approved', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                                                                    //                         labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                                                                    //                       ),
-                                                                    //                     ),
-                                                                    //                   )
-                                                                    //                 : state.travelRequest.data[Index].travelReqStatus == '1'
-                                                                    //                     ? Expanded(
-                                                                    //                         flex: 1,
-                                                                    //                         child: Container(
-                                                                    //                           foregroundDecoration: const RotatedCornerDecoration(
-                                                                    //                             color: Colors.yellow,
-                                                                    //                             geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                                                                    //                             textSpan: TextSpan(text: 'Saved', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                                                                    //                             labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                                                                    //                           ),
-                                                                    //                         ),
-                                                                    //                       )
-                                                                    //                     : state.travelRequest.data[Index].travelReqStatus == '5'
-                                                                    //                         ? Expanded(
-                                                                    //                             flex: 1,
-                                                                    //                             child: Container(
-                                                                    //                               foregroundDecoration: const RotatedCornerDecoration(
-                                                                    //                                 color: Colors.red,
-                                                                    //                                 geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                                                                    //                                 textSpan: TextSpan(text: 'Rejected', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                                                                    //                                 labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                                                                    //                               ),
-                                                                    //                             ),
-                                                                    //                           )
-                                                                    //                         : state.travelRequest.data[Index].travelReqStatus == '6'
-                                                                    //                             ? Expanded(
-                                                                    //                                 flex: 1,
-                                                                    //                                 child: Container(
-                                                                    //                                   foregroundDecoration: const RotatedCornerDecoration(
-                                                                    //                                     color: Colors.purple,
-                                                                    //                                     geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                                                                    //                                     textSpan: TextSpan(text: 'Transferred', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                                                                    //                                     labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                                                                    //                                   ),
-                                                                    //                                 ),
-                                                                    //                               )
-                                                                    //                             : Expanded(
-                                                                    //                                 flex: 1,
-                                                                    //                                 child: Container(
-                                                                    //                                   foregroundDecoration: const RotatedCornerDecoration(
-                                                                    //                                     color: Colors.green,
-                                                                    //                                     geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                                                                    //                                     textSpan: TextSpan(text: 'Closed', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                                                                    //                                     labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                                                                    //                                   ),
-                                                                    //                                 ),
-                                                                    //                               )
-                                                                    //       ],
-                                                                    //     ),
-                                                                    //   ),
-                                                                    // ),
+                                                                    Expanded(
+                                                                      flex: 3,
+                                                                      child:
+                                                                          Container(
+                                                                        color: AppConstants
+                                                                            .BACKGROUND_COLOR_BOTTOM,
+                                                                        child:
+                                                                            Row(
+                                                                          children: [
+                                                                            Expanded(
+                                                                              flex: 2,
+                                                                              child: Column(
+                                                                                children: [
+                                                                                  Container(
+                                                                                    width: 100,
+                                                                                    margin: EdgeInsets.all(5),
+                                                                                    child: Text(
+                                                                                      "Departure",
+                                                                                      textAlign: TextAlign.start,
+                                                                                    ),
+                                                                                  ),
+                                                                                  Container(
+                                                                                    width: 100,
+                                                                                    margin: EdgeInsets.symmetric(horizontal: 5),
+                                                                                    child: state.travelRequest.data![Index].details!.length > 0
+                                                                                        ? AutoSizeText(
+                                                                                            getDepartureTime(state.travelRequest.data![Index].details![0].departureDate),
+                                                                                            textAlign: TextAlign.start,
+                                                                                            minFontSize: 16,
+                                                                                            style: TextStyle(fontWeight: FontWeight.w900, color: Colors.black, fontSize: 16),
+                                                                                          )
+                                                                                        : SizedBox(),
+                                                                                  ),
+                                                                                  Container(
+                                                                                    width: 100,
+                                                                                    margin: EdgeInsets.fromLTRB(5, 5, 5, 0),
+                                                                                    child: state.travelRequest.data![Index].details!.length > 0
+                                                                                        ? AutoSizeText(
+                                                                                            getDepatureDate(state.travelRequest.data![Index].details![0].departureDate),
+                                                                                            textAlign: TextAlign.start,
+                                                                                            minFontSize: 12,
+                                                                                            maxFontSize: 15,
+                                                                                            style: TextStyle(fontWeight: FontWeight.w500, color: AppConstants.TEXT_BACKGROUND_COLOR, fontSize: 13),
+                                                                                          )
+                                                                                        : SizedBox(),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                            state.travelRequest.data![Index].travelReqStatus == '2'
+                                                                                ? Expanded(
+                                                                                    flex: 1,
+                                                                                    child: Container(
+                                                                                      foregroundDecoration: RotatedCornerDecoration.withColor(
+                                                                                        color: Colors.orangeAccent,
+                                                                                        // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                                        textSpan: TextSpan(text: 'In Progress', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                                        badgeSize: Size(45, 45),
+                                                                                        badgePosition: BadgePosition.bottomStart,
+                                                                                        textDirection: TextDirection.rtl,
+                                                                                        // labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                                      ),
+                                                                                    ),
+                                                                                  )
+                                                                                : state.travelRequest.data![Index].travelReqStatus == '2'
+                                                                                    ? Expanded(
+                                                                                        flex: 1,
+                                                                                        child: Container(
+                                                                                          foregroundDecoration: RotatedCornerDecoration.withColor(
+                                                                                            color: Colors.lightGreen,
+                                                                                            // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                                            textSpan: TextSpan(text: 'Approved', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                                            // labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                                            badgeSize: Size(45, 45),
+                                                                                            badgePosition: BadgePosition.bottomStart,
+                                                                                            textDirection: TextDirection.rtl,
+                                                                                          ),
+                                                                                        ),
+                                                                                      )
+                                                                                    : state.travelRequest.data![Index].travelReqStatus == '1'
+                                                                                        ? Expanded(
+                                                                                            flex: 1,
+                                                                                            child: Container(
+                                                                                              foregroundDecoration: RotatedCornerDecoration.withColor(
+                                                                                                color: Colors.yellow,
+                                                                                                // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                                                textSpan: TextSpan(text: 'Saved', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                                                // labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                                                badgeSize: Size(45, 45),
+                                                                                                badgePosition: BadgePosition.bottomStart,
+                                                                                                textDirection: TextDirection.rtl,
+                                                                                              ),
+                                                                                            ),
+                                                                                          )
+                                                                                        : state.travelRequest.data![Index].travelReqStatus == '5'
+                                                                                            ? Expanded(
+                                                                                                flex: 1,
+                                                                                                child: Container(
+                                                                                                  foregroundDecoration: RotatedCornerDecoration.withColor(
+                                                                                                    color: Colors.red,
+                                                                                                    // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                                                    textSpan: TextSpan(text: 'Rejected', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                                                    // labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                                                    badgeSize: Size(45, 45),
+                                                                                                    badgePosition: BadgePosition.bottomStart,
+                                                                                                    textDirection: TextDirection.rtl,
+                                                                                                  ),
+                                                                                                ),
+                                                                                              )
+                                                                                            : state.travelRequest.data![Index].travelReqStatus == '6'
+                                                                                                ? Expanded(
+                                                                                                    flex: 1,
+                                                                                                    child: Container(
+                                                                                                      foregroundDecoration: RotatedCornerDecoration.withColor(
+                                                                                                        color: Colors.purple,
+                                                                                                        // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                                                        textSpan: TextSpan(text: 'Transferred', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                                                        // labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                                                        badgeSize: Size(45, 45),
+                                                                                                        badgePosition: BadgePosition.bottomStart,
+                                                                                                        textDirection: TextDirection.rtl,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  )
+                                                                                                : Expanded(
+                                                                                                    flex: 1,
+                                                                                                    child: Container(
+                                                                                                      foregroundDecoration: RotatedCornerDecoration.withColor(
+                                                                                                        color: Colors.green,
+                                                                                                        // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
+                                                                                                        textSpan: TextSpan(text: 'Closed', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                                                        // labelInsets: LabelInsets(baselineShift: 3, start: 1),
+                                                                                                        badgeSize: Size(45, 45),
+                                                                                                        badgePosition: BadgePosition.bottomStart,
+                                                                                                        textDirection: TextDirection.rtl,
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  )
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
                                                                   ],
                                                                 ),
                                                               ),

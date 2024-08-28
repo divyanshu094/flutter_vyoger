@@ -343,7 +343,7 @@
 //               children: [
 //                 Container(
 //                   height: 100.0.h,
-//                   width: 95.0.w,
+//                   width: 95,
 //                   margin: EdgeInsets.only(left: 15, right: 15, top: 10),
 //                   child: ListView(
 //                     shrinkWrap: true,
@@ -362,7 +362,7 @@
 //                         ],
 //                       ),
 //                       Container(
-//                         width: 90.0.w,
+//                         width: 90,
 //                         height: 40,
 //                         margin: EdgeInsets.symmetric(vertical: 10),
 //                         child: FormField<Passortrelation>(
@@ -607,7 +607,7 @@
 //                             width: 10,
 //                           ),
 //                           Container(
-//                             width: 50.0.w,
+//                             width: 50,
 //                             height: 40,
 //                             child: new TextField(
 //                               maxLength: 16,
@@ -785,7 +785,7 @@
 //                               width: 50,
 //                             ),
 //                             Container(
-//                               width: 50.0.w,
+//                               width: 50,
 //                               height: 40,
 //                               child: new TextField(
 //                                 maxLength: 16,
@@ -835,7 +835,7 @@
 //                             ),
 //                           ),
 //                           Container(
-//                             width: 50.0.w,
+//                             width: 50,
 //                             child: CustomEventWidget(
 //                                 widget.passportdata != null
 //                                     ? getDepartureEventFormat(issuedate)
@@ -896,7 +896,7 @@
 //                             ),
 //                           ),
 //                           Container(
-//                             width: 50.0.w,
+//                             width: 50,
 //                             child: CustomEventWidget(
 //                                 widget.passportdata != null
 //                                     ? getDepartureEventFormat(expirationdate)
@@ -957,7 +957,7 @@
 //                           Expanded(
 //                             flex: 2,
 //                             child: Container(
-//                               width: 10.0.w,
+//                               width: 10,
 //                               height: 40,
 //                               child: new TextField(
 //                                 maxLength: 3,
@@ -997,7 +997,7 @@
 //                       ),
 //                       FittedBox(
 //                         child: Container(
-//                             width: 100.0.w,
+//                             width: 100,
 //                             child: Row(
 //                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //                               children: [
@@ -1070,7 +1070,7 @@
 //                                 Padding(
 //                                   padding: EdgeInsets.only(top: 20),
 //                                   child: Container(
-//                                     width: 60.0.w,
+//                                     width: 60,
 //                                     child: TextField(
 //                                       maxLength: 20,
 //                                       style: TextStyle(fontSize: 18),
@@ -1102,13 +1102,13 @@
 //                 ),
 //                 showloader
 //                     ? Container(
-//                         width: 100.0.w,
+//                         width: 100,
 //                         height: 100.0.h,
 //                         color: Colors.black26,
 //                         child: Center(
 //                           child: Container(
-//                             width: 50.0.w,
-//                             height: 50.0.w,
+//                             width: 50,
+//                             height: 50,
 //                             child: LiquidCircularProgressIndicator(
 //                               value: _progressValue / 100,
 //                               valueColor: AlwaysStoppedAnimation(

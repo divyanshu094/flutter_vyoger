@@ -99,7 +99,7 @@ class AddNewTravel2State extends State<AddNewTravel2> {
       ),
       body: Builder(
         builder: (context) => Container(
-          width: 100.0.w,
+          width: 100,
           margin: EdgeInsets.symmetric(horizontal: 17.0),
           child: Stack(
             children: [

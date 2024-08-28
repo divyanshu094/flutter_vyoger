@@ -64,7 +64,7 @@ class _ForgetPassState extends State<ForgetPass> {
         children: [
           Container(
             height: 100.0.h,
-            width: 100.0.w,
+            width: 100,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
               child: Form(

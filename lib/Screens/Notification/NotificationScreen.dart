@@ -203,9 +203,9 @@ class _NotificationScreenState extends State<NotificationScreen>
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                       color: Color(0xffEDEDED)),
-                                  height: 265,
+                                  height: 65,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(2.0),
+                                    padding: const EdgeInsets.all(5.0),
                                     child: Row(
                                       children: [
                                         SizedBox(

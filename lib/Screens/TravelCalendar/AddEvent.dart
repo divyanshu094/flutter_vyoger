@@ -18,7 +18,7 @@ import 'package:mobility_sqr/Widgets/MobilityLoader.dart';
 import 'package:sizer/sizer.dart';
 
 class AddEvent extends StatefulWidget {
-  late CalendarEvent event; //= CalendarEvent();
+  CalendarEvent event = CalendarEvent();
   DateTime? day;
 
   AddEvent({event, DateTime? day}) {
@@ -31,19 +31,19 @@ class AddEvent extends StatefulWidget {
 }
 
 class _AddEventState extends State<AddEvent> {
-  late eventPost _postjson; //= eventPost();
+  eventPost _postjson= eventPost();
   ScrollController _controller = ScrollController();
   ApiProvider _apiProvider = ApiProvider();
-  late List<String> _Countrylist;
-  late List<CountryModel> _CountrylistModel;
+  List<String>? _Countrylist;
+  List<CountryModel>? _CountrylistModel;
   List<CountryModel> _citylistModel = <CountryModel>[];
-  late Country selCountry;
-  late CountryModel _selectedValue;
-  late CountryModel _selectedCity;
-  late Activity _selectedActivity;
+  Country? selCountry;
+  CountryModel? _selectedValue;
+  CountryModel? _selectedCity;
+  Activity? _selectedActivity;
   TokenGetter mprefs = TokenGetter();
   bool showloader = true;
-  late Activities activitylist;
+  Activities? activitylist;
 
   String empCode = "";
 
@@ -192,7 +192,7 @@ class _AddEventState extends State<AddEvent> {
                                     border: Border.all(color: Colors.grey)),
                                 margin: EdgeInsets.only(bottom: 20),
                                 child: CountryPickerUtils.getDefaultFlagImage(
-                                    selCountry))
+                                    selCountry!))
                             : Container(
                                 padding: EdgeInsets.all(2),
                                 decoration: BoxDecoration(
@@ -214,17 +214,17 @@ class _AddEventState extends State<AddEvent> {
                           openCustomCountryPickerDialog(context,
                               callback: (value) {
                             _selectedValue = fetchCountryData(
-                                value.isoCode, _CountrylistModel);
+                                value.isoCode, _CountrylistModel!);
                             this.setState(() {
                               selCountry = value;
                               _postjson.countryName = value.name;
                               _postjson.countryCode =
-                                  _selectedValue.id.toString();
+                                  _selectedValue!.id.toString();
                               showloader = true;
                             });
                             _apiProvider
                                 .getCitylist(
-                                    countryId: _selectedValue.countryId)
+                                    countryId: _selectedValue!.countryId)
                                 .then((value) => this.setState(() {
                                       _citylistModel = value.data;
                                       showloader = false;
@@ -232,7 +232,7 @@ class _AddEventState extends State<AddEvent> {
                                 .catchError((onError) => this.setState(() {
                                       showloader = false;
                                     }));
-                          }, list: _Countrylist);
+                          }, list: _Countrylist!);
                         }),
                       ),
                     ],
@@ -264,7 +264,7 @@ class _AddEventState extends State<AddEvent> {
                     showCustomDialogCityClass(
                         context,
                         ActivitiesList(
-                          activitylist.data,
+                          activitylist!.data,
                           onchange: (Activity) {
                             this.setState(() {
                               _selectedActivity = Activity;

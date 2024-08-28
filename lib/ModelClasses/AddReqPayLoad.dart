@@ -99,9 +99,9 @@ class TravelReqPayLoad {
 
   set project(String project) => _project = project;
 
-  String get projectName => _projectName!;
+  String? get projectName => _projectName;
 
-  set projectName(String projectName) => _projectName = projectName;
+  set projectName(String? projectName) => _projectName = projectName;
 
   bool get isBillable => _isBillable!;
 
@@ -311,9 +311,9 @@ class TravelCity {
   List<PurposeData>? _purposeList;
   String? _destinationCity;
 
-  PostLocationData get postLocationData => _postLocationData!;
+  PostLocationData? get postLocationData => _postLocationData;
 
-  set postLocationData(PostLocationData value) {
+  set postLocationData(PostLocationData? value) {
     _postLocationData = value;
   }
 
@@ -378,9 +378,9 @@ class TravelCity {
     _hasVisa = value;
   }
 
-  SearchList get toCountryData => _toCountryData!;
+  SearchList? get toCountryData => _toCountryData;
 
-  set toCountryData(SearchList value) {
+  set toCountryData(SearchList? value) {
     _toCountryData = value;
   }
 
@@ -390,9 +390,9 @@ class TravelCity {
     _myDependentList = value;
   }
 
-  List<PostLocationData> get postLocationList => _postLocationList!;
+  List<PostLocationData>? get postLocationList => _postLocationList;
 
-  set postLocationList(List<PostLocationData> value) {
+  set postLocationList(List<PostLocationData>? value) {
     _postLocationList = value;
   }
 
@@ -581,21 +581,21 @@ class TravelCity {
 
   set currency(String currency) => _currency = currency;
 
-  String get agenda => _agenda!;
+  String? get agenda => _agenda;
 
-  set agenda(String agenda) => _agenda = agenda;
+  set agenda(String? agenda) => _agenda = agenda;
 
-  String get travelPurpose => _travelPurpose!;
+  String? get travelPurpose => _travelPurpose;
 
-  set travelPurpose(String travelPurpose) => _travelPurpose = travelPurpose;
+  set travelPurpose(String? travelPurpose) => _travelPurpose = travelPurpose;
 
   String get applicableVisa => _applicableVisa!;
 
   set applicableVisa(String applicableVisa) => _applicableVisa = applicableVisa;
 
-  String get visaNumber => _visaNumber!;
+  String? get visaNumber => _visaNumber;
 
-  set visaNumber(String visaNumber) => _visaNumber = visaNumber;
+  set visaNumber(String? visaNumber) => _visaNumber = visaNumber;
 
   String get visaExpiryDate => _visaExpiryDate!;
 
@@ -770,48 +770,48 @@ class DependentData {
 }
 
 class TravelVisa {
-  late String _reqId;
-  late String _projectId;
-  late String _projectName;
-  late bool _isBillable;
-  late String _fromCity;
-  late String _toCity;
-  late String _travelStartDate;
-  late String _travelEndDate;
-  late String _visaPurpose;
-  late String _appliedVisa;
-  late String _requestNotes;
-  late String _visaStatus;
-  late String _empEmail;
-  late String _organization;
-  late String _visaReqId;
-  late bool _isDependent;
-  late String _dependentRelation;
-  late String _dependentName;
-  late String _country;
-  late String _createdBy;
+  String? _reqId;
+  String? _projectId;
+  String? _projectName;
+  bool? _isBillable;
+  String? _fromCity;
+  String? _toCity;
+  String? _travelStartDate;
+  String? _travelEndDate;
+  String? _visaPurpose;
+  String? _appliedVisa;
+  String? _requestNotes;
+  String? _visaStatus;
+  String? _empEmail;
+  String? _organization;
+  String? _visaReqId;
+  bool? _isDependent;
+  String? _dependentRelation;
+  String? _dependentName;
+  String? _country;
+  String? _createdBy;
 
   TravelVisa(
-      {required String reqId,
-      required String projectId,
-      required String projectName,
-      required bool isBillable,
-      required String fromCity,
-      required String toCity,
-      required String travelStartDate,
-      required String travelEndDate,
-      required String visaPurpose,
-      required String appliedVisa,
-      required String requestNotes,
-      required String visaStatus,
-      required String empEmail,
-      required String organization,
-      required String visaReqId,
-      required bool isDependent,
-      required String dependentRelation,
-      required String dependentName,
-      required String country,
-      required String createdBy}) {
+     {String? reqId,
+      String? projectId,
+      String? projectName,
+      bool? isBillable,
+      String? fromCity,
+      String? toCity,
+      String? travelStartDate,
+      String? travelEndDate,
+      String? visaPurpose,
+      String? appliedVisa,
+      String? requestNotes,
+      String? visaStatus,
+      String? empEmail,
+      String? organization,
+      String? visaReqId,
+      bool? isDependent,
+      String? dependentRelation,
+      String? dependentName,
+      String? country,
+      String? createdBy}) {
     this._reqId = reqId;
     this._projectId = projectId;
     this._projectName = projectName;
@@ -834,85 +834,85 @@ class TravelVisa {
     this._createdBy = createdBy;
   }
 
-  String get reqId => _reqId;
+  String get reqId => _reqId!;
 
   set reqId(String reqId) => _reqId = reqId;
 
-  String get projectId => _projectId;
+  String get projectId => _projectId!;
 
   set projectId(String projectId) => _projectId = projectId;
 
-  String get projectName => _projectName;
+  String get projectName => _projectName!;
 
   set projectName(String projectName) => _projectName = projectName;
 
-  bool get isBillable => _isBillable;
+  bool get isBillable => _isBillable!;
 
   set isBillable(bool isBillable) => _isBillable = isBillable;
 
-  String get fromCity => _fromCity;
+  String get fromCity => _fromCity!;
 
   set fromCity(String fromCity) => _fromCity = fromCity;
 
-  String get toCity => _toCity;
+  String get toCity => _toCity!;
 
   set toCity(String toCity) => _toCity = toCity;
 
-  String get travelStartDate => _travelStartDate;
+  String get travelStartDate => _travelStartDate!;
 
   set travelStartDate(String travelStartDate) =>
       _travelStartDate = travelStartDate;
 
-  String get travelEndDate => _travelEndDate;
+  String get travelEndDate => _travelEndDate!;
 
   set travelEndDate(String travelEndDate) => _travelEndDate = travelEndDate;
 
-  String get visaPurpose => _visaPurpose;
+  String get visaPurpose => _visaPurpose!;
 
   set visaPurpose(String visaPurpose) => _visaPurpose = visaPurpose;
 
-  String get appliedVisa => _appliedVisa;
+  String get appliedVisa => _appliedVisa!;
 
   set appliedVisa(String appliedVisa) => _appliedVisa = appliedVisa;
 
-  String get requestNotes => _requestNotes;
+  String get requestNotes => _requestNotes!;
 
   set requestNotes(String requestNotes) => _requestNotes = requestNotes;
 
-  String get visaStatus => _visaStatus;
+  String get visaStatus => _visaStatus!;
 
   set visaStatus(String visaStatus) => _visaStatus = visaStatus;
 
-  String get empEmail => _empEmail;
+  String get empEmail => _empEmail!;
 
   set empEmail(String empEmail) => _empEmail = empEmail;
 
-  String get organization => _organization;
+  String get organization => _organization!;
 
   set organization(String organization) => _organization = organization;
 
-  String get visaReqId => _visaReqId;
+  String get visaReqId => _visaReqId!;
 
   set visaReqId(String visaReqId) => _visaReqId = visaReqId;
 
-  bool get isDependent => _isDependent;
+  bool get isDependent => _isDependent!;
 
   set isDependent(bool isDependent) => _isDependent = isDependent;
 
-  String get dependentRelation => _dependentRelation;
+  String get dependentRelation => _dependentRelation!;
 
   set dependentRelation(String dependentRelation) =>
       _dependentRelation = dependentRelation;
 
-  String get dependentName => _dependentName;
+  String get dependentName => _dependentName!;
 
   set dependentName(String dependentName) => _dependentName = dependentName;
 
-  String get country => _country;
+  String get country => _country!;
 
   set country(String country) => _country = country;
 
-  String get createdBy => _createdBy;
+  String get createdBy => _createdBy!;
 
   set createdBy(String createdBy) => _createdBy = createdBy;
 

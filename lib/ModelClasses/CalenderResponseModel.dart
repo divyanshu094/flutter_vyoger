@@ -1,26 +1,24 @@
 class CalenderEventResponseModel {
-  late String _massage;
-  late bool _status;
-  late List<CalendarEvent> _data;
+  String? _massage;
+  bool? _status;
+  List<CalendarEvent>? _data;
 
   CalenderEventResponseModel(
-      {required String massage,
-      required bool status,
-      required List<CalendarEvent> data}) {
+      {String? massage, bool? status, List<CalendarEvent>? data}) {
     this._massage = massage;
     this._status = status;
     this._data = data;
   }
 
-  String get massage => _massage;
+  String get massage => _massage!;
 
   set massage(String massage) => _massage = massage;
 
-  bool get status => _status;
+  bool get status => _status!;
 
   set status(bool status) => _status = status;
 
-  List<CalendarEvent> get data => _data;
+  List<CalendarEvent> get data => _data!;
 
   set data(List<CalendarEvent> data) => _data = data;
 
@@ -30,7 +28,7 @@ class CalenderEventResponseModel {
     if (json['data'] != null) {
       _data = <CalendarEvent>[];
       json['data'].forEach((v) {
-        _data.add(new CalendarEvent.fromJson(v));
+        _data!.add(new CalendarEvent.fromJson(v));
       });
     }
   }
@@ -39,70 +37,70 @@ class CalenderEventResponseModel {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['massage'] = this._massage;
     data['status'] = this._status;
-    data['data'] = this._data.map((v) => v.toJson()).toList();
+    data['data'] = this._data!.map((v) => v.toJson()).toList();
     return data;
   }
 }
 
 class CalendarEvent {
-  late int _id;
-  late String _dateCreated;
-  late String _dateModified;
-  late String _createdBy;
-  late String _modifiedBy;
-  late bool _status;
-  late String _fromDate;
-  late String _toDate;
-  late String _countryCode;
-  late String _countryName;
-  late String _cityCode;
-  late String _cityName;
-  late String _activity;
-  late String _isVisible;
-  late String _isDeleted;
-  late dynamic _column1;
-  late dynamic _column2;
-  late dynamic _column3;
-  late dynamic _column4;
-  late dynamic _column5;
-  late dynamic _column6;
-  late dynamic _column7;
-  late dynamic _column8;
-  late dynamic _column9;
-  late dynamic _column10;
-  late dynamic _column11;
-  late dynamic _column12;
-  late String _empCode;
+  int? _id;
+  String? _dateCreated;
+  String? _dateModified;
+  String? _createdBy;
+  String? _modifiedBy;
+  bool? _status;
+  String? _fromDate;
+  String? _toDate;
+  String? _countryCode;
+  String? _countryName;
+  String? _cityCode;
+  String? _cityName;
+  String? _activity;
+  String? _isVisible;
+  String? _isDeleted;
+  dynamic _column1;
+  dynamic _column2;
+  dynamic _column3;
+  dynamic _column4;
+  dynamic _column5;
+  dynamic _column6;
+  dynamic _column7;
+  dynamic _column8;
+  dynamic _column9;
+  dynamic _column10;
+  dynamic _column11;
+  dynamic _column12;
+  String? _empCode;
 
   CalendarEvent(
-      {required int id,
-      required String dateCreated,
-      required String dateModified,
-      required String createdBy,
-      required String modifiedBy,
-      required bool status,
-      required String fromDate,
-      required String toDate,
-      required String countryCode,
-      required String countryName,
-      required String cityCode,
-      required String cityName,
-      required String activity,
-      required String isVisible,
-      required String isDeleted,
-      required dynamic column1,
-      required dynamic column2,
-      required dynamic column3,
-      required dynamic column4,
-      required dynamic column5,
-      required dynamic column6,
-      required dynamic column7,
-      required dynamic column8,
-      required dynamic column9,
-      required dynamic column10,
-      required dynamic column11,
-      required dynamic column12,
-      required String empCode}) {
+      {int? id,
+      String? dateCreated,
+      String? dateModified,
+      String? createdBy,
+      String? modifiedBy,
+      bool? status,
+      String? fromDate,
+      String? toDate,
+      String? countryCode,
+      String? countryName,
+      String? cityCode,
+      String? cityName,
+      String? activity,
+      String? isVisible,
+      String? isDeleted,
+      dynamic column1,
+      dynamic column2,
+      dynamic column3,
+      dynamic column4,
+      dynamic column5,
+      dynamic column6,
+      dynamic column7,
+      dynamic column8,
+      dynamic column9,
+      dynamic column10,
+      dynamic column11,
+      dynamic column12,
+      String? empCode}) {
     this._id = id;
     this._dateCreated = dateCreated;
     this._dateModified = dateModified;
@@ -133,63 +131,63 @@ class CalendarEvent {
     this._empCode = empCode;
   }
 
-  int get id => _id;
+  int get id => _id!;
 
   set id(int id) => _id = id;
 
-  String get dateCreated => _dateCreated;
+  String get dateCreated => _dateCreated!;
 
   set dateCreated(String dateCreated) => _dateCreated = dateCreated;
 
-  String get dateModified => _dateModified;
+  String get dateModified => _dateModified!;
 
   set dateModified(String dateModified) => _dateModified = dateModified;
 
-  String get createdBy => _createdBy;
+  String get createdBy => _createdBy!;
 
   set createdBy(String createdBy) => _createdBy = createdBy;
 
-  String get modifiedBy => _modifiedBy;
+  String get modifiedBy => _modifiedBy!;
 
   set modifiedBy(String modifiedBy) => _modifiedBy = modifiedBy;
 
-  bool get status => _status;
+  bool get status => _status!;
 
   set status(bool status) => _status = status;
 
-  String get fromDate => _fromDate;
+  String get fromDate => _fromDate!;
 
   set fromDate(String fromDate) => _fromDate = fromDate;
 
-  String get toDate => _toDate;
+  String get toDate => _toDate!;
 
   set toDate(String toDate) => _toDate = toDate;
 
-  String get countryCode => _countryCode;
+  String get countryCode => _countryCode!;
 
   set countryCode(String countryCode) => _countryCode = countryCode;
 
-  String get countryName => _countryName;
+  String get countryName => _countryName!;
 
   set countryName(String countryName) => _countryName = countryName;
 
-  String get cityCode => _cityCode;
+  String get cityCode => _cityCode!;
 
   set cityCode(String cityCode) => _cityCode = cityCode;
 
-  String get cityName => _cityName;
+  String get cityName => _cityName!;
 
   set cityName(String cityName) => _cityName = cityName;
 
-  String get activity => _activity;
+  String get activity => _activity!;
 
   set activity(String activity) => _activity = activity;
 
-  String get isVisible => _isVisible;
+  String get isVisible => _isVisible!;
 
   set isVisible(String isVisible) => _isVisible = isVisible;
 
-  String get isDeleted => _isDeleted;
+  String get isDeleted => _isDeleted!;
 
   set isDeleted(String isDeleted) => _isDeleted = isDeleted;
 
@@ -241,7 +239,7 @@ class CalendarEvent {
 
   set column12(dynamic column12) => _column12 = column12;
 
-  String get empCode => _empCode;
+  String get empCode => _empCode!;
 
   set empCode(String empCode) => _empCode = empCode;
 
