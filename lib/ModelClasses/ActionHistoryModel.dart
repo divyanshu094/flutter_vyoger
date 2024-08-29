@@ -1,33 +1,33 @@
 class ActionHistoryModel {
-  late String _massage;
-  late bool _status;
-  late List<HistoryData> _data;
-  late List<Tranfer> _tranfer;
+  String? _massage;
+  bool? _status;
+  List<HistoryData>? _data;
+  List<Tranfer>? _tranfer;
 
   ActionHistoryModel(
-      {required String massage,
-      required bool status,
-      required List<HistoryData> data,
-      required List<Tranfer> tranfer}) {
+      {String? massage,
+      bool? status,
+      List<HistoryData>? data,
+      List<Tranfer>? tranfer}) {
     this._massage = massage;
     this._status = status;
     this._data = data;
     this._tranfer = tranfer;
   }
 
-  String get massage => _massage;
+  String get massage => _massage!;
 
   set massage(String massage) => _massage = massage;
 
-  bool get status => _status;
+  bool get status => _status!;
 
   set status(bool status) => _status = status;
 
-  List<HistoryData> get data => _data;
+  List<HistoryData> get data => _data!;
 
   set data(List<HistoryData> data) => _data = data;
 
-  List<Tranfer> get tranfer => _tranfer;
+  List<Tranfer> get tranfer => _tranfer!;
 
   set tranfer(List<Tranfer> tranfer) => _tranfer = tranfer;
 
@@ -37,13 +37,13 @@ class ActionHistoryModel {
     if (json['data'] != null) {
       _data = <HistoryData>[];
       json['data'].forEach((v) {
-        _data.add(new HistoryData.fromJson(v));
+        _data!.add(new HistoryData.fromJson(v));
       });
     }
     if (json['tranfer'] != null) {
       _tranfer = <Tranfer>[];
       json['tranfer'].forEach((v) {
-        _tranfer.add(new Tranfer.fromJson(v));
+        _tranfer!.add(new Tranfer.fromJson(v));
       });
     }
   }
@@ -52,51 +52,51 @@ class ActionHistoryModel {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['massage'] = this._massage;
     data['status'] = this._status;
-    data['data'] = this._data.map((v) => v.toJson()).toList();
-    data['tranfer'] = this._tranfer.map((v) => v.toJson()).toList();
+    data['data'] = this._data!.map((v) => v.toJson()).toList();
+    data['tranfer'] = this._tranfer!.map((v) => v.toJson()).toList();
     return data;
   }
 }
 
 class HistoryData {
-  late String _supervisorStatus;
-  late String _approvalLevel;
-  late String _supervisor;
-  late String _currentTicketOwner;
-  late String _supervisorName;
-  late String _actionDate;
-  late String _expenseApproverStatus;
-  late String _expenseApprover;
-  late String _expenseApproverName;
-  late String _projectManagerStatus;
-  late String _projectManagerName;
-  late String _projectManager;
-  late String _businessLeadStatus;
-  late String _businessLeadName;
-  late String _businessLead;
-  late String _clientExecutiveLeadStatus;
-  late String _clientExecutiveLeadName;
-  late String _clientExecutiveLead;
+  String? _supervisorStatus;
+  String? _approvalLevel;
+  String? _supervisor;
+  String? _currentTicketOwner;
+  String? _supervisorName;
+  String? _actionDate;
+  String? _expenseApproverStatus;
+  String? _expenseApprover;
+  String? _expenseApproverName;
+  String? _projectManagerStatus;
+  String? _projectManagerName;
+  String? _projectManager;
+  String? _businessLeadStatus;
+  String? _businessLeadName;
+  String? _businessLead;
+  String? _clientExecutiveLeadStatus;
+  String? _clientExecutiveLeadName;
+  String? _clientExecutiveLead;
 
   Data(
-      {required String supervisorStatus,
-      required String approvalLevel,
-      required String supervisor,
-      required String currentTicketOwner,
-      required String supervisorName,
-      required String actionDate,
-      required String expenseApproverStatus,
-      required String expenseApprover,
-      required String expenseApproverName,
-      required String projectManagerStatus,
-      required String projectManagerName,
-      required String projectManager,
-      required String businessLeadStatus,
-      required String businessLeadName,
-      required String businessLead,
-      required String clientExecutiveLeadStatus,
-      required String clientExecutiveLeadName,
-      required String clientExecutiveLead}) {
+      {String? supervisorStatus,
+      String? approvalLevel,
+      String? supervisor,
+      String? currentTicketOwner,
+      String? supervisorName,
+      String? actionDate,
+      String? expenseApproverStatus,
+      String? expenseApprover,
+      String? expenseApproverName,
+      String? projectManagerStatus,
+      String? projectManagerName,
+      String? projectManager,
+      String? businessLeadStatus,
+      String? businessLeadName,
+      String? businessLead,
+      String? clientExecutiveLeadStatus,
+      String? clientExecutiveLeadName,
+      String? clientExecutiveLead}) {
     this._supervisorStatus = supervisorStatus;
     this._approvalLevel = approvalLevel;
     this._supervisor = supervisor;
@@ -117,88 +117,90 @@ class HistoryData {
     this._clientExecutiveLead = clientExecutiveLead;
   }
 
-  String get supervisorStatus => _supervisorStatus;
+  String? get supervisorStatus => _supervisorStatus;
 
-  set supervisorStatus(String supervisorStatus) =>
+  set supervisorStatus(String? supervisorStatus) =>
       _supervisorStatus = supervisorStatus;
 
-  String get approvalLevel => _approvalLevel;
+  String? get approvalLevel => _approvalLevel;
 
-  set approvalLevel(String approvalLevel) => _approvalLevel = approvalLevel;
+  set approvalLevel(String? approvalLevel) => _approvalLevel = approvalLevel;
 
-  String get supervisor => _supervisor;
+  String? get supervisor => _supervisor;
 
-  set supervisor(String supervisor) => _supervisor = supervisor;
+  set supervisor(String? supervisor) => _supervisor = supervisor;
 
-  String get currentTicketOwner => _currentTicketOwner;
+  String? get currentTicketOwner => _currentTicketOwner;
 
-  set currentTicketOwner(String currentTicketOwner) =>
+  set currentTicketOwner(String? currentTicketOwner) =>
       _currentTicketOwner = currentTicketOwner;
 
-  String get supervisorName => _supervisorName;
+  String? get supervisorName => _supervisorName;
 
-  set supervisorName(String supervisorName) => _supervisorName = supervisorName;
+  set supervisorName(String? supervisorName) =>
+      _supervisorName = supervisorName;
 
-  String get actionDate => _actionDate;
+  String? get actionDate => _actionDate;
 
-  set actionDate(String actionDate) => _actionDate = actionDate;
+  set actionDate(String? actionDate) => _actionDate = actionDate;
 
-  String get expenseApproverStatus => _expenseApproverStatus;
+  String? get expenseApproverStatus => _expenseApproverStatus;
 
-  set expenseApproverStatus(String expenseApproverStatus) =>
+  set expenseApproverStatus(String? expenseApproverStatus) =>
       _expenseApproverStatus = expenseApproverStatus;
 
-  String get expenseApprover => _expenseApprover;
+  String? get expenseApprover => _expenseApprover;
 
-  set expenseApprover(String expenseApprover) =>
+  set expenseApprover(String? expenseApprover) =>
       _expenseApprover = expenseApprover;
 
-  String get expenseApproverName => _expenseApproverName;
+  String? get expenseApproverName => _expenseApproverName;
 
-  set expenseApproverName(String expenseApproverName) =>
+  set expenseApproverName(String? expenseApproverName) =>
       _expenseApproverName = expenseApproverName;
 
-  String get projectManagerStatus => _projectManagerStatus;
+  String? get projectManagerStatus => _projectManagerStatus;
 
-  set projectManagerStatus(String projectManagerStatus) =>
+  set projectManagerStatus(String? projectManagerStatus) =>
       _projectManagerStatus = projectManagerStatus;
 
-  String get projectManagerName => _projectManagerName;
+  String? get projectManagerName => _projectManagerName;
 
-  set projectManagerName(String projectManagerName) =>
+  set projectManagerName(String? projectManagerName) =>
       _projectManagerName = projectManagerName;
 
-  String get projectManager => _projectManager;
+  String? get projectManager => _projectManager;
 
-  set projectManager(String projectManager) => _projectManager = projectManager;
+  set projectManager(String? projectManager) =>
+      _projectManager = projectManager;
 
-  String get businessLeadStatus => _businessLeadStatus;
+  String? get businessLeadStatus => _businessLeadStatus;
 
-  set businessLeadStatus(String businessLeadStatus) =>
+  set businessLeadStatus(String? businessLeadStatus) =>
       _businessLeadStatus = businessLeadStatus;
 
-  String get businessLeadName => _businessLeadName;
+  String? get businessLeadName => _businessLeadName;
 
-  set businessLeadName(String businessLeadName) =>
+  set businessLeadName(String? businessLeadName) =>
       _businessLeadName = businessLeadName;
 
-  String get businessLead => _businessLead;
+  String? get businessLead => _businessLead;
 
-  set businessLead(String businessLead) => _businessLead = businessLead;
+  set businessLead(String? businessLead) => _businessLead = businessLead;
 
-  String get clientExecutiveLeadStatus => _clientExecutiveLeadStatus;
+  String? get clientExecutiveLeadStatus => _clientExecutiveLeadStatus;
 
-  set clientExecutiveLeadStatus(String clientExecutiveLeadStatus) =>
+  set clientExecutiveLeadStatus(String? clientExecutiveLeadStatus) =>
       _clientExecutiveLeadStatus = clientExecutiveLeadStatus;
 
-  String get clientExecutiveLeadName => _clientExecutiveLeadName;
+  String? get clientExecutiveLeadName => _clientExecutiveLeadName;
 
-  set clientExecutiveLeadName(String clientExecutiveLeadName) =>
+  set clientExecutiveLeadName(String? clientExecutiveLeadName) =>
       _clientExecutiveLeadName = clientExecutiveLeadName;
 
-  String get clientExecutiveLead => _clientExecutiveLead;
+  String? get clientExecutiveLead => _clientExecutiveLead;
 
-  set clientExecutiveLead(String clientExecutiveLead) =>
+  set clientExecutiveLead(String? clientExecutiveLead) =>
       _clientExecutiveLead = clientExecutiveLead;
 
   HistoryData.fromJson(Map<String, dynamic> json) {

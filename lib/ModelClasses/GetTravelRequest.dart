@@ -39,7 +39,7 @@ class MyModelData {
   late bool isTravelMultiCountry;
   late bool isTravelMultiCity;
   late dynamic requestNotes;
-  late String remark;
+  String? remark;
   late String homeContactName;
   late String homePhoneExt;
   late String homePhoneNumber;
@@ -97,7 +97,7 @@ class MyModelData {
       required this.isTravelMultiCountry,
       required this.isTravelMultiCity,
       this.requestNotes,
-      required this.remark,
+      this.remark,
       required this.homeContactName,
       required this.homePhoneExt,
       required this.homePhoneNumber,

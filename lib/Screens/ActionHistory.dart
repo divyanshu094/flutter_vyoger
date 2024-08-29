@@ -20,7 +20,7 @@ class _ActionHistoryState extends State<ActionHistory> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100.0.h,
+      height: 100,
       width: 100,
       child: Column(
         children: [
@@ -48,7 +48,7 @@ class _ActionHistoryState extends State<ActionHistory> {
                       AssetImage(
                         'assets/images/close.png',
                       ),
-                      size: 40,
+                      size: 30,
                       color: Colors.black38,
                     ),
                   ),
@@ -91,7 +91,7 @@ class _ActionHistoryState extends State<ActionHistory> {
                   ),
                 ),
                 Expanded(
-                  flex: 1,
+                  flex: 2,
                   child: Container(
                     child: Text(
                       "Status",

@@ -63,8 +63,8 @@ class _ForgetPassState extends State<ForgetPass> {
       body: Stack(
         children: [
           Container(
-            height: 100.0.h,
-            width: 100,
+            height: 400,
+            width: MediaQuery.sizeOf(context).width,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
               child: Form(
@@ -88,7 +88,7 @@ class _ForgetPassState extends State<ForgetPass> {
                       },
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height / 20,
+                      height: 20,
                     ),
                     Row(
                       children: [
@@ -107,7 +107,7 @@ class _ForgetPassState extends State<ForgetPass> {
                       },
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height / 20,
+                      height: 20,
                     ),
                     Row(
                       children: [

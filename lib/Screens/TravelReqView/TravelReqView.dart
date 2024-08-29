@@ -41,7 +41,7 @@ class _TravelReqViewState extends State<TravelReqView> {
   late MyModelData list; //= MyModelData();
   int where = 0;
   var args;
-  late ActionHistoryModel history_data;
+  ActionHistoryModel history_data=new ActionHistoryModel();
   bool showloader = true;
   int index = 0;
   late List<Currency_Data> _currencyConversiondata;
@@ -215,7 +215,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                      margin: EdgeInsets.symmetric(horizontal: 12, vertical: 1),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -249,7 +249,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                       height: 10,
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      margin: EdgeInsets.symmetric(horizontal: 12),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -358,7 +358,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Expanded(
-                                      flex: 2,
+                                      flex: 3,
                                       child: Container(
                                           child: CustomColumnEditText(
                                         "",
@@ -407,7 +407,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Expanded(
-                                      flex: 1,
+                                      flex: 3,
                                       child: Container(
                                           child: CustomColumnEditText(
                                         "",
@@ -420,9 +420,13 @@ class _TravelReqViewState extends State<TravelReqView> {
                                         onTap: () {},
                                       )),
                                     ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: SizedBox(),
+                                    ),
                                     if (!list.isTravelMultiCountry)
                                       Expanded(
-                                        flex: 1,
+                                        flex: 3,
                                         child: Container(
                                             child: CustomColumnEditText(
                                           "",
@@ -558,113 +562,113 @@ class _TravelReqViewState extends State<TravelReqView> {
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Stack(
-                                          children: [
-                                            Container(
-                                              margin: EdgeInsets.only(
-                                                  left: 5, right: 5, top: 22),
-                                              child: Row(children: <Widget>[
-                                                Text(
-                                                  "Host Contact",
-                                                  style: TextStyle(
-                                                      color: AppConstants
-                                                          .APP_THEME_COLOR,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 18),
-                                                ),
-                                                Expanded(
-                                                    child: Divider(
-                                                        color: AppConstants
-                                                            .APP_THEME_COLOR,
-                                                        indent: 5,
-                                                        thickness: 1)),
-                                              ]),
-                                            ),
-                                            list.details[index].agenda !=
-                                                        null ||
-                                                    list.details[index].agenda
-                                                        .toString()
-                                                        .trim()
-                                                        .isNotEmpty
-                                                ? Align(
-                                                    alignment:
-                                                        Alignment.bottomRight,
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        showCustomDialogClass(
-                                                            context,
-                                                            AddAgendaView(
-                                                              list
-                                                                  .details[
-                                                                      index]
-                                                                  .agenda,
-                                                              onclose: () {
-                                                                Navigator.of(
-                                                                        context,
-                                                                        rootNavigator:
-                                                                            true)
-                                                                    .pop();
-                                                              },
-                                                            ));
-                                                      },
-                                                      child: Container(
-                                                          height: 30,
-                                                          width: 90,
-                                                          margin:
-                                                              EdgeInsets.only(
-                                                                  right: 20),
-                                                          decoration: BoxDecoration(
-                                                              boxShadow: [
-                                                                BoxShadow(
-                                                                  color: Colors
-                                                                      .grey,
-                                                                  blurRadius:
-                                                                      5.0,
-                                                                ),
-                                                              ],
-                                                              border: Border.all(
-                                                                  color: AppConstants
-                                                                      .APP_THEME_COLOR),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .all(Radius
-                                                                          .circular(
-                                                                              5)),
-                                                              color: AppConstants
-                                                                  .APP_THEME_COLOR),
-                                                          child: FittedBox(
-                                                            fit:
-                                                                BoxFit.fitWidth,
-                                                            child: Row(
-                                                              children: [
-                                                                Padding(
-                                                                  padding:
-                                                                      const EdgeInsets
-                                                                          .all(
-                                                                          8.0),
-                                                                  child: Text(
-                                                                    "View Agenda",
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .center,
-                                                                    style: TextStyle(
-                                                                        color: Colors
-                                                                            .white,
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w700,
-                                                                        fontSize:
-                                                                            14),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          )),
-                                                    ))
-                                                : SizedBox(),
-                                          ],
-                                        ),
+                                        // Stack(
+                                        //   children: [
+                                        //     Container(
+                                        //       margin: EdgeInsets.only(
+                                        //           left: 5, right: 5, top: 22),
+                                        //       child: Row(children: <Widget>[
+                                        //         Text(
+                                        //           "Host Contact",
+                                        //           style: TextStyle(
+                                        //               color: AppConstants
+                                        //                   .APP_THEME_COLOR,
+                                        //               fontWeight:
+                                        //                   FontWeight.bold,
+                                        //               fontSize: 18),
+                                        //         ),
+                                        //         Expanded(
+                                        //             child: Divider(
+                                        //                 color: AppConstants
+                                        //                     .APP_THEME_COLOR,
+                                        //                 indent: 5,
+                                        //                 thickness: 1)),
+                                        //       ]),
+                                        //     ),
+                                        //     list.details[index].agenda !=
+                                        //                 null ||
+                                        //             list.details[index].agenda
+                                        //                 .toString()
+                                        //                 .trim()
+                                        //                 .isNotEmpty
+                                        //         ? Align(
+                                        //             alignment:
+                                        //                 Alignment.bottomRight,
+                                        //             child: GestureDetector(
+                                        //               onTap: () {
+                                        //                 showCustomDialogClass(
+                                        //                     context,
+                                        //                     AddAgendaView(
+                                        //                       list
+                                        //                           .details[
+                                        //                               index]
+                                        //                           .agenda,
+                                        //                       onclose: () {
+                                        //                         Navigator.of(
+                                        //                                 context,
+                                        //                                 rootNavigator:
+                                        //                                     true)
+                                        //                             .pop();
+                                        //                       },
+                                        //                     ));
+                                        //               },
+                                        //               child: Container(
+                                        //                   height: 30,
+                                        //                   width: 90,
+                                        //                   margin:
+                                        //                       EdgeInsets.only(
+                                        //                           right: 20),
+                                        //                   decoration: BoxDecoration(
+                                        //                       boxShadow: [
+                                        //                         BoxShadow(
+                                        //                           color: Colors
+                                        //                               .grey,
+                                        //                           blurRadius:
+                                        //                               5.0,
+                                        //                         ),
+                                        //                       ],
+                                        //                       border: Border.all(
+                                        //                           color: AppConstants
+                                        //                               .APP_THEME_COLOR),
+                                        //                       borderRadius:
+                                        //                           BorderRadius
+                                        //                               .all(Radius
+                                        //                                   .circular(
+                                        //                                       5)),
+                                        //                       color: AppConstants
+                                        //                           .APP_THEME_COLOR),
+                                        //                   child: FittedBox(
+                                        //                     fit:
+                                        //                         BoxFit.fitWidth,
+                                        //                     child: Row(
+                                        //                       children: [
+                                        //                         Padding(
+                                        //                           padding:
+                                        //                               const EdgeInsets
+                                        //                                   .all(
+                                        //                                   8.0),
+                                        //                           child: Text(
+                                        //                             "View Agenda",
+                                        //                             textAlign:
+                                        //                                 TextAlign
+                                        //                                     .center,
+                                        //                             style: TextStyle(
+                                        //                                 color: Colors
+                                        //                                     .white,
+                                        //                                 fontWeight:
+                                        //                                     FontWeight
+                                        //                                         .w700,
+                                        //                                 fontSize:
+                                        //                                     14),
+                                        //                           ),
+                                        //                         ),
+                                        //                       ],
+                                        //                     ),
+                                        //                   )),
+                                        //             ))
+                                        //         : SizedBox(),
+                                        //   ],
+                                        // ),
                                         SizedBox(
                                           height: 10,
                                         ),
@@ -1204,22 +1208,22 @@ class _TravelReqViewState extends State<TravelReqView> {
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Container(
-                                          width: 100,
-                                          child: ElevatedButton(
-                                            // elevation: 0,
-                                            // shape: RoundedRectangleBorder(
-                                            //     side: BorderSide(
-                                            //         color: AppConstants
-                                            //             .APP_THEME_COLOR)),
-                                            onPressed: () async {},
-                                            // color: AppConstants.APP_THEME_COLOR,
-                                            // textColor: Colors.white,
-                                            child: Text(
-                                                "Total Cost(${totalCurrencyCode}) : ${IsNullCheck(item.currencyTotal) ? item.currencyTotal == 0.0 ? "  -" : FormatCurrency.format(item.currencyTotal.round()) : " "} ",
-                                                style: TextStyle(fontSize: 14)),
-                                          ),
-                                        ),
+                                        // Container(
+                                        //   width: 100,
+                                        //   child: TextButton(
+                                        //     // elevation: 0,
+                                        //     // shape: RoundedRectangleBorder(
+                                        //     //     side: BorderSide(
+                                        //     //         color: AppConstants
+                                        //     //             .APP_THEME_COLOR)),
+                                        //     onPressed: () async {},
+                                        //     // color: AppConstants.APP_THEME_COLOR,
+                                        //     // textColor: Colors.white,
+                                        //     child: Text(
+                                        //         "Total Cost(${totalCurrencyCode}) : ${IsNullCheck(item.currencyTotal) ? item.currencyTotal == 0.0 ? "  -" : FormatCurrency.format(item.currencyTotal.round()) : " "} ",
+                                        //         style: TextStyle(fontSize: 14)),
+                                        //   ),
+                                        // ),
                                       ],
                                     ),
                                   Divider(

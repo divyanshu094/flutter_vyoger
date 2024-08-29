@@ -111,7 +111,7 @@ class _VaultScreenState extends State<VaultScreen> {
                 child: Container(
                   height: height,
                   width: width,
-                  margin: EdgeInsets.only(left: 30, right: 30, top: 20),
+                  margin: EdgeInsets.only(left: 30, right: 30, top: 50),
                   child: Column(
                     children: [
                       Container(

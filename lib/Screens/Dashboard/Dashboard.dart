@@ -59,7 +59,7 @@ class _DashboardState extends State<Dashboard> {
       info = await widget._userInfo.readUserInfo() ?? null;
       this.setState(() {
         UserName = info.data.firstName;
-        ProfileImage = AppConstants.BASE_URL + info.data.photo!.file!;
+        ProfileImage = info.data.photo!.file!;
       });
     } catch (e) {
       print(e);

@@ -99,7 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     Future.delayed(Duration.zero, () {
-      routes = ModalRoute.of(context)?.settings.arguments as Map<String, String>;
+      routes = ModalRoute.of(context)?.settings.arguments;
       setState(() {
         _pickedImageString = routes['image'];
       });
@@ -188,8 +188,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 child: Hero(
                                   tag: 'profile',
                                   child: Material(
-                                    child: _pickedImage == null
-                                        ? (_pickedImageString == null
+                                    child:
+                                    // _pickedImage == null
+                                    //     ?
+                                    (_pickedImageString == null
                                             ? ImageIcon(
                                                 AssetImage(
                                                   'assets/images/myprofile_sidemenu_icon.png',
@@ -203,9 +205,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                 backgroundColor:
                                                     Colors.transparent,
                                               ))
-                                        : ClipOval(
-                                            child: Image.file(_pickedImage),
-                                          ),
+                                        // : ClipOval(
+                                        //     child: Image.file(_pickedImage),
+                                        //   ),
                                   ),
                                 ),
                               ),
@@ -281,14 +283,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Positioned(
                     right: 0,
                     child: Container(
-                      width: 50.0,
-                      height: 120.0,
+                      width: 50,
+                      height: 120,
                       child: GetNotificationIcon(context),
                     ),
                   ),
                   Container(
-                    width: 50.0,
-                    height: 120.0,
+                    width: 50,
+                    height: 120,
                     child: GestureDetector(
                       onTap: () {
                         Navigator.pop(context, _pickedImageString);

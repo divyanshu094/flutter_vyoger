@@ -35,14 +35,14 @@ showCustomDialogClass(BuildContext context, Widget mywidget) {
     builder: (BuildContext context) {
       return AlertDialog(
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(32.0))),
-        contentPadding: EdgeInsets.only(top: 10.0),
+            borderRadius: BorderRadius.all(Radius.circular(32))),
+        contentPadding: EdgeInsets.only(top: 10),
         content: FittedBox(
           fit: BoxFit.fill,
           child: Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
-              width: 180,
-              height: 100,
+              width: 280,
+              height: 500,
               child: mywidget),
         ),
       );
@@ -60,8 +60,8 @@ showCustomDialogCityClass(
     builder: (BuildContext context) {
       return AlertDialog(
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(32.0))),
-        contentPadding: EdgeInsets.only(top: 10.0),
+            borderRadius: BorderRadius.all(Radius.circular(32))),
+        contentPadding: EdgeInsets.only(top: 10),
         content: FittedBox(
           fit: BoxFit.fill,
           child: Container(

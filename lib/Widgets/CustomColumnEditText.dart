@@ -38,7 +38,7 @@ class _CustomColumnEditTextState extends State<CustomColumnEditText> {
             ),
           ),
           Container(
-              width: 180,
+              width: 100,
               height: 30,
               child: widget.placename == ''
                   ? TextFormField(
