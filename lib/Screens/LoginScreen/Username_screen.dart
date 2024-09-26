@@ -24,7 +24,7 @@ class _Username_Screen extends State<Username_Screen> {
   final tokengetter = TokenGetter();
   final apiProvider = ApiProvider();
   String Email = "";
-  late BuildContext dialogContext;
+  BuildContext? dialogContext;
   final appsharedprefs = TokenGetter();
   final LocalAuthentication auth = LocalAuthentication();
 
@@ -38,7 +38,7 @@ class _Username_Screen extends State<Username_Screen> {
   void initState() {
     super.initState();
     bloc.flush();
-    Future.delayed(const Duration(seconds: 1), () => getUserAuthBiometric());
+    // Future.delayed(const Duration(seconds: 1), () => getUserAuthBiometric());
   }
 
   getUserAuthBiometric() async {

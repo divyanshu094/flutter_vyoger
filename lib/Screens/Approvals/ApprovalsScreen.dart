@@ -14,7 +14,6 @@ import 'package:mobility_sqr/ModelClasses/GetTravelRequest.dart';
 import 'package:mobility_sqr/ModelClasses/UserInfo.dart';
 import 'package:mobility_sqr/Screens/Approvals/bloc/aprrovals_bloc.dart';
 import 'package:mobility_sqr/Widgets/MobilityLoader.dart';
-import 'package:sizer/sizer.dart';
 
 class ApprovalsScreen extends StatefulWidget {
   @override
@@ -78,7 +77,7 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
           leading: new IconButton(
               icon: new Icon(Icons.arrow_back),
               onPressed: () {
-                // _onWillPop();
+                _onWillPop();
               }),
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
@@ -424,10 +423,11 @@ class _ApprovalsScreenState extends State<ApprovalsScreen> {
     );
   }
 
-  // Future<bool> _onWillPop() {
-  //   Navigator.of(context)
-  //       .pushNamedAndRemoveUntil('/Dashboard', (Route<dynamic> route) => false);
-  // }
+  Future<bool> _onWillPop() async {
+    Navigator.of(context)
+        .pushNamedAndRemoveUntil('/Dashboard', (Route<dynamic> route) => false);
+    return true;
+  }
 
   @override
   void dispose() {
@@ -482,10 +482,10 @@ class _CellState extends State<Cell> {
                               TextWidget("From Date", 13.0, FontWeight.w100,
                                   Colors.black54, 4.0),
                               TextWidget(
-                                  getDepartureDate(
-                                      widget.fact.details!.length > 0
-                                          ? widget.fact.details![0].departureDate
-                                          : " "),
+                                  getDepartureDate(widget.fact.details!.length >
+                                          0
+                                      ? widget.fact.details![0].departureDate
+                                      : " "),
                                   13.0,
                                   FontWeight.w600,
                                   null,
@@ -544,7 +544,7 @@ class _CellState extends State<Cell> {
                     ? Checkbox(
                         checkColor: Colors.white,
                         activeColor: AppConstants.APP_THEME_COLOR,
-                        value: false,//widget.fact.isSelected,
+                        value: false, //widget.fact.isSelected,
                         onChanged: (bool? value) {
                           widget.onSelected(widget.fact);
                           this.setState(() {

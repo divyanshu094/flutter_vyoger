@@ -59,7 +59,7 @@ class TokenGetter {
 
   readCredentials() async {
     final prefs = await SharedPreferences.getInstance();
-    late Credential credential;
+    Credential? credential;
     try {
       credential = Credential.fromJson(
           json.decode(prefs.getString(AppConstants.CREDENTIAL)!));

@@ -374,7 +374,7 @@ class _DashboardState extends State<Dashboard> {
                                 );
                               } else {
                                 return Container(
-                                  height: 250,
+                                  height: 260,
                                   width: MediaQuery.sizeOf(context).width,
                                   margin: EdgeInsets.fromLTRB(20, 0, 10, 0),
                                   child: Scrollbar(
@@ -431,8 +431,8 @@ class _DashboardState extends State<Dashboard> {
                                                                         }));
                                                               },
                                                               child: Container(
-                                                                height: 220,
-                                                                width: 140,
+                                                                height: 300,
+                                                                width: 180,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Colors
@@ -456,18 +456,18 @@ class _DashboardState extends State<Dashboard> {
                                                                         children: [
                                                                           Container(
                                                                             margin:
-                                                                                EdgeInsets.all(5),
+                                                                                EdgeInsets.only(top: 15,left: 5, right: 5,bottom: 5),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                               children: [
                                                                                 Text("To"),
                                                                                 Container(
-                                                                                  width: 50,
-                                                                                  height: 12,
+                                                                                  width: 80,
+                                                                                  padding: EdgeInsets.all(4),
                                                                                   decoration: BoxDecoration(
                                                                                     color: AppConstants.APP_THEME_COLOR,
-                                                                                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                                                                                    borderRadius: BorderRadius.all(Radius.circular(10)),
                                                                                   ),
                                                                                   child: Container(
                                                                                     // height: 20,
@@ -488,7 +488,7 @@ class _DashboardState extends State<Dashboard> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                140,
+                                                                                200,
                                                                             margin:
                                                                                 EdgeInsets.symmetric(horizontal: 5),
                                                                             child: state.travelRequest.data![Index].details!.length > 0
@@ -503,7 +503,7 @@ class _DashboardState extends State<Dashboard> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                140,
+                                                                                200,
                                                                             margin: EdgeInsets.fromLTRB(
                                                                                 5,
                                                                                 5,
@@ -539,7 +539,7 @@ class _DashboardState extends State<Dashboard> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                140,
+                                                                                200,
                                                                             margin: EdgeInsets.fromLTRB(
                                                                                 5,
                                                                                 0,
@@ -553,7 +553,7 @@ class _DashboardState extends State<Dashboard> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                140,
+                                                                                200,
                                                                             margin:
                                                                                 EdgeInsets.symmetric(horizontal: 5),
                                                                             child: state.travelRequest.data![Index].details!.length > 0
@@ -567,7 +567,7 @@ class _DashboardState extends State<Dashboard> {
                                                                           ),
                                                                           Container(
                                                                             width:
-                                                                                140,
+                                                                                200,
                                                                             margin: EdgeInsets.fromLTRB(
                                                                                 5,
                                                                                 5,
@@ -599,7 +599,7 @@ class _DashboardState extends State<Dashboard> {
                                                                               child: Column(
                                                                                 children: [
                                                                                   Container(
-                                                                                    width: 100,
+                                                                                    width: 200,
                                                                                     margin: EdgeInsets.all(5),
                                                                                     child: Text(
                                                                                       "Departure",
@@ -607,7 +607,7 @@ class _DashboardState extends State<Dashboard> {
                                                                                     ),
                                                                                   ),
                                                                                   Container(
-                                                                                    width: 100,
+                                                                                    width: 150,
                                                                                     margin: EdgeInsets.symmetric(horizontal: 5),
                                                                                     child: state.travelRequest.data![Index].details!.length > 0
                                                                                         ? AutoSizeText(
@@ -619,7 +619,7 @@ class _DashboardState extends State<Dashboard> {
                                                                                         : SizedBox(),
                                                                                   ),
                                                                                   Container(
-                                                                                    width: 100,
+                                                                                    width: 150,
                                                                                     margin: EdgeInsets.fromLTRB(5, 5, 5, 0),
                                                                                     child: state.travelRequest.data![Index].details!.length > 0
                                                                                         ? AutoSizeText(
@@ -636,13 +636,13 @@ class _DashboardState extends State<Dashboard> {
                                                                             ),
                                                                             state.travelRequest.data![Index].travelReqStatus == '2'
                                                                                 ? Expanded(
-                                                                                    flex: 1,
+                                                                                    flex: 2,
                                                                                     child: Container(
                                                                                       foregroundDecoration: RotatedCornerDecoration.withColor(
                                                                                         color: Colors.orangeAccent,
                                                                                         // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                                                                                        textSpan: TextSpan(text: 'In Progress', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
-                                                                                        badgeSize: Size(45, 45),
+                                                                                        textSpan: TextSpan(text: 'In Progress', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                                                                                        badgeSize: Size(90, 90),
                                                                                         badgePosition: BadgePosition.bottomStart,
                                                                                         textDirection: TextDirection.rtl,
                                                                                         // labelInsets: LabelInsets(baselineShift: 3, start: 1),
@@ -651,14 +651,14 @@ class _DashboardState extends State<Dashboard> {
                                                                                   )
                                                                                 : state.travelRequest.data![Index].travelReqStatus == '2'
                                                                                     ? Expanded(
-                                                                                        flex: 1,
+                                                                                        flex: 2,
                                                                                         child: Container(
                                                                                           foregroundDecoration: RotatedCornerDecoration.withColor(
                                                                                             color: Colors.lightGreen,
                                                                                             // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
-                                                                                            textSpan: TextSpan(text: 'Approved', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
+                                                                                            textSpan: TextSpan(text: 'Approved', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
                                                                                             // labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                                                                                            badgeSize: Size(45, 45),
+                                                                                            badgeSize: Size(90, 90),
                                                                                             badgePosition: BadgePosition.bottomStart,
                                                                                             textDirection: TextDirection.rtl,
                                                                                           ),
@@ -666,14 +666,14 @@ class _DashboardState extends State<Dashboard> {
                                                                                       )
                                                                                     : state.travelRequest.data![Index].travelReqStatus == '1'
                                                                                         ? Expanded(
-                                                                                            flex: 1,
+                                                                                            flex: 2,
                                                                                             child: Container(
                                                                                               foregroundDecoration: RotatedCornerDecoration.withColor(
                                                                                                 color: Colors.yellow,
                                                                                                 // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
                                                                                                 textSpan: TextSpan(text: 'Saved', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
                                                                                                 // labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                                                                                                badgeSize: Size(45, 45),
+                                                                                                badgeSize: Size(90, 90),
                                                                                                 badgePosition: BadgePosition.bottomStart,
                                                                                                 textDirection: TextDirection.rtl,
                                                                                               ),
@@ -681,14 +681,14 @@ class _DashboardState extends State<Dashboard> {
                                                                                           )
                                                                                         : state.travelRequest.data![Index].travelReqStatus == '5'
                                                                                             ? Expanded(
-                                                                                                flex: 1,
+                                                                                                flex: 2,
                                                                                                 child: Container(
                                                                                                   foregroundDecoration: RotatedCornerDecoration.withColor(
                                                                                                     color: Colors.red,
                                                                                                     // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
                                                                                                     textSpan: TextSpan(text: 'Rejected', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
                                                                                                     // labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                                                                                                    badgeSize: Size(45, 45),
+                                                                                                    badgeSize: Size(90, 90),
                                                                                                     badgePosition: BadgePosition.bottomStart,
                                                                                                     textDirection: TextDirection.rtl,
                                                                                                   ),
@@ -696,28 +696,28 @@ class _DashboardState extends State<Dashboard> {
                                                                                               )
                                                                                             : state.travelRequest.data![Index].travelReqStatus == '6'
                                                                                                 ? Expanded(
-                                                                                                    flex: 1,
+                                                                                                    flex: 2,
                                                                                                     child: Container(
                                                                                                       foregroundDecoration: RotatedCornerDecoration.withColor(
                                                                                                         color: Colors.purple,
                                                                                                         // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
                                                                                                         textSpan: TextSpan(text: 'Transferred', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
                                                                                                         // labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                                                                                                        badgeSize: Size(45, 45),
+                                                                                                        badgeSize: Size(90, 90),
                                                                                                         badgePosition: BadgePosition.bottomStart,
                                                                                                         textDirection: TextDirection.rtl,
                                                                                                       ),
                                                                                                     ),
                                                                                                   )
                                                                                                 : Expanded(
-                                                                                                    flex: 1,
+                                                                                                    flex: 2,
                                                                                                     child: Container(
                                                                                                       foregroundDecoration: RotatedCornerDecoration.withColor(
                                                                                                         color: Colors.green,
                                                                                                         // geometry: const BadgeGeometry(width: 55, height: 55, alignment: BadgeAlignment.bottomRight),
                                                                                                         textSpan: TextSpan(text: 'Closed', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold)),
                                                                                                         // labelInsets: LabelInsets(baselineShift: 3, start: 1),
-                                                                                                        badgeSize: Size(45, 45),
+                                                                                                        badgeSize: Size(90, 90),
                                                                                                         badgePosition: BadgePosition.bottomStart,
                                                                                                         textDirection: TextDirection.rtl,
                                                                                                       ),
