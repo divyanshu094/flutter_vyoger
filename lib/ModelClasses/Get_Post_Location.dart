@@ -67,8 +67,8 @@ class PostLocationData extends Equatable {
   late String _status;
   late String _group;
   late String _timezone;
-  late String _effectiveStartDate;
-  late String _effectiveEndDate;
+  String? _effectiveStartDate;
+  String? _effectiveEndDate;
   late String _addressLine1;
   late String _city;
   late String _county;
@@ -77,23 +77,24 @@ class PostLocationData extends Equatable {
   late String _country;
   late String _primaryPhone;
   late String _secondaryPhone;
-  late String _fax;
-  late String _column1;
-  late String _column2;
-  late String _column3;
-  late String _column4;
-  late String _column5;
-  late String _column6;
-  late String _column7;
-  late String _column8;
-  late String _column9;
-  late String _column10;
-  late String _column11;
-  late String _column12;
+  String? _fax;
+
+  // Null? _column1;
+  // Null? _column2;
+  // Null? _column3;
+  // Null? _column4;
+  // Null? _column5;
+  // Null? _column6;
+  // Null? _column7;
+  // Null? _column8;
+  // Null? _column9;
+  // Null? _column10;
+  // Null? _column11;
+  // Null? _column12;
   dynamic _organization;
 
   PostLocationData(
-     {required int id,
+      {required int id,
       required String dateCreated,
       required String dateModified,
       required String createdBy,
@@ -115,18 +116,18 @@ class PostLocationData extends Equatable {
       required String primaryPhone,
       required String secondaryPhone,
       required String fax,
-      required String column1,
-      required String column2,
-      required String column3,
-      required String column4,
-      required String column5,
-      required String column6,
-      required String column7,
-      required String column8,
-      required String column9,
-      required String column10,
-      required String column11,
-      required String column12,
+      // required String column1,
+      // required String column2,
+      // required String column3,
+      // required String column4,
+      // required String column5,
+      // required String column6,
+      // required String column7,
+      // required String column8,
+      // required String column9,
+      // required String column10,
+      // required String column11,
+      // required String column12,
       dynamic organization}) {
     this._id = id;
     this._dateCreated = dateCreated;
@@ -150,18 +151,18 @@ class PostLocationData extends Equatable {
     this._primaryPhone = primaryPhone;
     this._secondaryPhone = secondaryPhone;
     this._fax = fax;
-    this._column1 = column1;
-    this._column2 = column2;
-    this._column3 = column3;
-    this._column4 = column4;
-    this._column5 = column5;
-    this._column6 = column6;
-    this._column7 = column7;
-    this._column8 = column8;
-    this._column9 = column9;
-    this._column10 = column10;
-    this._column11 = column11;
-    this._column12 = column12;
+    // this._column1 = column1;
+    // this._column2 = column2;
+    // this._column3 = column3;
+    // this._column4 = column4;
+    // this._column5 = column5;
+    // this._column6 = column6;
+    // this._column7 = column7;
+    // this._column8 = column8;
+    // this._column9 = column9;
+    // this._column10 = column10;
+    // this._column11 = column11;
+    // this._column12 = column12;
     this._organization = organization;
   }
 
@@ -209,14 +210,14 @@ class PostLocationData extends Equatable {
 
   set timezone(String timezone) => _timezone = timezone;
 
-  String get effectiveStartDate => _effectiveStartDate;
+  String? get effectiveStartDate => _effectiveStartDate;
 
-  set effectiveStartDate(String effectiveStartDate) =>
+  set effectiveStartDate(String? effectiveStartDate) =>
       _effectiveStartDate = effectiveStartDate;
 
-  String get effectiveEndDate => _effectiveEndDate;
+  String? get effectiveEndDate => _effectiveEndDate;
 
-  set effectiveEndDate(String effectiveEndDate) =>
+  set effectiveEndDate(String? effectiveEndDate) =>
       _effectiveEndDate = effectiveEndDate;
 
   String get addressLine1 => _addressLine1;
@@ -251,57 +252,57 @@ class PostLocationData extends Equatable {
 
   set secondaryPhone(String secondaryPhone) => _secondaryPhone = secondaryPhone;
 
-  String get fax => _fax;
+  String? get fax => _fax;
 
-  set fax(String fax) => _fax = fax;
+  set fax(String? fax) => _fax = fax;
 
-  String get column1 => _column1;
-
-  set column1(String column1) => _column1 = column1;
-
-  String get column2 => _column2;
-
-  set column2(String column2) => _column2 = column2;
-
-  String get column3 => _column3;
-
-  set column3(String column3) => _column3 = column3;
-
-  String get column4 => _column4;
-
-  set column4(String column4) => _column4 = column4;
-
-  String get column5 => _column5;
-
-  set column5(String column5) => _column5 = column5;
-
-  String get column6 => _column6;
-
-  set column6(String column6) => _column6 = column6;
-
-  String get column7 => _column7;
-
-  set column7(String column7) => _column7 = column7;
-
-  String get column8 => _column8;
-
-  set column8(String column8) => _column8 = column8;
-
-  String get column9 => _column9;
-
-  set column9(String column9) => _column9 = column9;
-
-  String get column10 => _column10;
-
-  set column10(String column10) => _column10 = column10;
-
-  String get column11 => _column11;
-
-  set column11(String column11) => _column11 = column11;
-
-  String get column12 => _column12;
-
-  set column12(String column12) => _column12 = column12;
+  // String get column1 => _column1;
+  //
+  // set column1(String column1) => _column1 = column1;
+  //
+  // String get column2 => _column2;
+  //
+  // set column2(String column2) => _column2 = column2;
+  //
+  // String get column3 => _column3;
+  //
+  // set column3(String column3) => _column3 = column3;
+  //
+  // String get column4 => _column4;
+  //
+  // set column4(String column4) => _column4 = column4;
+  //
+  // String get column5 => _column5;
+  //
+  // set column5(String column5) => _column5 = column5;
+  //
+  // String get column6 => _column6;
+  //
+  // set column6(String column6) => _column6 = column6;
+  //
+  // String get column7 => _column7;
+  //
+  // set column7(String column7) => _column7 = column7;
+  //
+  // String get column8 => _column8;
+  //
+  // set column8(String column8) => _column8 = column8;
+  //
+  // String get column9 => _column9;
+  //
+  // set column9(String column9) => _column9 = column9;
+  //
+  // String get column10 => _column10;
+  //
+  // set column10(String column10) => _column10 = column10;
+  //
+  // String get column11 => _column11;
+  //
+  // set column11(String column11) => _column11 = column11;
+  //
+  // String get column12 => _column12;
+  //
+  // set column12(String column12) => _column12 = column12;
 
   dynamic get organization => _organization;
 
@@ -330,18 +331,18 @@ class PostLocationData extends Equatable {
     _primaryPhone = json['primary_phone'];
     _secondaryPhone = json['secondary_phone'];
     _fax = json['fax'];
-    _column1 = json['column1'];
-    _column2 = json['column2'];
-    _column3 = json['column3'];
-    _column4 = json['column4'];
-    _column5 = json['column5'];
-    _column6 = json['column6'];
-    _column7 = json['column7'];
-    _column8 = json['column8'];
-    _column9 = json['column9'];
-    _column10 = json['column10'];
-    _column11 = json['column11'];
-    _column12 = json['column12'];
+    // _column1 = json['column1'];
+    // _column2 = json['column2'];
+    // _column3 = json['column3'];
+    // _column4 = json['column4'];
+    // _column5 = json['column5'];
+    // _column6 = json['column6'];
+    // _column7 = json['column7'];
+    // _column8 = json['column8'];
+    // _column9 = json['column9'];
+    // _column10 = json['column10'];
+    // _column11 = json['column11'];
+    // _column12 = json['column12'];
     _organization = json['organization'];
   }
 
@@ -369,18 +370,18 @@ class PostLocationData extends Equatable {
     data['primary_phone'] = this._primaryPhone;
     data['secondary_phone'] = this._secondaryPhone;
     data['fax'] = this._fax;
-    data['column1'] = this._column1;
-    data['column2'] = this._column2;
-    data['column3'] = this._column3;
-    data['column4'] = this._column4;
-    data['column5'] = this._column5;
-    data['column6'] = this._column6;
-    data['column7'] = this._column7;
-    data['column8'] = this._column8;
-    data['column9'] = this._column9;
-    data['column10'] = this._column10;
-    data['column11'] = this._column11;
-    data['column12'] = this._column12;
+    // data['column1'] = this._column1;
+    // data['column2'] = this._column2;
+    // data['column3'] = this._column3;
+    // data['column4'] = this._column4;
+    // data['column5'] = this._column5;
+    // data['column6'] = this._column6;
+    // data['column7'] = this._column7;
+    // data['column8'] = this._column8;
+    // data['column9'] = this._column9;
+    // data['column10'] = this._column10;
+    // data['column11'] = this._column11;
+    // data['column12'] = this._column12;
     data['organization'] = this._organization;
     return data;
   }
@@ -401,8 +402,8 @@ class PostLocationData extends Equatable {
         status,
         group,
         timezone,
-        effectiveStartDate,
-        effectiveEndDate,
+        effectiveStartDate ?? "",
+        effectiveEndDate ?? "",
         addressLine1,
         city,
         county,
@@ -411,19 +412,19 @@ class PostLocationData extends Equatable {
         country,
         primaryPhone,
         secondaryPhone,
-        fax,
-        column1,
-        column2,
-        column3,
-        column4,
-        column5,
-        column6,
-        column7,
-        column8,
-        column9,
-        column10,
-        column11,
-        column12,
+        fax ?? "",
+        // column1,
+        // column2,
+        // column3,
+        // column4,
+        // column5,
+        // column6,
+        // column7,
+        // column8,
+        // column9,
+        // column10,
+        // column11,
+        // column12,
         organization
       ];
 }

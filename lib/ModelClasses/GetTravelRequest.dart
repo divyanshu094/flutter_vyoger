@@ -305,7 +305,7 @@ class Details {
   late bool status;
   late String travellingCountry;
   late String travellingCountryTo;
-  late String officeLocation;
+  String? officeLocation;
   late String clientNumberExt;
   late dynamic clientNumber;
   late String sourceCity;
@@ -375,7 +375,7 @@ class Details {
       required this.status,
       required this.travellingCountry,
       required this.travellingCountryTo,
-      required this.officeLocation,
+      this.officeLocation,
       required this.clientNumberExt,
       this.clientNumber,
       required this.sourceCity,

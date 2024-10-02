@@ -117,7 +117,7 @@ class _DashboardState extends State<Dashboard> {
   }
 
   @override
-  initState() {
+  void initState() {
     super.initState();
 
     getUserAuthBiometric();
@@ -455,8 +455,11 @@ class _DashboardState extends State<Dashboard> {
                                                                           Column(
                                                                         children: [
                                                                           Container(
-                                                                            margin:
-                                                                                EdgeInsets.only(top: 15,left: 5, right: 5,bottom: 5),
+                                                                            margin: EdgeInsets.only(
+                                                                                top: 15,
+                                                                                left: 5,
+                                                                                right: 5,
+                                                                                bottom: 5),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

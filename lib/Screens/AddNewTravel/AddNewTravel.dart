@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:country_pickers/country.dart';
 import 'package:country_pickers/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,10 +53,13 @@ class _AddCity extends State<AddCity> {
       toData; //= SearchList(countryName: "", airportName: "", city: "");
   bool accomodationBool = false;
   List<String> dialCode = <String>[];
-  late var hostPhoneCountry; //= Country();
-  late var clientPhoneCountry; // = Country();
+  var hostPhoneCountry =
+      Country(isoCode: '', iso3Code: '', phoneCode: '', name: '');
+  late var clientPhoneCountry =
+      Country(isoCode: '', iso3Code: '', phoneCode: '', name: '');
   late TextEditingController ProjectTextController;
-  TravelReqPayLoad req_data = TravelReqPayLoad();
+  TravelReqPayLoad req_data = TravelReqPayLoad(
+      project: '', projectName: '', homeContactName: '', empEmail: '');
   late BuildContext purposecontext;
   late UserInfo info;
   ApiProvider _appApiProvider = ApiProvider();
@@ -502,7 +506,7 @@ class _AddCity extends State<AddCity> {
                           return Align(
                             alignment: Alignment.center,
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width-35,
+                              width: MediaQuery.sizeOf(context).width - 35,
                               margin: EdgeInsets.symmetric(horizontal: 3),
                               child: SingleChildScrollView(
                                 controller: _listview_controller,
@@ -592,107 +596,108 @@ class _AddCity extends State<AddCity> {
                                                     "To",
                                                     1,
                                                     false,
-                                                    onTap: () async {},
-                                                    // onTap: () async {
-                                                    //   // traveldata[index]
-                                                    //   //         .postLocationData =
-                                                    //   // null;
-                                                    //   var data = await Navigator
-                                                    //       .pushNamed(context,
-                                                    //           '/SearchPlace');
-                                                    //
-                                                    //   if (data != null) {
-                                                    //     SearchList
-                                                    //         toCountryData =
-                                                    //         data;
-                                                    //     ;
-                                                    //     toData = toCountryData;
-                                                    //
-                                                    //     if (traveldata[index]
-                                                    //             .sourceCity !=
-                                                    //         toCountryData
-                                                    //             .city) {
-                                                    //       this.setState(() {
-                                                    //         traveldata[index]
-                                                    //             .travelPurpose = '';
-                                                    //         traveldata[index]
-                                                    //                 .visaNumber =
-                                                    //             null;
-                                                    //         traveldata[index]
-                                                    //                 .toCountryData =
-                                                    //             data;
-                                                    //
-                                                    //         traveldata[index]
-                                                    //                 .destinationCity =
-                                                    //             traveldata[
-                                                    //                     index]
-                                                    //                 .toCountryData
-                                                    //                 .city;
-                                                    //         traveldata[index]
-                                                    //                 .travellingCountryTo =
-                                                    //             traveldata[
-                                                    //                     index]
-                                                    //                 .toCountryData
-                                                    //                 .countryName;
-                                                    //         traveldata[index]
-                                                    //                 .currentCountryCode =
-                                                    //             traveldata[
-                                                    //                     index]
-                                                    //                 .toCountryData
-                                                    //                 .country;
-                                                    //       });
-                                                    //
-                                                    //       BlocProvider.of<
-                                                    //                   PurposeBloc>(
-                                                    //               context)
-                                                    //           .add(FetchPurposelist(
-                                                    //               toData
-                                                    //                   .country));
-                                                    //       _appApiProvider.GetPostLocation(
-                                                    //               traveldata[
-                                                    //                       index]
-                                                    //                   .toCountryData
-                                                    //                   .countryName)
-                                                    //           .then((value) =>
-                                                    //               this.setState(
-                                                    //                   () {
-                                                    //                 traveldata[index]
-                                                    //                         .postLocationList =
-                                                    //                     value
-                                                    //                         .data;
-                                                    //               }));
-                                                    //
-                                                    //       _appApiProvider.GetDependentList(
-                                                    //               traveldata[
-                                                    //                       index]
-                                                    //                   .toCountryData
-                                                    //                   .countryName)
-                                                    //           .then((value) =>
-                                                    //               this.setState(
-                                                    //                   () {
-                                                    //                 traveldata[index]
-                                                    //                         .myDependentList =
-                                                    //                     value;
-                                                    //               }));
-                                                    //
-                                                    //       _appApiProvider.GetPerDiem(
-                                                    //               traveldata[
-                                                    //                       index]
-                                                    //                   .toCountryData
-                                                    //                   .countryName,
-                                                    //               traveldata[
-                                                    //                       index]
-                                                    //                   .travellingCountry)
-                                                    //           .then((value) =>
-                                                    //               SaveCostData(
-                                                    //                   value));
-                                                    //     } else {
-                                                    //       showDefaultSnackbar(
-                                                    //           context,
-                                                    //           "From and To airports can not be the same");
-                                                    //     }
-                                                    //   }
-                                                    // },
+                                                    onTap: () async {
+                                                      // traveldata[index]
+                                                      //         .postLocationData =
+                                                      // null;
+                                                      dynamic data =
+                                                          await Navigator
+                                                              .pushNamed(
+                                                                  context,
+                                                                  '/SearchPlace');
+
+                                                      if (data != null) {
+                                                        SearchList
+                                                            toCountryData =
+                                                            data;
+                                                        ;
+                                                        toData = toCountryData;
+
+                                                        if (traveldata[index]
+                                                                .sourceCity !=
+                                                            toCountryData
+                                                                .city) {
+                                                          this.setState(() {
+                                                            traveldata[index]
+                                                                .travelPurpose = '';
+                                                            traveldata[index]
+                                                                    .visaNumber =
+                                                                null;
+                                                            traveldata[index]
+                                                                    .toCountryData =
+                                                                data;
+
+                                                            traveldata[index]
+                                                                    .destinationCity =
+                                                                traveldata[
+                                                                        index]
+                                                                    .toCountryData!
+                                                                    .city;
+                                                            traveldata[index]
+                                                                    .travellingCountryTo =
+                                                                traveldata[
+                                                                        index]
+                                                                    .toCountryData!
+                                                                    .countryName;
+                                                            traveldata[index]
+                                                                    .currentCountryCode =
+                                                                traveldata[
+                                                                        index]
+                                                                    .toCountryData!
+                                                                    .country;
+                                                          });
+
+                                                          BlocProvider.of<
+                                                                      PurposeBloc>(
+                                                                  context)
+                                                              .add(FetchPurposelist(
+                                                                  toData
+                                                                      .country));
+                                                          _appApiProvider.GetPostLocation(
+                                                                  traveldata[
+                                                                          index]
+                                                                      .toCountryData!
+                                                                      .countryName)
+                                                              .then((value) =>
+                                                                  this.setState(
+                                                                      () {
+                                                                    traveldata[index]
+                                                                            .postLocationList =
+                                                                        value
+                                                                            .data;
+                                                                  }));
+
+                                                          _appApiProvider.GetDependentList(
+                                                                  traveldata[
+                                                                          index]
+                                                                      .toCountryData!
+                                                                      .countryName)
+                                                              .then((value) =>
+                                                                  this.setState(
+                                                                      () {
+                                                                    traveldata[index]
+                                                                            .myDependentList =
+                                                                        value;
+                                                                  }));
+
+                                                          _appApiProvider.GetPerDiem(
+                                                                  traveldata[
+                                                                          index]
+                                                                      .toCountryData!
+                                                                      .countryName,
+                                                                  traveldata[
+                                                                          index]
+                                                                      .travellingCountry)
+                                                              .then((value) =>
+                                                                  SaveCostData(
+                                                                      value));
+                                                        } else {
+                                                          showDefaultSnackbar(
+                                                              context,
+                                                              "From and To airports can not be the same");
+                                                        }
+                                                      }
+                                                    },
                                                   ),
                                                 );
                                               },
@@ -1077,9 +1082,9 @@ class _AddCity extends State<AddCity> {
                                                             : SizedBox(),
                                                       ],
                                                     ),
-                                                    traveldata[index]
+                                                    (traveldata[index]
                                                                 .visaNumber !=
-                                                            null
+                                                            null)
                                                         ? customBorderBox(
                                                             "Visa",
                                                             false,
@@ -1872,12 +1877,12 @@ class _AddCity extends State<AddCity> {
                                                                       Icons
                                                                           .remove_red_eye_outlined,
                                                                       size: 25,
-                                                                      color: checkSelectedDependents(traveldata[index]
-                                                                              .myDependentList)
-                                                                          ? AppConstants
-                                                                              .APP_THEME_COLOR
-                                                                          : Colors
-                                                                              .black12,
+                                                                      // color: checkSelectedDependents(traveldata[index]
+                                                                      //         .myDependentList)
+                                                                      //     ? AppConstants
+                                                                      //         .APP_THEME_COLOR
+                                                                      //     : Colors
+                                                                      //         .black12,
                                                                     ),
                                                                   ),
                                                                 ],
@@ -2223,7 +2228,7 @@ class _AddCity extends State<AddCity> {
   }
 
   Validator(TravelReqPayLoad formdata) {
-    if (formdata.projectName!.isEmpty) {
+    if (formdata.projectName.isEmpty) {
       return false;
     }
 
@@ -2238,7 +2243,7 @@ class _AddCity extends State<AddCity> {
       // }
 
       if (HomeCountryName != formdata.travelCity[i].travellingCountryTo) {
-        if (cityTravel.hostHrName.isEmpty) {
+        if (cityTravel.hostHrName == null) {
           return false;
         } else if (cityTravel.hostPhoneExt.isEmpty ||
             cityTravel.hostPhoneNo.isEmpty) {
@@ -2428,9 +2433,13 @@ checkVisaApplicable(
 }
 
 setFormattedDate(String date) {
-  final depatureDate = DateTime.parse(date).toLocal();
-  final String datestring = DateFormat("dd-MMM-yyyy").format(depatureDate);
-  return datestring;
+  if(date.isNotEmpty) {
+    final depatureDate = DateTime.parse(date).toLocal();
+    final String datestring = DateFormat("dd-MMM-yyyy").format(depatureDate);
+    return datestring;
+  }else{
+    return date;
+  }
 }
 
 resetValue(TravelReqPayLoad req_data) {

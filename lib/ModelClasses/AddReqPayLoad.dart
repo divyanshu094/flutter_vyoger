@@ -7,12 +7,12 @@ import 'package:mobility_sqr/ModelClasses/SearchModelClass.dart';
 
 class TravelReqPayLoad {
   String? _travelReqId;
-  String? _project;
-  String? _projectName;
+  late String _project;
+  late String _projectName;
   bool? _isBillable;
   bool? _isTravelMultiCountry;
   bool? _isTravelMultiCity;
-  String? _homeContactName;
+  late String _homeContactName;
   String? _homePhoneNumber;
   String? _homePhoneExt;
   String? _empEmail;
@@ -34,15 +34,15 @@ class TravelReqPayLoad {
 
   TravelReqPayLoad(
       {String? travelReqId,
-      String? project,
-      String? projectName,
+      required String project,
+      required String projectName,
       bool? isBillable,
       bool? isTravelMultiCountry,
       bool? isTravelMultiCity,
-      String? homeContactName,
+      required String homeContactName,
       String? homePhoneNumber,
       String? homePhoneExt,
-      String? empEmail,
+      required String empEmail,
       String? remark,
       bool? isLaptopRequired,
       bool? haveLaptop,
@@ -99,9 +99,9 @@ class TravelReqPayLoad {
 
   set project(String project) => _project = project;
 
-  String? get projectName => _projectName;
+  String get projectName => _projectName;
 
-  set projectName(String? projectName) => _projectName = projectName;
+  set projectName(String projectName) => _projectName = projectName;
 
   bool get isBillable => _isBillable!;
 
@@ -117,14 +117,14 @@ class TravelReqPayLoad {
   set isTravelMultiCity(bool isTravelMultiCity) =>
       _isTravelMultiCity = isTravelMultiCity;
 
-  String get homeContactName => _homeContactName!;
+  String get homeContactName => _homeContactName;
 
   set homeContactName(String homeContactName) =>
       _homeContactName = homeContactName;
 
-  String get homePhoneNumber => _homePhoneNumber!;
+  String? get homePhoneNumber => _homePhoneNumber;
 
-  set homePhoneNumber(String homePhoneNumber) =>
+  set homePhoneNumber(String? homePhoneNumber) =>
       _homePhoneNumber = homePhoneNumber;
 
   String get homePhoneExt => _homePhoneExt!;
@@ -135,9 +135,9 @@ class TravelReqPayLoad {
 
   set empEmail(String empEmail) => _empEmail = empEmail;
 
-  String get remark => _remark!;
+  String? get remark => _remark;
 
-  set remark(String remark) => _remark = remark;
+  set remark(String? remark) => _remark = remark;
 
   bool get isLaptopRequired => _isLaptopRequired!;
 
@@ -627,9 +627,9 @@ class TravelCity {
 
   set officeLocation(String officeLocation) => _officeLocation = officeLocation;
 
-  String get hostHrName => _hostHrName!;
+  String? get hostHrName => _hostHrName;
 
-  set hostHrName(String hostHrName) => _hostHrName = hostHrName;
+  set hostHrName(String? hostHrName) => _hostHrName = hostHrName;
 
   String get hostPhoneNo => _hostPhoneNo!;
 
@@ -792,7 +792,7 @@ class TravelVisa {
   String? _createdBy;
 
   TravelVisa(
-     {String? reqId,
+      {String? reqId,
       String? projectId,
       String? projectName,
       bool? isBillable,

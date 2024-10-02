@@ -757,7 +757,7 @@ class _TravelReqViewState extends State<TravelReqView> {
                                                             list.details[index]
                                                                 .clientAddress,
                                                             list.details[index]
-                                                                .officeLocation,
+                                                                .officeLocation ?? "",
                                                             list.details[index]
                                                                 .isClientLocation),
                                                         AppConstants
