@@ -131,7 +131,7 @@ class _SearchPlaceState extends State<SearchPlace> {
                                 children: [
                                   Container(
                                     height: 100,
-                                    width: 100,
+                                    width: MediaQuery.sizeOf(context).width,
                                     margin: EdgeInsets.symmetric(horizontal: 5),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5.0),

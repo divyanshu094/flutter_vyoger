@@ -374,7 +374,7 @@ class _DashboardState extends State<Dashboard> {
                                 );
                               } else {
                                 return Container(
-                                  height: 260,
+                                  height: 280,
                                   width: MediaQuery.sizeOf(context).width,
                                   margin: EdgeInsets.fromLTRB(20, 0, 10, 0),
                                   child: Scrollbar(
@@ -432,7 +432,7 @@ class _DashboardState extends State<Dashboard> {
                                                               },
                                                               child: Container(
                                                                 height: 300,
-                                                                width: 180,
+                                                                width: 210,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Colors
@@ -455,8 +455,11 @@ class _DashboardState extends State<Dashboard> {
                                                                           Column(
                                                                         children: [
                                                                           Container(
-                                                                            margin:
-                                                                                EdgeInsets.only(top: 15,left: 5, right: 5,bottom: 5),
+                                                                            margin: EdgeInsets.only(
+                                                                                top: 15,
+                                                                                left: 5,
+                                                                                right: 5,
+                                                                                bottom: 5),
                                                                             child:
                                                                                 Row(
                                                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

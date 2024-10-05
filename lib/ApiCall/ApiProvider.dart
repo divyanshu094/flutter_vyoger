@@ -48,6 +48,7 @@ import 'package:mobility_sqr/ModelClasses/VisaModel.dart';
 import 'package:mobility_sqr/ModelClasses/eventPost.dart';
 
 import '../Constants/AppConstants.dart';
+import '../ModelClasses/DialCodeModel.dart';
 
 class ApiProvider {
   final _TokenGetter = TokenGetter();
@@ -193,9 +194,8 @@ class ApiProvider {
       },
     );
     print('aprovals get data ${response.body}');
-    Map<String, dynamic> a=jsonDecode(response.body);
-    ApprovalModal listTravelReq =
-        ApprovalModal.fromJson(a);
+    Map<String, dynamic> a = jsonDecode(response.body);
+    ApprovalModal listTravelReq = ApprovalModal.fromJson(a);
     print("${response.statusCode}");
     print("${response.body}");
     return listTravelReq;
@@ -213,8 +213,10 @@ class ApiProvider {
     };
     String queryString = Uri(queryParameters: queryParams).query;
     var response = await http.get(
-      Uri.parse(
-          '${AppConstants.BASE_URL + AppConstants.GET_LOCATION_DATA + "?" + queryString}'),
+      Uri.parse(AppConstants.BASE_URL +
+          AppConstants.GET_LOCATION_DATA +
+          "?" +
+          queryString),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json',
@@ -271,7 +273,7 @@ class ApiProvider {
     String queryString = Uri(queryParameters: queryParams).query;
     var response = await http.get(
       Uri.parse(
-          '${AppConstants.BASE_URL + AppConstants.GET_PURPOSE + "?" + queryString}'),
+          AppConstants.BASE_URL + AppConstants.GET_PURPOSE + "?" + queryString),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json',
@@ -290,26 +292,29 @@ class ApiProvider {
   }
 
 //=============================================================================================================
-//   Future<DialCode> getDialCode() async {
-//     var response = await http.get(
-//       '${AppConstants.BASE_URL + AppConstants.DIAL_CODE + "?dial_code="}' ,
-//       headers: <String, String>{
-//         'Content-Type': 'application/json; charset=UTF-8',
-//         'Accept': 'application/json',
-//       },
-//     );
-//
-//     if (response.statusCode == 200) {
-//       DialCode data = DialCode.fromJson(jsonDecode(response.body));
-//       List<String> dialString = new List<String>();
-//       for (int i = 0; i < data.data.length; i++) {
-//         dialString.add(data.data[i].code);
-//       }
-//       _TokenGetter.saveDialCode(dialString);
-//     } else {
-//       throw Exception('User Not Found');
-//     }
-//   }
+  Future<DialCode> getDialCode() async {
+    final ioc = new HttpClient();
+    ioc.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    final http = new IOClient(ioc);
+    var response = await http.get(
+      Uri.parse(AppConstants.BASE_URL + AppConstants.DIAL_CODE + "?dial_code="),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      DialCode data = DialCode.fromJson(jsonDecode(response.body));
+      List<String> dialString = <String>[];
+      for (int i = 0; i < data.data.length; i++) {
+        dialString.add(data.data[i].code);
+      }
+      _TokenGetter.saveDialCode(dialString);
+    }
+    throw Exception('User Not Found');
+  }
 
 //========================================================================================================================
   Future<ProjectIdModel> GetProjectId(String pid) async {

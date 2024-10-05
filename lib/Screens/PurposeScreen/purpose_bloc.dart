@@ -13,28 +13,18 @@ part 'purpose_state.dart';
 class PurposeBloc extends Bloc<PurposeEvent, PurposeState> {
   final Repository repository;
 
-  PurposeBloc(this.repository) : super(PurposeInitial());
-
-  @override
-  PurposeState get initialState => PurposeInitial();
-
-  @override
-  Stream<PurposeState> mapEventToState(
-    PurposeEvent event,
-  ) async* {
-    yield PurposeLoading();
-    if (event is FetchPurposelist) {
-      try {
-        final PurposeModelClass result =
-            await repository.getPurposeList(event.iataCode);
-
-        yield PurposeLoaded(purposelist: result);
-      } catch (_) {
-        yield PurposeError("Couldn't Fetch Data");
+  PurposeBloc(this.repository) : super(PurposeInitial()) {
+    on<PurposeEvent>((event, emit) async {
+      emit(PurposeLoading());
+      if (event is FetchPurposelist) {
+        try {
+          final PurposeModelClass result =
+              await repository.getPurposeList(event.iataCode);
+          emit(PurposeLoaded(purposelist: result));
+        } catch (_) {
+          emit(PurposeError("Couldn't Fetch Data"));
+        }
       }
-    }
-    if(event is ResetBloc){
-      yield PurposeInitial();
-    }
+    });
   }
 }

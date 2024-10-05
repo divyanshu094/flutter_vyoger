@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobility_sqr/Constants/AppConstants.dart';
 import 'package:mobility_sqr/ModelClasses/PurposeModelClass.dart';
 import 'package:sizer/sizer.dart';
+
 class PurposeScreen extends StatefulWidget {
-
-
   @override
   _PurposeScreenState createState() => _PurposeScreenState();
 }
@@ -36,7 +35,7 @@ class _PurposeScreenState extends State<PurposeScreen> {
           children: [
             Expanded(
               flex: 11,
-              child:ListView.builder(
+              child: ListView.builder(
                   itemCount: list.length,
                   itemBuilder: (context, index) {
                     return CheckboxListTile(
@@ -48,38 +47,35 @@ class _PurposeScreenState extends State<PurposeScreen> {
                         onChanged: (val) {
                           setState(
                             () {
-                              list[index].isChecked =
-                                  !list[index].isChecked;
+                              list[index].isChecked = !list[index].isChecked;
                             },
                           );
                         });
                   }),
-        ),
-
-
-            SizedBox(height: 10,),
+            ),
+            SizedBox(
+              height: 10,
+            ),
             Expanded(
               flex: 1,
               child: Container(
+                width: 400,
                 margin: EdgeInsets.only(bottom: 10),
                 decoration: BoxDecoration(
                     border: Border.all(color: AppConstants.APP_THEME_COLOR),
-                  borderRadius: BorderRadius.circular(10),
-                  color: AppConstants.APP_THEME_COLOR
-                ),
+                    borderRadius: BorderRadius.circular(10),
+                    color: AppConstants.APP_THEME_COLOR),
                 child: TextButton(
                   child: Text(
                     'Continue',
-                    style: TextStyle(
-                        fontSize: 21.0,
-                       ),
+                    style: TextStyle(fontSize: 18.0, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
 
                   // minWidth: 90,
                   // textColor: Colors.white,
                   onPressed: () {
-                    Navigator.pop(context,list);
+                    Navigator.pop(context, list);
                   },
                 ),
               ),

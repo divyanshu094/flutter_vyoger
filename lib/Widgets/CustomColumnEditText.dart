@@ -26,7 +26,7 @@ class _CustomColumnEditTextState extends State<CustomColumnEditText> {
       child: Column(
         children: [
           Container(
-            width: 100,
+            width: 200,
             child: Text(
               widget.header,
               style: TextStyle(
@@ -38,7 +38,7 @@ class _CustomColumnEditTextState extends State<CustomColumnEditText> {
             ),
           ),
           Container(
-              width: 100,
+              width: 200,
               height: 30,
               child: widget.placename == ''
                   ? TextFormField(
@@ -110,7 +110,7 @@ class _CustomColumnEditTextState extends State<CustomColumnEditText> {
                       ),
                     )),
           Container(
-              width: 100,
+              width: MediaQuery.sizeOf(context).width,
               child: Text(
                 widget.countryname,
                 style: TextStyle(
