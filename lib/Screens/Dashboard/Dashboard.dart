@@ -117,7 +117,7 @@ class _DashboardState extends State<Dashboard> {
   }
 
   @override
-  initState() {
+  void initState() {
     super.initState();
 
     getUserAuthBiometric();

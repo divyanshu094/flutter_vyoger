@@ -1,12 +1,12 @@
 class DependentModel {
   late String _massage;
   late bool _status;
-  late List<SecondDependentData> _data;
+  List<SecondDependentData>? _data;
 
   DependentModel(
       {required String massage,
       required bool status,
-      required List<SecondDependentData> data}) {
+      List<SecondDependentData>? data}) {
     this._massage = massage;
     this._status = status;
     this._data = data;
@@ -20,9 +20,9 @@ class DependentModel {
 
   set status(bool status) => _status = status;
 
-  List<SecondDependentData> get data => _data;
+  List<SecondDependentData>? get data => _data;
 
-  set data(List<SecondDependentData> data) => _data = data;
+  set data(List<SecondDependentData>? data) => _data = data;
 
   DependentModel.fromJson(Map<String, dynamic> json) {
     _massage = json['massage'];
@@ -30,7 +30,7 @@ class DependentModel {
     if (json['data'] != null) {
       _data = <SecondDependentData>[];
       json['data'].forEach((v) {
-        _data.add(new SecondDependentData.fromJson(v));
+        _data!.add(new SecondDependentData.fromJson(v));
       });
     }
   }
@@ -39,7 +39,7 @@ class DependentModel {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['massage'] = this._massage;
     data['status'] = this._status;
-    data['data'] = this._data.map((v) => v.toJson()).toList();
+    data['data'] = this._data!.map((v) => v.toJson()).toList();
     return data;
   }
 }

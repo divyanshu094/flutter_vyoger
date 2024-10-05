@@ -19,7 +19,6 @@ import 'package:mobility_sqr/Widgets/ApproxTravelCost.dart';
 import 'package:mobility_sqr/Widgets/CountryCodePicker.dart';
 import 'package:mobility_sqr/Widgets/MobilityLoader.dart';
 import 'package:mobility_sqr/Widgets/ToastCustom.dart';
-import 'package:sizer/sizer.dart';
 
 class AddNewTravel2 extends StatefulWidget {
   @override
@@ -52,7 +51,7 @@ class AddNewTravel2State extends State<AddNewTravel2> {
   }
 
   @override
-  Future<void> initState() async {
+  void initState() {
     super.initState();
     getDialCode();
     getvalues();
@@ -99,7 +98,7 @@ class AddNewTravel2State extends State<AddNewTravel2> {
       ),
       body: Builder(
         builder: (context) => Container(
-          width: 100,
+          width: MediaQuery.sizeOf(context).width,
           margin: EdgeInsets.symmetric(horizontal: 17.0),
           child: Stack(
             children: [
@@ -120,9 +119,7 @@ class AddNewTravel2State extends State<AddNewTravel2> {
                     child: TextFormField(
                       style: TextStyle(
                           fontSize: 16.0, height: 1.0, color: Colors.black),
-                      initialValue: list.homeContactName != null
-                          ? list.homeContactName
-                          : "",
+                      initialValue: list.homeContactName ?? "",
                       onChanged: (text) {
                         list.homeContactName = text;
                       },
@@ -189,9 +186,7 @@ class AddNewTravel2State extends State<AddNewTravel2> {
                             child: GestureDetector(
                               child: Container(
                                 child: TextFormField(
-                                  initialValue: list.homePhoneNumber != null
-                                      ? list.homePhoneNumber
-                                      : "",
+                                  initialValue: list.homePhoneNumber ?? "",
                                   textAlignVertical: TextAlignVertical.center,
                                   textAlign: TextAlign.start,
                                   keyboardType: TextInputType.numberWithOptions(
@@ -624,7 +619,7 @@ validator(TravelReqPayLoad list, context) {
     return false;
   } else if (list.homePhoneExt.trim().isEmpty) {
     return false;
-  } else if (list.homePhoneNumber.trim().isEmpty) {
+  } else if (list.homePhoneNumber!.trim().isEmpty) {
     return false;
   } else {
     return true;

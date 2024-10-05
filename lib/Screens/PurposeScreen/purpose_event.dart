@@ -6,7 +6,7 @@ abstract class PurposeEvent {
 }
 class FetchPurposelist extends PurposeEvent{
   final String iataCode;
-  const FetchPurposelist(@required this.iataCode);
+  const FetchPurposelist(this.iataCode);
 
 
   @override

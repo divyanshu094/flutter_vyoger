@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
@@ -20,7 +18,11 @@ class PurposeBloc extends Bloc<PurposeEvent, PurposeState> {
         try {
           final PurposeModelClass result =
               await repository.getPurposeList(event.iataCode);
-          emit(PurposeLoaded(purposelist: result));
+          if (result.data.length > 0) {
+            emit(PurposeLoaded(purposelist: result));
+          } else {
+            emit(PurposeError("No Search Result Found"));
+          }
         } catch (_) {
           emit(PurposeError("Couldn't Fetch Data"));
         }

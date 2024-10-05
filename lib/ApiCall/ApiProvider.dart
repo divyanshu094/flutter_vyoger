@@ -167,7 +167,7 @@ class ApiProvider {
         (X509Certificate cert, String host, int port) => true;
     final http = new IOClient(ioc);
     UserInfo userInfo = await _TokenGetter.readUserInfo() ?? null;
-    // getDialCode();
+    getDialCode();
 
     String travelreq = "2";
     String OrgId = userInfo.data.orgId;
@@ -309,11 +309,13 @@ class ApiProvider {
       DialCode data = DialCode.fromJson(jsonDecode(response.body));
       List<String> dialString = <String>[];
       for (int i = 0; i < data.data.length; i++) {
-        dialString.add(data.data[i].code);
+        dialString.add(data.data[i].code!);
       }
       _TokenGetter.saveDialCode(dialString);
+      return data;
+    } else {
+      throw Exception('User Not Found');
     }
-    throw Exception('User Not Found');
   }
 
 //========================================================================================================================
@@ -406,7 +408,7 @@ class ApiProvider {
       DependentModel myresponse =
           DependentModel.fromJson(jsonDecode(response.body));
 
-      return myresponse.data;
+      return myresponse.data!;
     } else {
       throw Exception('error');
     }
