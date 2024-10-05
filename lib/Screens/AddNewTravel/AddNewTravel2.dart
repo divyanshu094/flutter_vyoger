@@ -546,58 +546,58 @@ GenerateVisa(TravelReqPayLoad mydata, UserInfo info, String homeCountryName) {
         mydata.travelCity[i].travellingCountryTo.trim().toLowerCase()) {
       isHomeCountry = true;
     }
-    // if (!isHomeCountry) {
-    //   for (int j = 0; j < mydata.travelCity[i].dependentData.length; j++) {
-    //     visa = new TravelVisa();
-    //     visa.reqId = "0";
-    //     visa.projectId = mydata.project;
-    //     visa.projectName = mydata.projectName;
-    //     visa.isBillable = mydata.isBillable;
-    //     visa.fromCity = mydata.travelCity[i].travellingCountry;
-    //     visa.toCity = mydata.travelCity[i].travellingCountryTo;
-    //     visa.travelStartDate =
-    //         DateTime.parse(mydata.travelCity[i].departureDate)
-    //             .toUtc()
-    //             .toIso8601String();
-    //     if (mydata.travelCity.length == 1) {
-    //       visa.travelEndDate = DateTime.parse(mydata.travelCity[i].returnDate)
-    //           .toUtc()
-    //           .toIso8601String();
-    //     } else if (i == mydata.travelCity.length - 1) {
-    //       visa.travelEndDate =
-    //           DateTime.parse(mydata.travelCity[i].departureDate)
-    //               .toUtc()
-    //               .toIso8601String();
-    //     } else {
-    //       visa.travelEndDate =
-    //           DateTime.parse(mydata.travelCity[i + 1].departureDate)
-    //               .toUtc()
-    //               .toIso8601String();
-    //     }
-    //
-    //     if (mydata.travelCity[i].travelPurpose == "Work") {
-    //       visa.visaPurpose = "19";
-    //     } else {
-    //       visa.visaPurpose = "6";
-    //     }
-    //
-    //     visa.appliedVisa = mydata.travelCity[i].travelPurpose;
-    //     visa.requestNotes = "";
-    //     visa.visaStatus = "1";
-    //     visa.empEmail = info.data.empCode;
-    //     visa.organization = info.data.orgId;
-    //     visa.visaReqId = "";
-    //     visa.isDependent = true;
-    //     visa.dependentRelation =
-    //         mydata.travelCity[i].dependentData[j].dependentRelation;
-    //     visa.dependentName =
-    //         mydata.travelCity[i].dependentData[j].dependentName;
-    //     visa.country = mydata.travelCity[i].currentCountryCode;
-    //     visa.createdBy = info.data.empCode;
-    //     visalist.add(visa);
-    //     isHomeCountry = false;
-    //   }
-    // }
+    if (!isHomeCountry) {
+      for (int j = 0; j < mydata.travelCity[i].dependentData.length; j++) {
+        visa = new TravelVisa();
+        visa.reqId = "0";
+        visa.projectId = mydata.project;
+        visa.projectName = mydata.projectName!;
+        visa.isBillable = mydata.isBillable;
+        visa.fromCity = mydata.travelCity[i].travellingCountry;
+        visa.toCity = mydata.travelCity[i].travellingCountryTo;
+        visa.travelStartDate =
+            DateTime.parse(mydata.travelCity[i].departureDate)
+                .toUtc()
+                .toIso8601String();
+        if (mydata.travelCity.length == 1) {
+          visa.travelEndDate = DateTime.parse(mydata.travelCity[i].returnDate)
+              .toUtc()
+              .toIso8601String();
+        } else if (i == mydata.travelCity.length - 1) {
+          visa.travelEndDate =
+              DateTime.parse(mydata.travelCity[i].departureDate)
+                  .toUtc()
+                  .toIso8601String();
+        } else {
+          visa.travelEndDate =
+              DateTime.parse(mydata.travelCity[i + 1].departureDate)
+                  .toUtc()
+                  .toIso8601String();
+        }
+
+        if (mydata.travelCity[i].travelPurpose == "Work") {
+          visa.visaPurpose = "19";
+        } else {
+          visa.visaPurpose = "6";
+        }
+
+        visa.appliedVisa = mydata.travelCity[i].travelPurpose!;
+        visa.requestNotes = "";
+        visa.visaStatus = "1";
+        visa.empEmail = info.data.empCode;
+        visa.organization = info.data.orgId;
+        visa.visaReqId = "";
+        visa.isDependent = true;
+        visa.dependentRelation =
+            mydata.travelCity[i].dependentData[j].dependentRelation;
+        visa.dependentName =
+            mydata.travelCity[i].dependentData[j].dependentName;
+        visa.country = mydata.travelCity[i].currentCountryCode;
+        visa.createdBy = info.data.empCode;
+        visalist.add(visa);
+        isHomeCountry = false;
+      }
+    }
   }
 
   return visalist;

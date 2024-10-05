@@ -286,7 +286,7 @@ class _AddCity extends State<AddCity> {
           child: ListView(
             children: [
               Container(
-                height: MediaQuery.sizeOf(context).height - 150,
+                height: MediaQuery.sizeOf(context).height - 180,
                 width: MediaQuery.sizeOf(context).width,
                 // width: 100,
                 child: ListView(
@@ -495,7 +495,7 @@ class _AddCity extends State<AddCity> {
                     Container(
                       margin: EdgeInsets.only(
                           left: 10, right: 15, top: 5, bottom: 5),
-                      height: 500,
+                      height: 550,
                       width: MediaQuery.sizeOf(context).width,
                       child: ScrollablePositionedList.builder(
                         itemScrollController: itemScrollController,
@@ -1623,8 +1623,8 @@ class _AddCity extends State<AddCity> {
                                                               .TEXT_BACKGROUND_COLOR),
                                                     ),
                                                     SizedBox(
-                                                        // width: 5,
-                                                        ),
+                                                      width: 10,
+                                                    ),
                                                     Container(
                                                       child: RadioBtn(
                                                         "Office location",
@@ -1648,7 +1648,7 @@ class _AddCity extends State<AddCity> {
                                                 !getbool(traveldata[index]
                                                         .isClientLocation)
                                                     ? Container(
-                                                        width: 90,
+                                                        width: 500,
                                                         height: 40,
                                                         child: FormField<
                                                             PostLocationData>(
@@ -1999,10 +1999,10 @@ class _AddCity extends State<AddCity> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(
-                  right: 10,
-                  left: 10,
-                ),
+                // margin: EdgeInsets.only(
+                //   right: 10,
+                //   left: 10,
+                // ),
                 // height: 5.0.h,
                 // width: 100,
                 child: ElevatedButton(
@@ -2236,11 +2236,10 @@ class _AddCity extends State<AddCity> {
       var cityTravel = formdata.travelCity[i];
       if (cityTravel.travellingCountry.isEmpty) {
         return false;
+      } else if (cityTravel.travellingCountryTo == null ||
+          cityTravel.travellingCountryTo.isEmpty) {
+        return false;
       }
-      // else if (cityTravel.travellingCountryTo == null ||
-      //     cityTravel.travellingCountryTo.isEmpty) {
-      //   return false;
-      // }
 
       if (HomeCountryName != formdata.travelCity[i].travellingCountryTo) {
         if (cityTravel.hostHrName == null) {
@@ -2249,6 +2248,7 @@ class _AddCity extends State<AddCity> {
             cityTravel.hostPhoneNo.isEmpty) {
           return false;
         } else if (getvaluefromstringbool(cityTravel.isClientLocation)) {
+          // ignore: unnecessary_null_comparison
           if (cityTravel.clientName == null && cityTravel.clientName.isEmpty) {
             return false;
           }

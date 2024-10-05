@@ -41,8 +41,8 @@ showCustomDialogClass(BuildContext context, Widget mywidget) {
           fit: BoxFit.fill,
           child: Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
-              width: 280,
-              height: 500,
+              width: 300,
+              height: 600,
               child: mywidget),
         ),
       );

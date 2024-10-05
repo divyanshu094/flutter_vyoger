@@ -213,8 +213,10 @@ class ApiProvider {
     };
     String queryString = Uri(queryParameters: queryParams).query;
     var response = await http.get(
-      Uri.parse(
-          '${AppConstants.BASE_URL + AppConstants.GET_LOCATION_DATA + "?" + queryString}'),
+      Uri.parse(AppConstants.BASE_URL +
+          AppConstants.GET_LOCATION_DATA +
+          "?" +
+          queryString),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json',
@@ -271,7 +273,7 @@ class ApiProvider {
     String queryString = Uri(queryParameters: queryParams).query;
     var response = await http.get(
       Uri.parse(
-          '${AppConstants.BASE_URL + AppConstants.GET_PURPOSE + "?" + queryString}'),
+          AppConstants.BASE_URL + AppConstants.GET_PURPOSE + "?" + queryString),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json',
@@ -296,8 +298,7 @@ class ApiProvider {
         (X509Certificate cert, String host, int port) => true;
     final http = new IOClient(ioc);
     var response = await http.get(
-      Uri.parse(
-          '${AppConstants.BASE_URL + AppConstants.DIAL_CODE + "?dial_code="}'),
+      Uri.parse(AppConstants.BASE_URL + AppConstants.DIAL_CODE + "?dial_code="),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json',

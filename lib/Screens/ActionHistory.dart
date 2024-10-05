@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mobility_sqr/ModelClasses/ActionHistoryModel.dart';
 import 'package:sizer/sizer.dart';
 
-
-
 class ActionHistory extends StatefulWidget {
   VoidCallback onclose;
   ActionHistoryModel historyData;
@@ -129,7 +127,7 @@ class _ActionHistoryState extends State<ActionHistory> {
             },
           ),
           SizedBox(
-            height: 40,
+            height: 30,
           ),
           Column(
             children: [
@@ -237,6 +235,7 @@ class _ActionHistoryState extends State<ActionHistory> {
 
   widgetRow(String role, String name, String status, String Actiondate) {
     return Container(
+      width: MediaQuery.sizeOf(context).width,
       padding: EdgeInsets.all(5),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
